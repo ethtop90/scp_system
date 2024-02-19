@@ -1,0 +1,44 @@
+[
+    {
+        "type": "selling",
+        "company_name": "アース不動産合同会社",
+        "site_url": "https://earth-fudosan.com/",
+        "list_base_url": "https://earth-fudosan.com/59896/",
+        "is_page": false,
+        "pg_param": "",
+        "pg_rex": "",
+        "limit_param": "",
+        "limit": 0,
+        "data_structure": {
+            "img_source": "//ul[@class='reals']//a[contains(@style, 'background-image')]",
+            "table_data": {
+                "table_entire": ["//div[@class='tbl']//table"],
+                "tr": ".//tr",
+                "th": ".//th",
+                "td": ".//td",
+            },
+            "map": ""
+        }
+    },
+    {
+        "type": "",
+        "company_name": "",
+        "site_url": "",
+        "list_base_url": "",
+        "pg_param": "page",
+        "pg_rex": "",
+        "limit_param": "limit",
+        "limit": 90,
+        "data_structure": {
+            "img_source": "",
+            "table_data": {
+                "table_entire": ["//div[@class='tbl']//table"],
+                "tr": ".//tr",
+                "th": ".//th",
+                "td": ".//td",
+            },
+            "map": ""
+        }
+    },
+    
+]
