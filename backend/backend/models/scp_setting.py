@@ -3,9 +3,11 @@ from mongoengine import Document, StringField
 
 db = mongo.db
 
-class scp_setting:
-    def __init__(self, type, mg_title, pt_name, source):
-        self.type = type
+class Scp_setting:
+    def __init__(self,id ,username, type, mg_title, pt_name, source):
+        self.id = id
+        self.username = username
+        self.type = type # site|file
         self.mg_title = mg_title
         self.pt_name = pt_name
         self.source = source

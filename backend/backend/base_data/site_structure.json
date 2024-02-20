@@ -2,43 +2,42 @@
     {
         "type": "selling",
         "company_name": "アース不動産合同会社",
-        "site_url": "https://earth-fudosan.com/",
-        "list_base_url": "https://earth-fudosan.com/59896/",
+        "site_url": "https://earth_rex-fudosan.com/",
+        "list_base_url": "https://earth_rex-fudosan.com/59896/",
         "is_page": false,
-        "pg_param": "",
-        "pg_rex": "",
-        "limit_param": "",
+        "pg_param": null,
+        "total_cnt_rex": null,
+        "limit_param": null,
         "limit": 0,
         "data_structure": {
-            "img_source": "//ul[@class='reals']//a[contains(@style, 'background-image')]",
-            "table_data": {
-                "table_entire": ["//div[@class='tbl']//table"],
-                "tr": ".//tr",
-                "th": ".//th",
-                "td": ".//td",
+            "img_source_rex": "//ul[@class='reals']//a[contains(@style, 'background-image')]",
+            "table_data_rex": {
+                "table_entire_rex": ["//div[@class='tbl']//table"],
+                "tr_rex": ".//tr_rex",
+                "th_rex": ".//th_rex",
+                "td_rex": ".//td_rex"
             },
-            "map": ""
+            "map": null
         }
     },
     {
-        "type": "",
-        "company_name": "",
-        "site_url": "",
-        "list_base_url": "",
+        "type": "rental",
+        "company_name": "（株）アーバンエステート",
+        "site_url": "https://www.urban-es.net/",
+        "list_base_url": "https://www.urban-es.net/rent/result?r1=&r2=&t1=&t2=&tw=&tn=&td_rex=&et=&fw=",
         "pg_param": "page",
-        "pg_rex": "",
+        "total_cnt_rex": "//div[@class='bk-count']//span[@class='bundle']//span[@class='count']",
         "limit_param": "limit",
         "limit": 90,
         "data_structure": {
-            "img_source": "",
-            "table_data": {
-                "table_entire": ["//div[@class='tbl']//table"],
-                "tr": ".//tr",
-                "th": ".//th",
-                "td": ".//td",
+            "img_source_rex": "",
+            "table_data_rex": {
+                "table_entire_rex": ["//div[@class='tbl']//table"],
+                "tr_rex": ".//tr_rex",
+                "th_rex": ".//th_rex",
+                "td_rex": ".//td_rex"
             },
-            "map": ""
+            "map": null
         }
-    },
-    
+    }
 ]
