@@ -6,6 +6,9 @@ from dotenv import load_dotenv
 
 # test api
 from routes import bp
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
+import secrets
+
 
 # real api
 
@@ -19,6 +22,13 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = True
 
 app.config['MONGO_URI'] = 'mongodb://root:H4QpE7IY4Zqa5CjIksqzqSfS@localhost:27017/scrapping_sys'  # Replace with your MongoDB URI
+
+strong_secret_key = secrets.token_urlsafe(32)
+
+# Assign the secret key to app.config['JWT_SECRET_KEY']
+app.config['JWT_SECRET_KEY'] = strong_secret_key
+
+jwt = JWTManager(app)
 mongo = PyMongo(app, uri='mongodb://localhost:27017/scp_system')
 bcrypt = Bcrypt(app)
 

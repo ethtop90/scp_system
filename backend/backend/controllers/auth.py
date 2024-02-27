@@ -4,6 +4,7 @@ from app import app, mongo, bcrypt
 from flask import jsonify, request, session
 from flask_cors import cross_origin
 from models.user import User
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
 # successful connection
 @app.route('/success', methods=['GET'])
@@ -28,6 +29,7 @@ def register():
         return jsonify({'message': 'User already exists'}), 400
 
     new_user = User(username, email, password)
+    print("new_user:", new_user)
     mongo.db.users.insert_one(new_user.__dict__)
 
     return jsonify({'message': 'User registered successfully'}), 201
@@ -44,7 +46,9 @@ def login():
     if user and bcrypt.check_password_hash(user['password'], password):
         session['username'] = user['username']
         session['email'] = user['email']
-        return jsonify({'message': 'Login successful','email':user['email']}), 200
+        print(user['username'])
+        access_token = create_access_token(identity=user['email'])
+        return jsonify({'message': 'Login successful', 'access_token': access_token, 'username': user['username']}), 200
     else:
         return jsonify({'message': 'Invalid username or password'}), 401
 
@@ -59,7 +63,9 @@ def logout():
 # Profile endpoint
 @app.route('/profile', methods=['GET'])
 @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
+@jwt_required()
 def profile():
+    current_user = get_jwt_identity()
     if 'username' in session:
         return jsonify({'username': session['username'], 'email': session['email']}), 200
     else:

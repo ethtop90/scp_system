@@ -89,7 +89,7 @@ def import_data_from_site(url):
 
 #function scrape from site
 def scp_function(url):
-    
+    return True
 #-----
     
 #function check if it is valid source

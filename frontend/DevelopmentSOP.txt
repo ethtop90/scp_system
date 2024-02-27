@@ -1,0 +1,13 @@
+Features
+- User should be able to register.
+- User should be able to login.
+- User should be able to view profile after login.
+- User can update password
+
+
+Steps to implement
+- Create home page
+- Get auth token and auth token type
+- fetch data get user API
+- Integration of registration page with backend
+- Create register form state

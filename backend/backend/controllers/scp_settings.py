@@ -17,6 +17,7 @@ scp_settings = Blueprint('scp-settings', __name__)
 # geting all scraping settings
 
 @scp_settings.route('/getall', methods=['GET'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 def getall():
     # getting the username
 
@@ -44,6 +45,7 @@ def getall():
 # getting one scraping setting
 
 @scp_settings.route('/get-item', methods=['GET'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 def get_item():
     # getting the username, type, source
 
@@ -77,6 +79,7 @@ def get_item():
 # updating one scraping setting
 
 @scp_settings.route('/update-item', methods=['put'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 def update_item():
     # getting the username, type, source
     username = request.args.get('username')
@@ -100,6 +103,7 @@ def update_item():
 # adding one scraping setting
 
 @scp_settings.route('/add-item', methods=['post'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 def add_item():
     #getting the username
     username = request.args.get('username')

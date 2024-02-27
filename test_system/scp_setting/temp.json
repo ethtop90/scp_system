@@ -1,0 +1,44 @@
+[
+    {
+        "username": "港",
+        "type": "site",
+        "mg_title": "siteB",
+        "pt_name": "yamada",
+        "source": "https://www.alive-y.com/"
+    },
+    {
+        "username": "港",
+        "type": "file",
+        "mg_title": "siteC",
+        "pt_name": "yamada",
+        "source": "C:/a.xlsx"
+    },
+    {
+        "username": "港",
+        "type": "site",
+        "mg_title": "siteD",
+        "pt_name": "yamada",
+        "source": "https://fk-build.com/"
+    },
+    {
+        "username": "suzuki",
+        "type": "file",
+        "mg_title": "siteE",
+        "pt_name": "yamada",
+        "source": "source"
+    },
+    {
+        "username": "suzuki",
+        "type": "site",
+        "mg_title": "siteF",
+        "pt_name": "yamada",
+        "source": "source"
+    },
+    {
+        "username": "minato",
+        "type": "site",
+        "mg_title": "siteA",
+        "pt_name": "yamada",
+        "source": "source"
+    }
+]
