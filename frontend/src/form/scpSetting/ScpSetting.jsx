@@ -5,15 +5,7 @@ import axios from "axios";
 import { Link, json, useFetcher, useNavigate } from "react-router-dom";
 import { BlueButton } from "../../components/BlueButton";
 import ScpSettingModal from "../../components/ScpSettingModal";
-import {
-  TERipple,
-  TEModal,
-  TEModalDialog,
-  TEModalContent,
-  TEModalHeader,
-  TEModalBody,
-  TEModalFooter,
-} from "tw-elements-react";
+
 
 export default function ScpSetting() {
   // const userInfo = useContext(UserInfoContext);
