@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import Main from "./form/Main";
 import PrintSetting from "./form/print/PrintSetting";
 import ScpSettingModal from "./components/ScpSettingModal";
+import AutoSetting from "./form/print/AutoSetting";
 
 const UserInfoContext = createContext();
 
@@ -94,6 +95,7 @@ function App() {
             <Route path="/scp-setting" element={<ScpSetting />} />
             <Route path="/print-setting" element={<PrintSetting />} />
             <Route path="/scp-setting/add" element={<ScpSettingModal />} />
+            <Route path="/print-setting/auto-setting" element={<AutoSetting />} />
 
           </Routes>
         </>

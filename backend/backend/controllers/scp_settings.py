@@ -6,6 +6,7 @@ from flask import Blueprint, jsonify, request, session
 from flask_cors import cross_origin
 from bson.json_util import dumps
 from bson import ObjectId
+import datetime
 
 # import models
 from models.user import User
@@ -64,12 +65,14 @@ def get_item():
     scp_setting = mongo.db.scp_settings.find_one(
         {'$and': [{'username': username}, {'_id':obj_id}]})  # import user's scraping settings
     scp_setting_obj = Scp_setting(
-        str(scp_setting["_id"]),
+        scp_setting.get("username"),
         scp_setting.get("type"),
         scp_setting.get("mg_title"),
         scp_setting.get("pt_name"),
         scp_setting.get("source"),
-        scp_setting.get("username")
+        scp_setting.get("pt_start_time"),
+        scp_setting.get("week_check"),
+        scp_setting.get("up_settings")
     )
     print(scp_setting_obj)
     return jsonify(scp_setting_obj.__dict__)
@@ -86,13 +89,32 @@ def update_item():
     id = request.args.get('id')
     new_setting_data  = request.get_json()
 
+    update_data = {}
+
+    if 'type' in new_setting_data:
+        update_data['type'] = new_setting_data['type']
+    if 'mg_title' in new_setting_data:
+        update_data['mg_title'] = new_setting_data['mg_title']
+    if 'pt_name' in new_setting_data:
+        update_data['pt_name'] = new_setting_data['pt_name']
+    if 'source' in new_setting_data:
+        update_data['source'] = new_setting_data['source']
+    if 'pt_start_time' in new_setting_data:
+        update_data['pt_start_time'] = new_setting_data['pt_start_time']
+    if 'up_settings' in new_setting_data:
+        update_data['up_settings'] = new_setting_data['up_settings']
+    if 'week_check' in new_setting_data:
+        update_data['week_check'] =  new_setting_data['week_check']
+
+
+
     #updating the scraping setting data
     obj_id = ObjectId(id)
     query = {'$and': [{'username': username}, {'_id':obj_id}]}
     scp_setting = mongo.db.scp_settings.find_one(query)
     if not scp_setting:
         return jsonify({'message': 'Not found the scrapping system'})
-    result = mongo.db.scp_settings.update_one(query, {'$set': new_setting_data})
+    result = mongo.db.scp_settings.update_one(query, {'$set': update_data})
     if result.acknowledged:
         return jsonify({'message': 'Scraping setting updated successfully'})
     else:
@@ -111,7 +133,13 @@ def add_item():
 
     #adding the scraping setting data to getted user
     query = {'username': username}
+
     new_setting_data['username'] = username
+    new_setting_data['pt_start_time'] = datetime.datetime.now()
+    print(datetime.datetime.now())
+    new_setting_data['up_settings'] = [0] * 7
+    new_setting_data['week_check'] = [False] * 7
+
     result = mongo.db.scp_settings.insert_one(new_setting_data)
 
     if result.acknowledged:
