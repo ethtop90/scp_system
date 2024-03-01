@@ -67,6 +67,7 @@ def get_item():
     scp_setting_obj = Scp_setting(
         scp_setting.get("username"),
         scp_setting.get("type"),
+        scp_setting.get("data_type"),
         scp_setting.get("mg_title"),
         scp_setting.get("pt_name"),
         scp_setting.get("source"),
@@ -93,6 +94,8 @@ def update_item():
 
     if 'type' in new_setting_data:
         update_data['type'] = new_setting_data['type']
+    if 'data_type' in new_setting_data:
+        update_data['data_type'] = new_setting_data['data_type']
     if 'mg_title' in new_setting_data:
         update_data['mg_title'] = new_setting_data['mg_title']
     if 'pt_name' in new_setting_data:
@@ -152,6 +155,7 @@ def add_item():
 # deleting one scraping setting
     
 @scp_settings.route('/delete-item', methods = ['delete'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 def delete_item():
     #getting the username, id
     username = request.args.get('username')

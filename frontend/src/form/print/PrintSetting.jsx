@@ -69,13 +69,13 @@ export default function PrintSetting() {
         <div class="space-y-6 border-l-2 border-dashed flex flex-col w-full">
           {Array.isArray(scpItems) &&
             scpItems.map((item, index) => (
-              <div key={index} className="flex flex-row gap-10">
+              <div key={index} className="flex flex-row ">
                 <div className="w-1/6 flex justify-center items-center">
                   <BlueButton text={item.type == "site" ? "賃貸" : "売買"} />
                 </div>
-                <div className="flex flex-col w-1/3 justify-center items-center">
-                  <div>{item.mg_title}</div>
-                  <div>{item.source}</div>
+                <div className="flex flex-col w-1/3 justify-center items-center ">
+                  <div className="text-left" >{item.mg_title}</div>
+                  <div className="text-left">{item.source}</div>
                 </div>
                 <div className="w-1/6">
                   <BlueButton text={"投稿設定"} onClick={() => handleAutoSetting(scpItems[index]['_id'])} />

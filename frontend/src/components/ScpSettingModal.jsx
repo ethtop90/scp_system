@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
 import {
   TERipple,
   TEModal,
@@ -17,12 +18,18 @@ import {
 } from "tw-elements-react";
 
 import { Dropdown, Ripple, initTE } from "tw-elements";
+import axios from "axios";
+// import fs from "fs";
 
 initTE({ Dropdown, Ripple });
 
-export default function ScpSettingModal(): JSX.Element {
-  const [showModal, setShowModal] = useState(false);
-  const [sourceType, setSourceType] = useState("none");
+export default function ScpSettingModal({ method }): JSX.Element {
+  const username = localStorage.getItem("user");
+  const fileInput = useRef();
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [showModal, setShowModal] = useState(method == "update" ? true : false);
+  const [id, setId] = useState(null);
+  const [sourceType, setSourceType] = useState("site");
   const [datatype, setDataType] = useState("賃貸");
   const [settingName, setSettingName] = useState();
   const [mgTitle, setMgTitle] = useState("");
@@ -34,6 +41,10 @@ export default function ScpSettingModal(): JSX.Element {
     setShowModal(true);
   };
 
+  useEffect(() => {
+    console.log("sourceType:", sourceType);
+  }, [sourceType]);
+
   const handleMgTitle = (newValue) => {
     console.log(newValue);
     setMgTitle(newValue);
@@ -44,16 +55,111 @@ export default function ScpSettingModal(): JSX.Element {
     setPtName(e.target.value);
   };
 
-  const handleSource = (newValue) => {
-    console.log(newValue);
-    setSource(newValue);
+  const handleSource = (e, t) => {
+    if (t == "file") {
+      const file = e.target.files[0];
+      setSelectedFile(file);
+    }
+    setSource(e.target.value);
   };
 
   const handleRun = () => {};
 
+  const handleSave = async (e) => {
+    e.preventDefault();
+
+    if (method == "add") {
+      await axios
+        .post(
+          `http://localhost:5000/scp-settings/add-item?username=${username}`,
+          {
+            type: sourceType,
+            data_type: datatype,
+            mg_title: mgTitle,
+            pt_name: ptName,
+            source: source,
+          }
+        )
+        .then((response) => {
+          toast.success(response.data.message);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      fetchData();
+    } else {
+      await axios
+        .put(
+          `http://localhost:5000/scp-settings/update-item?username=${username}&id=${id}`,
+          {
+            type: sourceType,
+            data_type: datatype,
+            mg_title: mgTitle,
+            pt_name: ptName,
+            source: source,
+          }
+        )
+        .then((response) => {
+          toast.success(response.data.message);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      fetchData();
+    }
+  };
+
+  const setFile = (source) => {
+    //verifiy
+  };
+
+  const fetchData = async () => {
+    const username = localStorage.getItem("user");
+    const url = window.location.href;
+    const searchParams = new URLSearchParams(new URL(url).search);
+    const id = searchParams.get("id");
+    if (username && id)
+      await axios
+        .get(
+          `http://localhost:5000/scp-settings/get-item?username=${username}&id=${id}`
+        )
+        .then((response) => {
+          toast.success(response.data.message);
+          let data = response.data;
+          console.log(data);
+          console.log(data.data_type);
+          setSourceType(data.type);
+          setSource(data.source);
+          console.log(data.source);
+          setDataType(data.data_type);
+          setMgTitle(data.mg_title);
+          setPtName(data.pt_name);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  };
+
   useEffect(() => {
     console.log(ptName);
   }, [ptName]);
+
+  useEffect(() => {
+    console.log("modal is opened!");
+    if (method === "update") {
+      console.log("state is update!");
+
+      const username = localStorage.getItem("user");
+      const url = window.location.href;
+      const searchParams = new URLSearchParams(new URL(url).search);
+      setId(searchParams.get("id"));
+      fetchData();
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [showModal]);
 
   return (
     <div>
@@ -162,8 +268,9 @@ export default function ScpSettingModal(): JSX.Element {
                           id="exampleFormControlInputText"
                           label={"管理⽤タイトル"}
                           onChange={(e) => {
-                            setSettingName(e.target.value);
+                            setMgTitle(e.target.value);
                           }}
+                          value={mgTitle}
                         ></TEInput>
                       </div>
                       <div>
@@ -176,6 +283,7 @@ export default function ScpSettingModal(): JSX.Element {
                               setPtName(e.target.value);
                             }}
                             list="mgTitleList"
+                            value={ptName}
                           ></TEInput>
                           {/* <input
                             list="browsers"
@@ -196,7 +304,22 @@ export default function ScpSettingModal(): JSX.Element {
                     <div className="flex justify-start gap-10 w-full my-10">
                       <div className="">
                         <span className="mb-3"> スクレイピング先URL</span>
-                        <TEInput></TEInput>
+                        {sourceType == "site" ? (
+                          <TEInput
+                            type="url"
+                            value={source}
+                            onChange={(e) => handleSource(e, "site")}
+                          ></TEInput>
+                        ) : (
+                          <TEInput
+                            type="file"
+                            ref={fileInput}
+                            onChange={(e) => handleSource(e, "file")}
+                            accept=".xlsx"
+                            // value={source}
+                          ></TEInput>
+                        )}
+                        {source && (<><p>{source}</p></>)}
                       </div>
                       <div className="flex items-end ">
                         <button
@@ -261,6 +384,7 @@ export default function ScpSettingModal(): JSX.Element {
                 <button
                   type="button"
                   className="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  onClick={(e) => handleSave(e)}
                 >
                   変更内容を保存
                 </button>

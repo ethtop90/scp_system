@@ -94,7 +94,8 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/scp-setting" element={<ScpSetting />} />
             <Route path="/print-setting" element={<PrintSetting />} />
-            <Route path="/scp-setting/add" element={<ScpSettingModal />} />
+            <Route path="/scp-setting/add" element={<ScpSettingModal  method={'add'}/>} />
+            <Route path="/scp-setting/update" element={<ScpSettingModal method={'update'} />}  />
             <Route path="/print-setting/auto-setting" element={<AutoSetting />} />
 
           </Routes>

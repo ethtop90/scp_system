@@ -5,15 +5,43 @@ import axios from "axios";
 import { Link, json, useFetcher, useNavigate } from "react-router-dom";
 import { BlueButton } from "../../components/BlueButton";
 import ScpSettingModal from "../../components/ScpSettingModal";
-
+import { toast } from "react-toastify";
 
 export default function ScpSetting() {
   // const userInfo = useContext(UserInfoContext);
+  const navigate = useNavigate();
   const username = localStorage.getItem("user");
   const token = localStorage.getItem("auth_token");
-  const navigate = useNavigate();
   const [scpItems, setScpItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
+
+  const handleSettingChange = (index) => {
+    navigate("update?id=" + scpItems[index]["_id"]);
+  };
+
+  const handleDelete = async (e, index) => {
+    // e.preventDefault();
+    const id = scpItems[index]["_id"];
+    console.log(id);
+    if (id != null) {
+      await axios
+        .delete(
+          `http://localhost:5000/scp-settings/delete-item?username=${username}&id=${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          toast.success(response.data.message);
+          fetchAll();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   useEffect(() => {
     fetchAll();
@@ -64,7 +92,8 @@ export default function ScpSetting() {
       <div class="m-2 flex items-center justify-center bg-white px-3 md:px-2 z-0">
         <div class="space-y-6 border-l-2 border-dashed flex flex-col w-full">
           {/* <div>{scpItems.length}</div> */}
-          {Array.isArray(scpItems) && scpItems.map((item, index) => (
+          {Array.isArray(scpItems) &&
+            scpItems.map((item, index) => (
               <div key={index} className="flex flex-row gap-10">
                 <div className="w-1/6 flex justify-center items-center">
                   <BlueButton text={item.type == "site" ? "賃貸" : "売買"} />
@@ -74,12 +103,20 @@ export default function ScpSetting() {
                   <div>{item.source}</div>
                 </div>
                 <div className="w-1/6">
-                  <BlueButton
-                    text={item.type == "site" ? "設定変更" : "再取込"}
-                  />
+                  <button
+                    className="w-full inline-block rounded bg-blue-400 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-blue-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                    onClick={() => handleSettingChange(index)}
+                  >
+                    {item.type == "site" ? "設定変更" : "再取込"}
+                  </button>
                 </div>
                 <div className="w-1/6">
-                  <BlueButton text={"削除"} />
+                  <button
+                    className="w-full inline-block rounded bg-blue-400 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-blue-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                    onClick={(e) => handleDelete(e, index)}
+                  >
+                    {"削除"}
+                  </button>
                 </div>
               </div>
             ))}
