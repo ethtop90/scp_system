@@ -19,12 +19,16 @@ import {
 
 import { Dropdown, Ripple, initTE } from "tw-elements";
 import axios from "axios";
+import _, { first } from "lodash";
+
+import originKeys from "../settings/origin_keys.json";
 // import fs from "fs";
 
 initTE({ Dropdown, Ripple });
 
 export default function ScpSettingModal({ method }): JSX.Element {
   const username = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
   const fileInput = useRef();
   const [selectedFile, setSelectedFile] = useState(null);
   const [showModal, setShowModal] = useState(method == "update" ? true : false);
@@ -35,6 +39,10 @@ export default function ScpSettingModal({ method }): JSX.Element {
   const [mgTitle, setMgTitle] = useState("");
   const [ptName, setPtName] = useState("");
   const [source, setSource] = useState("");
+  const [dataKeys, setDataKeys] = useState([]);
+  let mapping = {};
+  let firstData = {};
+  const [matchingData, setMatchingData] = useState({});
 
   const handleTypeBtn = (type) => {
     setSourceType(type);
@@ -63,7 +71,50 @@ export default function ScpSettingModal({ method }): JSX.Element {
     setSource(e.target.value);
   };
 
-  const handleRun = () => {};
+  const handleRun = async () => {
+    let formData = new FormData();
+    formData.append("file", selectedFile);
+    console.log(formData);
+    if (sourceType == "file") {
+      axios
+        .post(
+          `http://localhost:5000/scp-running/get-data/file?username=${username}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log("File uploaded successfully:", response.data.message);
+          processData(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("Error uploading file:", error);
+        });
+    } else {
+      axios
+        .post(
+          `http://localhost:5000/scp-running/get-data/site?username=${username}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            source: source,
+          }
+        )
+        .then((response) => {
+          console.log("File uploaded successfully:", response.data.message);
+        })
+        .catch((error) => {
+          console.error("Error uploading file:", error);
+        });
+    }
+  };
 
   const handleSave = async (e) => {
     e.preventDefault();
@@ -109,8 +160,12 @@ export default function ScpSettingModal({ method }): JSX.Element {
     }
   };
 
-  const setFile = (source) => {
-    //verifiy
+  const handleMatchingData = (key, val) => {
+    console.log(key, val);
+    setMatchingData({
+      ...matchingData,
+      mapping: { ...matchingData.mapping, [key]: val },
+    });
   };
 
   const fetchData = async () => {
@@ -140,6 +195,17 @@ export default function ScpSettingModal({ method }): JSX.Element {
         });
   };
 
+  const processData = (data) => {
+    setDataKeys([...data["item_keys"]]);
+    mapping = JSON.stringify(data["mapping"]);
+    firstData = JSON.stringify(data["first_data"]);
+
+    // const list = Object.values(data['items_key'])
+    console.log("mapping:", mapping);
+    console.log("firstData:", firstData);
+    setMatchingData({ ...data });
+  };
+
   useEffect(() => {
     console.log(ptName);
   }, [ptName]);
@@ -160,6 +226,10 @@ export default function ScpSettingModal({ method }): JSX.Element {
   useEffect(() => {
     fetchData();
   }, [showModal]);
+
+  useEffect(() => {
+    console.log(matchingData);
+  }, [matchingData]);
 
   return (
     <div>
@@ -182,7 +252,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
       </TERipple>
 
       {/* <!-- Modal --> */}
-      <TEModal show={showModal} setShow={setShowModal}>
+      <TEModal show={showModal} setShow={setShowModal} scrollable>
         <TEModalDialog size="lg" centered>
           <TEModalContent>
             <TEModalHeader>
@@ -214,7 +284,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
               </button>
             </TEModalHeader>
             {/* <!--Modal body--> */}
-            <TEModalBody size="lg">
+            <TEModalBody>
               <div className="site-main w-full">
                 <div className="flex flex-col items-center w-full p-5">
                   <div className="flex flex-col items-center w-full">
@@ -296,7 +366,6 @@ export default function ScpSettingModal({ method }): JSX.Element {
                           className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
                         >
                           {/* change part */}
-                          <option value="Chrome" />
                         </datalist>
                       </div>
                     </div>
@@ -319,13 +388,17 @@ export default function ScpSettingModal({ method }): JSX.Element {
                             // value={source}
                           ></TEInput>
                         )}
-                        {source && (<><p>{source}</p></>)}
+                        {source && (
+                          <>
+                            <p>{source}</p>
+                          </>
+                        )}
                       </div>
                       <div className="flex items-end ">
                         <button
                           type="button"
                           className="block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                          onClick={handleRun}
+                          onClick={(e) => handleRun(e)}
                         >
                           実⾏
                         </button>
@@ -357,16 +430,35 @@ export default function ScpSettingModal({ method }): JSX.Element {
                         className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
                       >
                         {/* change part */}
-                        <option value="Chrome" />
                       </datalist>
                     </div>
                   </div>
-                  <div className="grid grid-cols-3 w-full">
-                    {/* change part */}
-                    <div className="col-span-1 p-3">asa</div>
-                    <div className="col-span-1 p-3">asa</div>
-                    <div className="col-span-1 p-3"></div>
-                  </div>
+                  {matchingData.item_keys &&
+                    matchingData.item_keys.map((value, index) => (
+                      <div className="grid grid-cols-3 w-full" key={index}>
+                        <div className="col-span-1 p-3">{value}</div>
+                        <div className="col-span-1 p-3">
+                          {matchingData.first_data[value]}
+                        </div>
+                        <div className="col-span-1 p-3">
+                          <select
+                            value={
+                              matchingData.mapping[value]
+                            }
+                            onChange={(e) =>
+                              handleMatchingData(
+                                value,
+                                e.target.value
+                              )
+                            }
+                          >
+                            {originKeys.map((v, i) => (
+                              <option key={i} value={v}>{v}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    ))}
                 </div>
               </div>
             </TEModalBody>
