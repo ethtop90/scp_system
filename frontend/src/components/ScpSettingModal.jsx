@@ -22,11 +22,13 @@ import axios from "axios";
 import _, { first } from "lodash";
 
 import originKeys from "../settings/origin_keys.json";
+import { useNavigate, useNavigationType } from "react-router";
 // import fs from "fs";
 
 initTE({ Dropdown, Ripple });
 
 export default function ScpSettingModal({ method }): JSX.Element {
+  const navigator = useNavigate();
   const username = localStorage.getItem("user");
   const token = localStorage.getItem("token");
   const fileInput = useRef();
@@ -133,6 +135,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
         )
         .then((response) => {
           toast.success(response.data.message);
+          setId(response.data.id);
         })
         .catch((error) => {
           console.log(error);
@@ -168,12 +171,29 @@ export default function ScpSettingModal({ method }): JSX.Element {
     });
   };
 
+  const handleMatchingDataSave = async (e) => {
+    e.preventDefault();
+    await axios
+        .post(
+          `http://localhost:5000/scp-running/matching-data/add?username=${username}&id=${id}`, {
+            ...matchingData
+          }
+        )
+        .then((response) => {
+          
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  };
+
   const fetchData = async () => {
     const username = localStorage.getItem("user");
     const url = window.location.href;
     const searchParams = new URLSearchParams(new URL(url).search);
     const id = searchParams.get("id");
-    if (username && id)
+    setId(id);
+    if (username && id) {
       await axios
         .get(
           `http://localhost:5000/scp-settings/get-item?username=${username}&id=${id}`
@@ -193,28 +213,34 @@ export default function ScpSettingModal({ method }): JSX.Element {
         .catch((error) => {
           console.log(error);
         });
+      method == "update" && await axios
+        .get(
+          `http://localhost:5000/scp-running/matching-data/get?username=${username}&id=${id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          setMatchingData({ ...response.data });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   const processData = (data) => {
     setDataKeys([...data["item_keys"]]);
     mapping = JSON.stringify(data["mapping"]);
     firstData = JSON.stringify(data["first_data"]);
-
-    // const list = Object.values(data['items_key'])
-    console.log("mapping:", mapping);
-    console.log("firstData:", firstData);
     setMatchingData({ ...data });
   };
 
   useEffect(() => {
-    console.log(ptName);
-  }, [ptName]);
-
-  useEffect(() => {
-    console.log("modal is opened!");
     if (method === "update") {
-      console.log("state is update!");
-
       const username = localStorage.getItem("user");
       const url = window.location.href;
       const searchParams = new URLSearchParams(new URL(url).search);
@@ -224,12 +250,14 @@ export default function ScpSettingModal({ method }): JSX.Element {
   }, []);
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
+    console.log(showModal);
+    if(showModal == false && method == "update")  navigator(-1);
   }, [showModal]);
 
   useEffect(() => {
-    console.log(matchingData);
-  }, [matchingData]);
+    console.log(id);
+  }, [id]);
 
   return (
     <div>
@@ -252,7 +280,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
       </TERipple>
 
       {/* <!-- Modal --> */}
-      <TEModal show={showModal} setShow={setShowModal} scrollable>
+      <TEModal show={showModal} setShow={setShowModal} scrollable onc>
         <TEModalDialog size="lg" centered>
           <TEModalContent>
             <TEModalHeader>
@@ -368,6 +396,15 @@ export default function ScpSettingModal({ method }): JSX.Element {
                           {/* change part */}
                         </datalist>
                       </div>
+                      <div>
+                        <button
+                          type="button"
+                          className="block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                          onClick={(e) => handleSave(e)}
+                        >
+                          更新
+                        </button>
+                      </div>
                     </div>
 
                     <div className="flex justify-start gap-10 w-full my-10">
@@ -442,18 +479,15 @@ export default function ScpSettingModal({ method }): JSX.Element {
                         </div>
                         <div className="col-span-1 p-3">
                           <select
-                            value={
-                              matchingData.mapping[value]
-                            }
+                            value={matchingData.mapping[value]}
                             onChange={(e) =>
-                              handleMatchingData(
-                                value,
-                                e.target.value
-                              )
+                              handleMatchingData(value, e.target.value)
                             }
                           >
                             {originKeys.map((v, i) => (
-                              <option key={i} value={v}>{v}</option>
+                              <option key={i} value={v}>
+                                {v}
+                              </option>
                             ))}
                           </select>
                         </div>
@@ -462,8 +496,8 @@ export default function ScpSettingModal({ method }): JSX.Element {
                 </div>
               </div>
             </TEModalBody>
-            <TEModalFooter>
-              <TERipple rippleColor="light">
+            <TEModalFooter className="flex justify-center">
+              {/* <TERipple rippleColor="light">
                 <button
                   type="button"
                   className="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
@@ -480,7 +514,16 @@ export default function ScpSettingModal({ method }): JSX.Element {
                 >
                   変更内容を保存
                 </button>
-              </TERipple>
+              </TERipple> */}
+              <div className="flex justify-center">
+                <button
+                  type="button"
+                  className="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  onClick={(e) => handleMatchingDataSave(e)}
+                >
+                  スクレイピング結果の取込
+                </button>
+              </div>
             </TEModalFooter>
           </TEModalContent>
         </TEModalDialog>

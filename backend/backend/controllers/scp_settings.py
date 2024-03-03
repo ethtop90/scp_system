@@ -146,7 +146,7 @@ def add_item():
     result = mongo.db.scp_settings.insert_one(new_setting_data)
 
     if result.acknowledged:
-        return jsonify({'message': 'Scraping setting added successfully'})
+        return jsonify({'message': 'Scraping setting added successfully', 'id':str(result.inserted_id)})
     else:
         return jsonify({'message': 'Failed to scraping setting'}) 
 #-----

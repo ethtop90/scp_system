@@ -12,6 +12,7 @@ import json
 from models.user import User
 from models.scp_setting import Scp_setting
 from models.scp_url import Scp_url
+from models.matching_data import Matching_data
 
 # import utils
 from utils.search_engine import create_mapping
@@ -72,7 +73,6 @@ def get_data_from_file():
 @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 def get_data_from_url():
     setting = request.get_json()
-    # print("url:", setting['source'])
     mapping, item_keys = import_data_from_site(setting['source'])
     if mapping is True:
         return jsonify({"message": "scraped unsuccessfully"})
@@ -149,7 +149,6 @@ def is_valid_source(source):
 
 # function check if it is valid url
 def is_valid_url(url):
-    print("103:", url)
     result = mongo.db.scp_urls.find_one({"url": url})
     if result is not None:
         return True
@@ -158,5 +157,75 @@ def is_valid_url(url):
 
 # -----
 
+# get the matching_data
+@scp_running.route('/matching-data/get', methods=['GET'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
+def matching_data_get():
+    username = request.args.get('username')
+    id = request.args.get('id')
+
+    data = mongo.db.matching_datas.find_one(
+        {'$and': [{'username': username}, {'id':id}]}) 
+    print(data)
+    data_obj = Matching_data(
+        data.get("username"),
+        data.get("id"),
+        data.get("first_data"),
+        data.get("item_keys"),
+        data.get("mapping")
+    )
+
+    return jsonify(data_obj.__dict__)
+
+#-----
+
+# get the matching_data
+@scp_running.route('/matching-data/add', methods=['POST'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
+def matching_data_add():
+    username = request.args.get('username')
+    id = request.args.get('id')
+    # obj_id = ObjectId(id)
+    data = request.get_json()
+    data['id'] = id
+    data['username'] = username
+    query = {'$and': [{'username': username}, {'id':id}]}
+
+    searchResult = mongo.db.matching_datas.find_one(
+        query) 
+    
+    if not searchResult:
+        result = mongo.db.matching_datas.insert_one(data)
+
+    else :
+        result = mongo.db.matching_datas.update_one(query, {'$set': data})
+    
+    if result.acknowledged:
+        return jsonify({'message': 'matching setting added successfully'})
+    else:
+        return jsonify({'message': 'Failed to matching setting'}) 
+
+#-----
+    
+# get the matching_data
+@scp_running.route('/matching-data/delete-item', methods=['DELETE'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
+def matching_data_delete():
+    username = request.args.get('username')
+    id = request.args.get('id')
+    # obj_id = ObjectId(id)
+    data = request.get_json()
+    data['id'] = id
+    data['username'] = username
+    query = {'$and': [{'username': username}, {'id':id}]}
+
+    result = mongo.db.matching_data.delete_one(query)
+    
+    if result.deleted_count == 1:
+        return jsonify({'message': 'matching setting deleted successfully'})
+    else:
+        return jsonify({'message': 'Failed to matching setting'})
+
+#-----
 
 app.register_blueprint(scp_running, url_prefix="/scp-running")

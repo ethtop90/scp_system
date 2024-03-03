@@ -40,6 +40,22 @@ export default function ScpSetting() {
         .catch((error) => {
           console.log(error);
         });
+      await axios
+        .delete(
+          `http://localhost:5000/scp-running/delete-item?username=${username}&id=${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          toast.success(response.data.message);
+          fetchAll();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
 
