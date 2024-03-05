@@ -1,0 +1,808 @@
+[{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047ae7"
+  },
+  "name": "アース不動産合同会社",
+  "url": "https://earth-fudosan.com/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047ae8"
+  },
+  "name": "（株）アーバンエステート",
+  "url": "https://www.urban-es.net/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047ae9"
+  },
+  "name": "（株）アールビル",
+  "url": "https://al-buil.net/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047aea"
+  },
+  "name": "（有）アイ・アール",
+  "url": "https://i-r-re.jimdofree.com/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047aeb"
+  },
+  "name": "アイケイ不動産（株）",
+  "url": "http://ik.sesh.estate/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047aec"
+  },
+  "name": "（株）Ｉ．Ｄ．Ｗｏｒｋｓ",
+  "url": "",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047aed"
+  },
+  "name": "（株）アスクリエーション",
+  "url": "http://asucreation.com/rent/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047aee"
+  },
+  "name": "ASSET Design（株）",
+  "url": "https://www.ymg-takken.or.jp/property/agency/detail?id=b98e7dfde7051680",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047aef"
+  },
+  "name": "（株）アライブ",
+  "url": "https://www.alive-y.com/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af0"
+  },
+  "name": "（有）イー・アイ",
+  "url": "https://www.ei-estate.net/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af1"
+  },
+  "name": "（株）エヌライフエステート",
+  "url": "https://www.n-lifeestate.com/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af2"
+  },
+  "name": "エフケイビル（株）",
+  "url": "https://fk-build.com/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af3"
+  },
+  "name": "（株）エミアス　山口支店",
+  "url": "https://www.emi-us.net/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af4"
+  },
+  "name": "（株）LFBアパートメント",
+  "url": "https://lfb-tamura.jp/realestate_taxonomy/yamaguchi/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af5"
+  },
+  "name": "エルクホームズ（株）山口支店",
+  "url": "https://www.elkhomes.co.jp/land/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af6"
+  },
+  "name": "（株）小郡不動産",
+  "url": "https://ogori-f.com/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af7"
+  },
+  "name": "（株）カチタス山口店",
+  "url": "https://home.katitas.jp/contents/code/search_result?by=area&pref_check%5b%5d=35",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af8"
+  },
+  "name": "（株）きらら",
+  "url": "http://kuraso.sesh.estate/estate/rent/index",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047af9"
+  },
+  "name": "クリーンエステート（株）",
+  "url": "http://www.clean-estate.com/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047afa"
+  },
+  "name": "（有）山永不動産",
+  "url": "https://www.saneifudousan.co.jp/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047afb"
+  },
+  "name": "成泰不動産（株）",
+  "url": "https://sei-tai.com/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047afc"
+  },
+  "name": "セキスイハイム中四国（株）山口支社",
+  "url": "https://www.816c.jp/housing/yamatochi/list?c=ground#maps_section_no_007",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047afd"
+  },
+  "name": "積水ハウス不動産中国四国（株）山口営業所",
+  "url": "https://sumusite.sekisuihouse.co.jp/chushikoku/office/yamaguchi/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047afe"
+  },
+  "name": "積水ハウス不動産中国四国（株）山口賃貸営業所",
+  "url": "",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047aff"
+  },
+  "name": "（有）タカミ不動産",
+  "url": "https://www.ogori.com/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b00"
+  },
+  "name": "（株）タナカホームズ山口店",
+  "url": "https://www.tanaken.co.jp/estate/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b01"
+  },
+  "name": "タマホーム（株）山口店",
+  "url": "https://www.tamahome.jp/kodatebunjyo/chugoku/yamaguchi",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b02"
+  },
+  "name": "（株）田村ビルズ",
+  "url": "山口県新築分譲住宅ならLFBシリーズ｜LIFE FAN BOX｜建売 (lfb-tamura.jp)",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b03"
+  },
+  "name": "（株）田村ビルズ山口大学前店",
+  "url": "https://chintai.lfb-tamura.jp/rent_feature/result/140681",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b04"
+  },
+  "name": "大和ハウス工業（株）山口支店",
+  "url": "https://www.daiwahouse.co.jp/officeHP/00250.html",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b05"
+  },
+  "name": "（株）東武住販　山口店",
+  "url": "https://www.c-able.ne.jp/~nawata-f/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b06"
+  },
+  "name": "日本ハウス（株）山口営業所",
+  "url": "https://ncyamaguchi-chintai.jp/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b07"
+  },
+  "name": "西日本スリーク（有）",
+  "url": "https://www.n-sleek.com/sale/result?r1=&r2=&tw=&td=&fw=",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b08"
+  },
+  "name": "（株）ファーストコーポレーション",
+  "url": "https://www.first-cp.com/kodate/yamaguchi/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b09"
+  },
+  "name": "（有）フジイプランニング",
+  "url": "http://fujipula.co.jp/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b0a"
+  },
+  "name": "（株）ファーストホーム山口店",
+  "url": "https://www.firsthome.jp.net/openhouse/?category=40",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b0b"
+  },
+  "name": "（株）物件市場",
+  "url": "https://www.bukken-ichiba.com/estate/result",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b0c"
+  },
+  "name": "平和不動産（株）",
+  "url": "https://www.ymg-takken.or.jp/property/agency/detail?id=dc0c15638acc5ed2",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b0d"
+  },
+  "name": "（有）ホーム不動産",
+  "url": "https://home-fudosan.com/archives/category/chintaibuken/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b0e"
+  },
+  "name": "（株）防長宅建",
+  "url": "https://www.shattle.jp/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b0f"
+  },
+  "name": "防長不動産（株）",
+  "url": "https://bochofudosan.com/sale/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b10"
+  },
+  "name": "（株）丸久不動産事業部宮野支店",
+  "url": "https://09fudousan.com/miyano_lease/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b11"
+  },
+  "name": "（有）マツモト・リアリティ・サービス",
+  "url": "http://m-r-s.jp/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b12"
+  },
+  "name": "（株）丸久 不動産事業部山口支店",
+  "url": "https://09fudousan.com/yamaguchi_lease/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b13"
+  },
+  "name": "（株）モリモト",
+  "url": "http://www.mirai-qq.jp/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b14"
+  },
+  "name": "ミサワホーム中国（株）山口支店",
+  "url": "",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b15"
+  },
+  "name": "山口不動産（株）",
+  "url": "https://www.yamaguchi-fudosan.jp/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b16"
+  },
+  "name": "（株）ライトエステート",
+  "url": "https://lightestate.net/bukken/uri",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b17"
+  },
+  "name": "（株）リンケン不動産",
+  "url": "http://rinken-fudousan.co.jp/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b18"
+  },
+  "name": "（株）REVOLUTIONアパマンショップ山口店",
+  "url": "",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b19"
+  },
+  "name": "（株）ワイズコーポレーション",
+  "url": "https://www.ymg-takken.or.jp/property/agency/detail?id=f67b275310fdcd5f",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b1a"
+  },
+  "name": "ハトマークサイト",
+  "url": "https://www.ymg-takken.or.jp/",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59dfee1f07bff9d047b1b"
+  },
+  "name": "",
+  "url": "",
+  "type": "A"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b1c"
+  },
+  "name": "（株）Ａｎｔ－ｈｉｌｌ",
+  "url": "http://anthill-inc.net/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b1d"
+  },
+  "name": "（株）いとう不動産",
+  "url": "http://itofudousan.co.jp/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b1e"
+  },
+  "name": "（有）エーライフ",
+  "url": "https://ei-life.com/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b1f"
+  },
+  "name": "SMGコンサルタント（株）",
+  "url": "https://www.smg-ct.com/estates/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b20"
+  },
+  "name": "エスポルト不動産（株）",
+  "url": "https://esportefudousan.co.jp/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b21"
+  },
+  "name": "エヌイーティー（株）",
+  "url": "http://net-fudousanbu.com/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b22"
+  },
+  "name": "N’ｓ　Ｓｅｃｔｉｏｎ（有）",
+  "url": "http://www.c-able.ne.jp/~nsection/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b23"
+  },
+  "name": "（株）エムズプランニング",
+  "url": "",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b24"
+  },
+  "name": "（有）大内地所",
+  "url": "https://www.ymg-takken.or.jp/property/agency/detail?id=93c447d9308a1e0f",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b25"
+  },
+  "name": "（株）岡田不動産",
+  "url": "http://okada-f.jp/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b26"
+  },
+  "name": "（株）河村百貨店",
+  "url": "https://www.ymg-takken.or.jp/property/agency/detail?id=4512ceec06faaeac",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b27"
+  },
+  "name": "KurasoYamaguchi合同会社",
+  "url": "http://kuraso.sesh.estate/estate/rent/index",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b28"
+  },
+  "name": "（株）ケイテック",
+  "url": "https://ktec-2103.com/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b29"
+  },
+  "name": "（株）コムズコーポレーション山口店",
+  "url": "http://www.i-love-coms.com/chukai/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b2a"
+  },
+  "name": "山陽土地（株）",
+  "url": "http://sanyotochi.com/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b2b"
+  },
+  "name": "（有）下野エステート",
+  "url": "http://www.shimono-estate.jp/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b2c"
+  },
+  "name": "信和不動産（株）",
+  "url": "https://www.sinwa-fudousan.com/bukkent/b-apa/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b2d"
+  },
+  "name": "周防土地（株）",
+  "url": "https://suotochi.com/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b2e"
+  },
+  "name": "（株）スクエア 山口大内店",
+  "url": "https://apaman-yamaguchiouchi.com/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b2f"
+  },
+  "name": "（株）スペース",
+  "url": "https://www.y-space.jp/rent/result?r1=&r2=&t1=&t2=&tw=&tn=&td=&fw=",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b30"
+  },
+  "name": "（株）セブンシステム",
+  "url": "",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b31"
+  },
+  "name": "（株）ソルトエステート",
+  "url": "https://www.ymg-takken.or.jp/property/agency/buy/area/property-list?cst_sys_public_id=6ac525ccbd982e5b&ptm%5b%5d=0101",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b32"
+  },
+  "name": "（有）タカラ不動産",
+  "url": "https://otakara.jp/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b33"
+  },
+  "name": "中国住宅建設工業（株）",
+  "url": "http://chuzyu.sakura.ne.jp/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b34"
+  },
+  "name": "（株）トータルサービスSRK",
+  "url": "https://www.v-hf.com/k/totalservice/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b35"
+  },
+  "name": "東洋住販（株）",
+  "url": "https://www.toyojuhan.co.jp/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b36"
+  },
+  "name": "（株）トピア",
+  "url": "https://www.topia-i.co.jp/topia-labo/tochi_yamaguchi",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b37"
+  },
+  "name": "（同）徳佐不動産",
+  "url": "https://www.tokusa-f\r\n\r\n.com/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b38"
+  },
+  "name": "（有）長井不動産",
+  "url": "http://nagaifudousan.com/category/baibai/?list=yes&clear=yes",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b39"
+  },
+  "name": "（有）ナワタ不動産",
+  "url": "https://www.c-able.ne.jp/~nawata-f/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b3a"
+  },
+  "name": "（株）ネクサス不動産",
+  "url": "http://nexus-f.com/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b3b"
+  },
+  "name": "（株）はじめ不動産",
+  "url": "https://www.hatomarksite.com/search/zentaku/agent/00073502931/bukken/buy/land",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b3c"
+  },
+  "name": "英不動産（株）",
+  "url": "https://www.ymg-takken.or.jp/property/agency/detail?id=3b5dcc68b3724fe0",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b3d"
+  },
+  "name": "（有）パナックいまづ",
+  "url": "https://p-imazu.com/estate/list/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b3e"
+  },
+  "name": "（株）美栄不動産",
+  "url": "https://www.biei-fudousan.co.jp/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b3f"
+  },
+  "name": "百年住宅西日本（株）",
+  "url": "",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b40"
+  },
+  "name": "不動産ライズ（同）",
+  "url": "",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b41"
+  },
+  "name": "（株）ファノス 宅地開発部山口支店",
+  "url": "https://phanos.jp/bukken/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b42"
+  },
+  "name": "（株）マイルーム",
+  "url": "https://myroom-co.jp/realestate/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b43"
+  },
+  "name": "（有）松倉不動産",
+  "url": "http://www.matukura-fudousan.com/bunjyou_b.htm",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b44"
+  },
+  "name": "みらい地産公司",
+  "url": "http://www.mirai-qq.jp/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b45"
+  },
+  "name": "山口第一（株）山口店",
+  "url": "https://www.hatomarksite.com/search/zentaku/agent/00075010413",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b46"
+  },
+  "name": "（株）山本商事",
+  "url": "https://yamamotoshouji.com/owner_building/",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b47"
+  },
+  "name": "ユピキタス二の宮（株）",
+  "url": "",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b48"
+  },
+  "name": "（株）ライフサポート",
+  "url": "http://yyo51you.com/estate.html",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b49"
+  },
+  "name": "（株）リブプラス",
+  "url": "http://www.liveplus.jp/?bukken=chintai",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b4a"
+  },
+  "name": "（有）両国",
+  "url": "https://www.hatomarksite.com/search/zentaku/agent/00073502639",
+  "type": "B"
+},
+{
+  "_id": {
+    "$oid": "65d59e4be1f07bff9d047b4b"
+  },
+  "name": "",
+  "url": "",
+  "type": "B"
+}]

@@ -2,22 +2,25 @@
     {
         "type": "selling",
         "company_name": "アース不動産合同会社",
-        "site_url": "https://earth_rex-fudosan.com/",
-        "list_base_url": "https://earth_rex-fudosan.com/59896/",
-        "is_page": false,
+        "site_url": "https://earth-fudosan.com/",
+        "list_base_url": "https://earth-fudosan.com/59896/",
+        "is_pagination": true,
+        "link_rex": "//div[@class='result-item']//div[@class='main-item']//a[@class='img']",
         "pg_param": null,
         "total_cnt_rex": null,
         "limit_param": null,
         "limit": 0,
         "data_structure": {
-            "img_source_rex": "//ul[@class='reals']//a[contains(@style, 'background-image')]",
-            "table_data_rex": {
-                "table_entire_rex": ["//div[@class='tbl']//table"],
+            "image_source_rex": "//ul[@class='reals']//a[contains(@style, 'background-image')]",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//div[@class='tbl']//table"
+                ],
                 "tr_rex": ".//tr_rex",
                 "th_rex": ".//th_rex",
                 "td_rex": ".//td_rex"
             },
-            "map": null
+            "map_rex": null
         }
     },
     {
@@ -25,19 +28,530 @@
         "company_name": "（株）アーバンエステート",
         "site_url": "https://www.urban-es.net/",
         "list_base_url": "https://www.urban-es.net/rent/result?r1=&r2=&t1=&t2=&tw=&tn=&td_rex=&et=&fw=",
+        "is_pagination": true,
+        "link_rex": "//div[@class='result-item']//div[@class='main-item']//a[@class='img']",
         "pg_param": "page",
         "total_cnt_rex": "//div[@class='bk-count']//span[@class='bundle']//span[@class='count']",
         "limit_param": "limit",
         "limit": 90,
         "data_structure": {
-            "img_source_rex": "",
-            "table_data_rex": {
-                "table_entire_rex": ["//div[@class='tbl']//table"],
-                "tr_rex": ".//tr_rex",
-                "th_rex": ".//th_rex",
-                "td_rex": ".//td_rex"
+            "image_source_rex": "",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//div[@class='table tableHead bkDetailDataHead']//table",
+                    "//div[@class='table table-bordered tableDetail']//table",
+                ],
+                "tr_rex": ".//tr",
+                "th_rex": ".//th",
+                "td_rex": ".//td"
             },
-            "map": null
+            "map_rex": null
         }
-    }
+    },
+    {
+        "type": "selling",
+        "company_name": "（株）アーバンエステート",
+        "site_url": "https://www.urban-es.net/",
+        "list_base_url": "https://www.urban-es.net/sale/result?r1=&r2=&t1=&t2=&n1=&n2=&tw=&tn=&fw=&rm_type=1&rm_per=",
+        "is_pagination": true,
+        "link_rex": "//div[@class='result-item']//div[@class='main-item']//a[@class='img']",
+        "pg_param": "page",
+        "total_cnt_rex": "//div[@class='bk-count']//span[@class='bundle']//span[@class='count']",
+        "limit_param": "limit",
+        "limit": 90,
+        "data_structure": {
+            "image_source_rex": "",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//div[@class='tbl']//table"
+                ],
+                "tr_rex": ".//tr",
+                "th_rex": ".//th",
+                "td_rex": ".//td"
+            },
+            "map_rex": null
+        }
+    },
+    {
+        "type": "rental",
+        "company_name": "（有）アイ・アール",
+        "site_url": "https://i-r-re.jimdofree.com/",
+        "is_seperate": true,
+        "seperated_urls": [
+            "https://i-r-re.jimdofree.com/%EF%BC%91%EF%BD%8B-%EF%BC%91%EF%BD%8C%EF%BD%84%EF%BD%8B/",
+            "https://i-r-re.jimdofree.com/%EF%BC%92%EF%BD%8B-%EF%BC%92%EF%BD%8C%EF%BD%84%EF%BD%8B/"
+        ],
+        "list_base_url": "",
+        "is_pagination": true,
+        "link_rex": "//a[text()='詳細' or .//text()='詳細']",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "limit",
+        "limit": 0,
+        "data_structure": {
+            "image_source_rex": "",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "(//table[@class='mceEditable'])[position()<=2]"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "(//td)[1]",
+                "td_rex": "(//td)[2]"
+            },
+            "map_rex": null
+        }
+    },
+    {
+        "type": "rental",
+        "company_name": "アイケイ不動産（株）",
+        "site_url": "http://ik.sesh.estate/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "http://ik.sesh.estate/estate/rent/index",
+        "is_pagination": false,
+        "link_rex": "//div[@class='main_estList']//li//a",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "limit",
+        "limit": 0,
+        "data_structure": {
+            "image_source_rex": "",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "(//div[@class='estate-detail']//table[@class='tbl wFull mB30']"
+                ],
+                "tr_rex": "",
+                "th_rex": "",
+                "td_rex": ""
+            },
+            "map_rex": null
+        }
+    },
+    {
+        "type": "selling",
+        "company_name": "アイケイ不動産（株）",
+        "site_url": "http://ik.sesh.estate/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "http://ik.sesh.estate/estate/buy/search/index",
+        "is_pagination": false,
+        "link_rex": "//div[@class='main_estList']//li//a",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "limit",
+        "limit": 0,
+        "data_structure": {
+            "image_source_rex": "",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "(//div[@class='estate-detail']//table[@class='tbl wFull']",
+                    "(//div[@class='estate-detail']//table[@class='tbl wFull mB30']"
+                ],
+                "tr_rex": "",
+                "th_rex": "",
+                "td_rex": ""
+            },
+            "map_rex": null
+        }
+    },
+    {
+        "type": "rental",
+        "company_name": "（株）アスクリエーション",
+        "site_url": "http://asucreation.com/rent/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "http://asucreation.com/rent/",
+        "is_pagination": false,
+        "link_rex": "//div[@class='housing-image']//a",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "limit",
+        "limit": 0,
+        "data_structure": {
+            "image_source_rex": "",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='rent-ta']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "//th",
+                "td_rex": "//td"
+            },
+            "map_rex": null
+        }
+    },
+    {
+        "type": "selling",
+        "company_name": "（株）アスクリエーション",
+        "site_url": "http://asucreation.com/rent/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "http://asucreation.com/sell/",
+        "is_pagination": false,
+        "link_rex": "//div[@class='housing-image']//a",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "limit",
+        "limit": 0,
+        "data_structure": {
+            "image_source_rex": "",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='rent-ta']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "//th",
+                "td_rex": "//td"
+            },
+            "map_rex": null
+        }
+    },
+    {
+        "type": "rental",
+        "company_name": "ASSET Design（株）",
+        "site_url": "https://www.ymg-takken.or.jp/property/agency/detail?id=b98e7dfde7051680",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "https://www.ymg-takken.or.jp/property/rent/area/list?ptm%5B%5D=0303&price_r_from=&price_r_to=&keyword=&eki_walk=&bus_walk=&exclusive_area_from=&exclusive_area_to=&built=",
+        "page_limit_exist": [1, 1],
+        "is_pagination": true,
+        "link_rex": "//div[@class='img col-xs-3']//a",
+        "pg_param": "page",
+        "total_cnt_rex": "//div[@class='count pull-left']",
+        "limit_param": "limit",
+        "limit": 100,
+        "data_structure": {
+            "image_source_rex": "//img[starts-with(@id, 'main-image-')]",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='info-table']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "(//td)[1]",
+                "td_rex": "(//td)[2]"
+            },
+            "map_rex": "a[@class='map-icon'][1]"
+        }
+    },
+    {
+        "type": "selling",
+        "company_name": "ASSET Design（株）",
+        "site_url": "https://www.ymg-takken.or.jp/property/agency/detail?id=b98e7dfde7051680",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "https://www.ymg-takken.or.jp/property/buy/area/list?ptm%5B%5D=9102&price_b_from=&price_b_to=&keyword=&eki_walk=&bus_walk=&land_from=&land_to=&bld_area_from=&bld_area_to=&built=",
+        "page_limit_exist": [1, 1],
+        "is_pagination": true,
+        "link_rex": "//div[@class='img col-xs-3']//a",
+        "pg_param": "page",
+        "total_cnt_rex": "//div[@class='count pull-left']",
+        "limit_param": "limit",
+        "limit": 100,
+        "data_structure": {
+            "image_source_rex": "//img[starts-with(@id, 'main-image-')]",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='info-table']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "(//td)[1]",
+                "td_rex": "(//td)[2]"
+            },
+            "map_rex": "a[@class='map-icon'][1]"
+        }
+    },
+    {
+        "type": "selling",
+        "company_name": "（株）アライブ",
+        "site_url": "https://www.alive-y.com/",
+        "is_seperate": true,
+        "seperated_urls": ["https://www.alive-y.com/baibai/sale/list/page/1/", "https://www.alive-y.com/baibai/sale/list/page/2/"
+        ],
+        "list_base_url": "",
+        "page_limit_exist": [1, 1],
+        "is_pagination": true,
+        "link_rex": "//a[@class='list-content-img']",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "limit",
+        "limit": 0,
+        "data_structure": {
+            "image_source_rex": "//li//img",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//div[@class='list-detail-content']//div[@class='section'][position() >= 4 and position() <= 6]//table"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "//th",
+                "td_rex": "//td"
+            },
+            "map_rex": "//div[@class='google-maps-link']//a"
+        }
+    },
+    {
+        "type": "selling",
+        "company_name": "（株）エヌライフエステート",
+        "site_url": "https://www.n-lifeestate.com/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "https://www.n-lifeestate.com/baibai/list/?",
+        "page_limit_exist": [1, 1],
+        "is_pagination": true,
+        "link_rex": "//a[descendant::img[@alt='詳細を見る']]",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "kensu",
+        "limit": 30,
+        "data_structure": {
+            "image_source_rex": "//ul[@class='dpcms_thumb_inner']//li//img",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='dpcms_bukk_ta01']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "//th",
+                "td_rex": "//td"
+            },
+            "map_rex": ""
+        }
+    },
+    {
+        "type": "rental",
+        "company_name": "エフケイビル（株）",
+        "site_url": "https://fk-build.com/",
+        "is_seperate": true,
+        "seperated_urls": [
+            "https://fk-build.com/estate/c_index.html",
+        ],
+        "list_base_url": "https://www.n-lifeestate.com/baibai/list/?",
+        "page_limit_exist": [1, 1],
+        "is_pagination": false,
+        "link_rex": "//div[@class='getoss_img']//a",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "kensu",
+        "limit": 0,
+        "data_structure": {
+            "image_source_rex": "//div[@class='gallery_thumbs']//div//a",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='c_detail_table']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "(//td)[1]",
+                "td_rex": "(//td)[2]"
+            },
+            "map_rex": "//div[@class='google-maps-link']//a"
+        }
+    },
+    {
+        "type": "selling",
+        "company_name": "エフケイビル（株）",
+        "site_url": "https://fk-build.com/",
+        "is_seperate": true,
+        "seperated_urls": [
+            "https://fk-build.com/estate/b_index.html",
+        ],
+        "list_base_url": "https://www.n-lifeestate.com/baibai/list/?",
+        "page_limit_exist": [1, 1],
+        "is_pagination": false,
+        "link_rex": "//div[@class='getoss_img']//a",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "kensu",
+        "limit": 0,
+        "data_structure": {
+            "image_source_rex": "//div[@class='gallery_thumbs']//div//a",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='c_detail_table']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "(//td)[1]",
+                "td_rex": "(//td)[2]"
+            },
+            "map_rex": "//div[@class='google-maps-link']//a"
+        }
+    },
+    {
+        "type": "rental",
+        "company_name": "（株）小郡不動産",
+        "site_url": "https://ogori-f.com/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "https://ogori-f.com/?bukken=chintai&so=kak&ord=&s=",
+        "page_limit_exist": [1, 0],
+        "is_pagination": true,
+        "link_rex": "//div[@class='list_simple_box match-height-archive']//div[@class='list_picsam_img']//a",
+        "pg_param": "paged",
+        "total_cnt_rex": "//div[@class='nav-next']",
+        "limit_param": "",
+        "limit": 18,
+        "data_structure": {
+            "image_source_rex": "//div[@class='viewer']//ul//li//img",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//div[@class='more-info__box']//table"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "//th",
+                "td_rex": "//td"
+            },
+            "map_rex": ""
+        }
+    },
+    {
+        "type": "selling",
+        "company_name": "（株）小郡不動産",
+        "site_url": "https://ogori-f.com/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "https://ogori-f.com/?bukken=sell&so=kak&ord=&s=",
+        "page_limit_exist": [1, 0],
+        "is_pagination": true,
+        "link_rex": "//div[@class='list_simple_box match-height-archive']//div[@class='list_picsam_img']//a",
+        "pg_param": "paged",
+        "total_cnt_rex": "//div[@class='nav-next']",
+        "limit_param": "",
+        "limit": 18,
+        "data_structure": {
+            "image_source_rex": "//div[@class='viewer']//ul//li//img",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//div[@class='more-info__box']//table"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "//th",
+                "td_rex": "//td"
+            },
+            "map_rex": ""
+        }
+    },
+    {
+        "type": "selling",
+        "company_name": "（株）カチタス山口店",
+        "site_url": "https://home.katitas.jp/contents/code/search_result?by=area&pref_check%5b%5d=35",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "https://home.katitas.jp/buyers_search/area/yamaguchi?",
+        "page_limit_exist": [1, 0],
+        "is_pagination": true,
+        "link_rex": "//main//div//ul//li//a",
+        "pg_param": "page",
+        "total_cnt_rex": "(//main//div//div//div//div//p[@class='text-black'])[2]",
+        "limit_param": "",
+        "limit": 20,
+        "data_structure": {
+            "image_source_rex": "//main//img[@src and @alt and @data-src]",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//div[@class='justify-between pt-[10px] md:flex']//dl",
+                    "//div[@class='js-detail_info']//dl"
+                ],
+                "tr_rex": "//dl",
+                "th_rex": "//dt",
+                "td_rex": "//dd"
+            },
+            "map_rex": ""
+        }
+    },
+    {
+        "type": "rental",
+        "company_name": "（株）きらら",
+        "site_url": "http://kuraso.sesh.estate/estate/rent/index",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "http://kuraso.sesh.estate/estate/rent/index",
+        "page_limit_exist": [1, 0],
+        "is_pagination": false,
+        "link_rex": "//div[@class='_estImage']//div[@class='posR']//img",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "",
+        "limit": 20,
+        "data_structure": {
+            "image_source_rex": "//ul[@class='thumbnail-list']//li//img",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='tbl wFull mB30']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "//th",
+                "td_rex": "//td"
+            },
+            "map_rex": "//div[@class='google-maps-link']//a"
+        }
+    },
+    {
+        "type": "rental",
+        "company_name": "クリーンエステート（株）",
+        "site_url": "http://www.clean-estate.com/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "https://www.clean-estate.com/?bukken=a&shu=&mid=999&nor=999&so=kak&ord=&s=",
+        "page_limit_exist": [1, 0],
+        "is_pagination": true,
+        "link_rex": "//a[div[@class='list_details_button']]",
+        "pg_param": "paged",
+        "total_cnt_rex": "//div[@class='nav-next']",
+        "limit_param": "",
+        "limit": 10,
+        "data_structure": {
+            "image_source_rex": "//div[@class='list_picsam']//img",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='tbl wFull mB30']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "//th",
+                "td_rex": "//td"
+            },
+            "map_rex": "//div[@class='google-maps-link']//a"
+        }
+    },
+    {
+        "type": "selling",
+        "company_name": "クリーンエステート（株）",
+        "site_url": "http://www.clean-estate.com/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "https://www.clean-estate.com/?bukken=b",
+        "page_limit_exist": [1, 0],
+        "is_pagination": true,
+        "link_rex": "//a[div[@class='list_details_button']]",
+        "pg_param": "paged",
+        "total_cnt_rex": "//div[@class='nav-next']",
+        "limit_param": "",
+        "limit": 10,
+        "data_structure": {
+            "image_source_rex": "//div[@class='list_picsam']//img",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//table[@class='tbl wFull mB30']"
+                ],
+                "tr_rex": "//tr",
+                "th_rex": "//th",
+                "td_rex": "//td"
+            },
+            "map_rex": "//div[@class='google-maps-link']//a"
+        }
+    },
+   
+    
+
+    
+
 ]
