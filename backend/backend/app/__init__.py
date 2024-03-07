@@ -3,6 +3,8 @@ from flask_pymongo import PyMongo
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS, cross_origin
 from dotenv import load_dotenv
+from waitress import serve
+
 
 # test api
 from routes import bp
@@ -12,11 +14,13 @@ import secrets
 
 # real api
 
+# app = Flask(__name__, static_folder='../../../frontend/build', static_url_path='/')
 app = Flask(__name__)
+
 app.config['MAIN_URL'] = 'http://localhost:3000/'
 # app.config['MAIN_URL'] = 'http://pationonline.ir/'
-CORS(app, resources={r"/*": {"origins": app.config['MAIN_URL']}})
-# CORS(app, resources={r"/*": {"origins": "http://localhost:3000/"}})
+# CORS(app, resources={r"/*": {"origins": }})
+CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['SECRET_KEY'] = 'your-secret-key'
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = True
@@ -32,8 +36,13 @@ jwt = JWTManager(app)
 mongo = PyMongo(app, uri='mongodb://localhost:27017/scp_system')
 bcrypt = Bcrypt(app)
 
-# app.register_blueprint(bp, url_prefix="/api")
+@app.errorhandler(404)
+def not_found(e):
+  return app.send_static_file('index.html')
+
 import controllers
+
+# serve(app, host='0.0.0.0', port=5000, threads=1) #WAITRESS!
 
 
 # def create_app(test_config=None):

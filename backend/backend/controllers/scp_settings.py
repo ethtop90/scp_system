@@ -7,6 +7,7 @@ from flask_cors import cross_origin
 from bson.json_util import dumps
 from bson import ObjectId
 import datetime
+import os
 
 # import models
 from models.user import User
@@ -14,9 +15,16 @@ from models.scp_setting import Scp_setting
 
 scp_settings = Blueprint('scp-settings', __name__)
 
+@scp_settings.route('/', methods=['GET'])
+def scp_setting_index():
+    return app.send_static_file('index.html')
+
+@scp_settings.route('/scp-running', methods=['GET'])
+def scp_running_index():
+    return app.send_static_file('index.html')
+
 
 # geting all scraping settings
-
 @scp_settings.route('/getall', methods=['GET'])
 @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 def getall():
@@ -64,7 +72,9 @@ def get_item():
         return jsonify({'error': 'User not found'}), 404
     scp_setting = mongo.db.scp_settings.find_one(
         {'$and': [{'username': username}, {'_id':obj_id}]})  # import user's scraping settings
+    
     scp_setting_obj = Scp_setting(
+        str(scp_setting.get("_id")),
         scp_setting.get("username"),
         scp_setting.get("type"),
         scp_setting.get("data_type"),
@@ -132,6 +142,8 @@ def update_item():
 def add_item():
     #getting the username
     username = request.args.get('username')
+    type = request.args.get('type')
+    source = request.args.get('source')
     new_setting_data = request.get_json()
 
     #adding the scraping setting data to getted user
@@ -143,7 +155,12 @@ def add_item():
     new_setting_data['up_settings'] = [0] * 7
     new_setting_data['week_check'] = [False] * 7
 
-    result = mongo.db.scp_settings.insert_one(new_setting_data)
+    find_result = mongo.db.scp_settings.find_one({'$and': [{'username': username}, {'data_type':type}, {'source':source}]})
+    if not find_result:
+        result = mongo.db.scp_settings.insert_one(new_setting_data)
+    else:
+        return jsonify({'message': 'setting already exists'});
+    print(str(result.inserted_id))
 
     if result.acknowledged:
         return jsonify({'message': 'Scraping setting added successfully', 'id':str(result.inserted_id)})

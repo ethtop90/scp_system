@@ -10,9 +10,9 @@ import config
 from models.site_structure import Data_structure, Site_structure, Table_data_structure
 
 class Data:
-    def __init__(self, images, map, table):
+    def __init__(self, images = None, map_link = None, table = None):
         self.images = images
-        self.map = map
+        self.map_link = map_link
         self.table = table
 
 def is_valid_url(url):
@@ -51,13 +51,17 @@ def scp_system(site_structure: Site_structure):
     th_rex = table_data_structure.th_rex
     td_rex = table_data_structure.td_rex
 
-    driver.get(list_base_url)
-    if total_cnt_rex is not None:
-        total_cnt = driver.find_element("xpath", total_cnt_rex).text
-        print("total_cnt:", total_cnt)
-    # links = driver.find_elements('xpath',"")
+    if list_base_url:
+        driver.get(list_base_url)
+        if total_cnt_rex is not None:
+            total_cnt = driver.find_element("xpath", total_cnt_rex).text
+            print("total_cnt:", total_cnt)
+        # links = driver.find_elements('xpath',"")
 
     page_urls = []
+
+    if not page_limit_exist:
+        page_limit_exist = [1, 1]
 
     if is_seperate:
         page_urls = seperated_pages
@@ -92,7 +96,7 @@ def scp_system(site_structure: Site_structure):
             data = {}
             # Loop every item 
             driver.get(item)
-            driver.implicitly_wait(4)
+            driver.implicitly_wait(2)
             
             images = []
             if image_source_rex:
@@ -100,11 +104,11 @@ def scp_system(site_structure: Site_structure):
                 for image_element in image_elements:
                     if image_element.get_attribute('src'):
                         images.append(image_element.get_attribute('src'))
-
+            map_link = None
             if map_rex:
                 map_element = driver.find_element('xpath', map_rex)
                 if map_element.tag_name == 'a':
-                    map = map_element.get_attribute('href')
+                    map_link = map_element.get_attribute('href')
 
             tables = []
             for table_entire_rex_item in table_entire_rex:
@@ -130,12 +134,12 @@ def scp_system(site_structure: Site_structure):
                         # print(f"x: {x}, y: {y}")
                     # print(table_dic)clsc
             # table_dic_cll.append(table_dic)
-            data = Data(images, map, table)
+            data = Data(images, map_link, table_dic)
             all_data.append(data)
             cnt = cnt + 1
             
             if (not config.global_scp_method) and cnt == 1:
-                return all_data[0]
+                return all_data
     # table_json_data = json.dumps(table_dic_cll, ensure_ascii=False)
     # print(table_json_data)
     driver.quit()

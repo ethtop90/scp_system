@@ -56,7 +56,7 @@ function App() {
     // tostify
     toast("Logged Out.", {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 8080,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -76,7 +76,7 @@ function App() {
       return (
         <>
           <Navbar isLoggedIn={false} onLogout={onClickHandler} />
-          <div className="min-h-screen bg-yellow-400 flex justify-center items-center">
+          <div className="min-h-screen bg-blue-400 flex justify-center items-center">
             <div className="py-12 px-12 bg-white rounded-2xl shadow-xl z-20">
               {/* <Login/> */}
               {/* <Register/> */}
@@ -92,10 +92,12 @@ function App() {
           <Navbar isLoggedIn={true} onLogout={onClickHandler} />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/scp-setting" element={<ScpSetting />} />
+            <Route path="/login" element={<Main />} />
+            <Route path="/register" element={<Main />} />
+            <Route path="/scp-settings" element={<ScpSetting />} />
             <Route path="/print-setting" element={<PrintSetting />} />
-            <Route path="/scp-setting/add" element={<ScpSettingModal  method={'add'}/>} />
-            <Route path="/scp-setting/update" element={<ScpSettingModal method={'update'} />}  />
+            <Route path="/scp-settings/add" element={<ScpSettingModal  method={'add'}/>} />
+            <Route path="/scp-settings/update" element={<ScpSettingModal method={'update'} />}  />
             <Route path="/print-setting/auto-setting" element={<AutoSetting />} />
 
           </Routes>

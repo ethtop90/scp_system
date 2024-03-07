@@ -28,11 +28,11 @@ export default function Login(props) {
   }
   // console.log(loginForm)
 
-  const onSubmitHandler = async(event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault()
     console.log(loginForm)
 
-    await axios.post('http://127.0.0.1:5000/login', {
+    await axios.post('http://localhost:8080/login', {
       username: loginForm.username,
       password: loginForm.password
     })    
@@ -52,6 +52,7 @@ export default function Login(props) {
       // reload after success login
       setTimeout(() => {
         window.location.reload()
+        window.location.href('/');
       }, 1000);
 
     })
@@ -66,7 +67,7 @@ export default function Login(props) {
   return (
     <React.Fragment>
         <h1 className="text-3xl font-bold text-center mb-4 cursor-pointer">
-            いらっしゃいませ
+            ログイン
         </h1>
         <p className="w-80 text-center text-sm mb-8 font-semibold text-gray-700 -tracking-wide cursor-pointer mx-auto">
 アカウントにログインしてください。        </p>
@@ -90,14 +91,14 @@ export default function Login(props) {
           <div className="text-center mt-6">
             <button
                 type="submit" 
-                className="py-3 w-64 text-xl text-white bg-yellow-400 rounded-2xl hover:bg-yellow-300 active:bg-yellow-500 outline-none"
+                className="py-3 w-64 text-xl text-white bg-blue-400 rounded-2xl hover:bg-blue-300 active:bg-blue-500 outline-none"
                 >
                 サインイン
             </button>
             <p>
               アカウントをお持ちではありませんか?{" "}
               <Link 
-                to={"/?register"}
+                to={"/register"}
                 onClick={() => {props.setPage("register")}}
               >
                 <span className="underline cursor-pointer">登録する</span> または {" "}

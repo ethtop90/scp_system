@@ -27,7 +27,7 @@ export default function Forgot(props) {
     event.preventDefault();
     console.log(forgotForm);
     await axios
-      .post("http://127.0.0.1:5000/forgot-password", forgotForm)
+      .post("http://localhost:8080/forgot-password", forgotForm)
       .then((response) => {
         toast.success(response.data.detail)
         setTimeout(()=>{
@@ -74,7 +74,7 @@ export default function Forgot(props) {
             <p>
               Already have an account?{" "}
               <Link
-                to={"/?login"}
+                to={"/login"}
                 onClick={() => {props.setPage("login")}}
               >
                 <span className="underline cursor-pointer">Sign In</span>

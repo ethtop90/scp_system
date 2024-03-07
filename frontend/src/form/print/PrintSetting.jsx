@@ -29,7 +29,7 @@ export default function PrintSetting() {
 
   async function fetchAll() {
     await axios
-      .get("http://localhost:5000/scp-settings/getall?username=" + username, {
+      .get("http://localhost:8080/scp-settings/getall?username=" + username, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

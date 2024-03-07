@@ -17,7 +17,7 @@ export default function Home() {
 
     // fetch data from get user API
     axios
-    .get("http://127.0.0.1:5000/users/", {
+    .get("http://localhost:8080/users/", {
       headers: { Authorization: token },
     })
     .then( (response) => {
@@ -39,7 +39,7 @@ export default function Home() {
     // tostify
     toast("Logged Out.", {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 8080,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

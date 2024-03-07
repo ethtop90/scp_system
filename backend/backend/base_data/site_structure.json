@@ -63,7 +63,8 @@
             "image_source_rex": "",
             "table_data_structure": {
                 "table_entire_rex": [
-                    "//div[@class='tbl']//table"
+                    "//div[@class='table tableHead bkDetailDataHead']//table",
+                    "//div[@class='table table-bordered tableDetail']//table",
                 ],
                 "tr_rex": ".//tr",
                 "th_rex": ".//th",

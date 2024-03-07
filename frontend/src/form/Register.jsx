@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 
@@ -14,7 +14,9 @@ export default function Register(props) {
     username: "",
     email: "",
     password: "",
+    confirm_password: ""
   });
+
 
   const onChangeForm = (label, event) => {
     switch (label) {
@@ -31,33 +33,42 @@ export default function Register(props) {
       case "password":
         setFormRegister({ ...formRegister, password: event.target.value });
         break;
+      case "confirm_password":
+        setFormRegister({ ...formRegister, confirm_password: event.target.value });
+        break;
     }
   };
 
   // submit handler
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log("formData", formRegister);
+    // console.log("formData", formRegister);
 
     // call POST API for submit register form data
-    axios
-      .post("http://127.0.0.1:5000/register", formRegister)
-      .then((response) => {
-        // redirect to sign page
-        navigate("/?signin");
-        console.log("response: ", response);
-        // add susscess toast notify
-        toast.success(response.data.detail);
+    
+    if (formRegister['password'] !== formRegister['confirm_password']) {
+      toast.error("パスワードが確認用パスワードと等しくない");
+    } else {
 
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
-      })
-      .catch((error) => {
-        console.log("error: ", error);
-        // add error toast notify
-        toast.error(error.response.data.detail);
-      });
+      await axios
+        .post("http://localhost:8080/register", formRegister)
+        .then((response) => {
+          // redirect to sign page
+          navigate("/login");
+          console.log("response: ", response);
+          // add susscess toast notify
+          toast.success(response.data.detail);
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        })
+        .catch((error) => {
+          console.log("error: ", error);
+          // add error toast notify
+          toast.error(error.response.data.detail);
+        });
+    }
   };
   return (
     <React.Fragment>
@@ -71,8 +82,6 @@ export default function Register(props) {
         <div className="space-y-4">
           <input
             type="text"
-            name=""
-            id=""
             placeholder="ユーザー名"
             className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
             onChange={(event) => {
@@ -81,8 +90,6 @@ export default function Register(props) {
           />
           <input
             type="email"
-            name=""
-            id=""
             placeholder="Eメール"
             className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
             onChange={(event) => {
@@ -91,26 +98,32 @@ export default function Register(props) {
           />
           <input
             type="password"
-            name=""
-            id=""
             placeholder="パスワード"
             className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
             onChange={(event) => {
               onChangeForm("password", event);
             }}
           />
+          <input
+            type="password"
+            placeholder="パスワードを認証する"
+            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
+            onChange={(event) => {
+              onChangeForm("confirm_password", event);
+            }}
+          />
         </div>
         <div className="text-center mt-6">
           <button
             type="submit"
-            className="py-3 w-64 text-xl text-white bg-yellow-400 rounded-2xl hover:bg-yellow-300 active:bg-yellow-500 outline-none"
+            className="py-3 w-64 text-xl text-white bg-blue-400 rounded-2xl hover:bg-blue-300 active:bg-blue-500 outline-none"
           >
-            アカウントを作成する
+            サインアップ
           </button>
           <p>
-          すでにアカウントをお持ちですか?{" "}
+            すでにアカウントをお持ちですか?{" "}
             <Link
-              to={"/?login"}
+              to={"/login"}
               onClick={() => {
                 props.setPage("login");
               }}

@@ -34,6 +34,14 @@ def allowed_file(filename):
 
 scp_running = Blueprint('scp-running', __name__)
 
+@scp_running.route('/get-data/site', methods=['GET'])
+def scp_running_getdata_site_index():
+    return app.send_static_file('index.html')
+
+@scp_running.route('/get-data/file', methods=['GET'])
+def scp_running_gedata_file_index():
+    return app.send_static_file('index.html')
+
 
 @scp_running.route('/get-data/file', methods=['POST'])
 @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
@@ -100,8 +108,7 @@ def matching_data_get():
     type = request.args.get('type')
 
     data = mongo.db.matching_datas.find_one(
-        {'$and': [{'username': username}, {'id': id}]}, {'type': type})
-    print(data)
+        {'$and': [{'username': username}, {'id': id}]})
 
     if data:
         data_obj = Matching_data(
@@ -111,10 +118,11 @@ def matching_data_get():
             data.get("item_keys"),
             data.get("mapping")
         )
+        data_dict = data_obj.to_dict()
     else:
-        data_obj = {}
+        data_dict = None
 
-    return jsonify(data_obj.__dict__)
+    return jsonify(data_dict)
 
 # -----
 
@@ -162,7 +170,7 @@ def matching_data_delete():
     data['username'] = username
     query = {'$and': [{'username': username}, {'id': id}]}
 
-    result = mongo.db.matching_data.delete_one(query)
+    result = mongo.db.matching_datas.delete_one(query)
 
     if result.deleted_count == 1:
         return jsonify({'message': 'matching setting deleted successfully'})
@@ -221,16 +229,16 @@ def import_data_from_site(url, type):
     item_keys = None
     valid = None
     if result is None:
-        return (None, None, False)
+        return (None,None, None, False)
     
     
 
     # running scrape function
     first_data, valid = scp_function(url, type)
-    request_keys = list(first_data['table'].keys())
+    request_keys = list(first_data.table.keys())
     mapping = match_keys(request_keys)
 
-    return (first_data, mapping, request_keys,valid)  # three arguments
+    return (first_data.table, mapping, request_keys,valid)  # three arguments
 # -----
 
 # function scrape from site
@@ -253,8 +261,8 @@ def scp_function(url, type):
             type=get_value_or_none(site_structure_cursor, 'type'),
             company_name=get_value_or_none(site_structure_cursor, 'company_name'),
             site_url=get_value_or_none(site_structure_cursor, 'site_url'),
-            is_seperate=get_value_or_none(site_structure_cursor, 'is_separate'),
-            seperated_pages=get_value_or_none(site_structure_cursor, 'separated_pages'),
+            is_seperate=get_value_or_none(site_structure_cursor, 'is_seperate'),
+            seperated_pages=get_value_or_none(site_structure_cursor, 'seperated_urls'),
             list_base_url=get_value_or_none(site_structure_cursor, 'list_base_url'),
             is_pagination=get_value_or_none(site_structure_cursor, 'is_pagination'),
             link_rex=get_value_or_none(site_structure_cursor, 'link_rex'),
@@ -266,8 +274,10 @@ def scp_function(url, type):
             data_structure=get_value_or_none(site_structure_cursor, 'data_structure')
         )
         print(site_structure)
-        first_data = scp_system(site_structure)
-        return first_data, True
+        datas = scp_system(site_structure)
+        if len(datas):
+            return datas[0], True
+        return none
     except Exception as e:
         print(f"Error creating Site_structure instance: {e}")
     

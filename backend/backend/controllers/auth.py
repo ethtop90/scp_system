@@ -1,10 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from app import app, mongo, bcrypt
-from flask import jsonify, request, session
+from flask import jsonify, request, session, send_from_directory, render_template
 from flask_cors import cross_origin
 from models.user import User
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+import os
+
+# @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
+@app.route('/', defaults={'path': ''}, methods=['GET'])
+@app.route('/<path:path>', methods=['GET'])
+def serve_react_app(path):
+    print(path)
+    return app.send_static_file('index.html')
+    
+@app.route('/login', methods=['GET'])
+def login_page():
+    return app.send_static_file('index.html')
+
+# @app.route('/<path:path>')
+# @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
+# def serve_static(path):
+#     return send_from_directory('../../../frontend/build/static', path)
 
 # successful connection
 @app.route('/success', methods=['GET'])

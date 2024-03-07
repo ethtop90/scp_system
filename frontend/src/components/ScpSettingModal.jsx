@@ -36,7 +36,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
   const [showModal, setShowModal] = useState(method == "update" ? true : false);
   const [id, setId] = useState(null);
   const [sourceType, setSourceType] = useState("site");
-  const [datatype, setDataType] = useState("賃貸");
+  const [datatype, setDataType] = useState("rental");
   const [settingName, setSettingName] = useState();
   const [mgTitle, setMgTitle] = useState("");
   const [ptName, setPtName] = useState("");
@@ -80,7 +80,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
     if (sourceType == "file") {
       axios
         .post(
-          `http://localhost:5000/scp-running/get-data/file?username=${username}`,
+          `http://localhost:8080/scp-running/get-data/file?username=${username}`,
           formData,
           {
             headers: {
@@ -100,7 +100,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
     } else {
       axios
         .post(
-          `http://localhost:5000/scp-running/get-data/site?username=${username}&type=${datatype}`,
+          `http://localhost:8080/scp-running/get-data/site?username=${username}&type=${datatype}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -112,12 +112,10 @@ export default function ScpSettingModal({ method }): JSX.Element {
         .then((response) => {
           console.log("File uploaded successfully:", response.data.message);
           if (response.data.valid == true) {
-            processData(response.data);           
-          }
-          else {
+            processData(response.data);
+          } else {
             toast.error("url or type is invalid");
           }
-
         })
         .catch((error) => {
           console.error("Error uploading file:", error);
@@ -131,7 +129,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
     if (method == "add") {
       await axios
         .post(
-          `http://localhost:5000/scp-settings/add-item?username=${username}`,
+          `http://localhost:8080/scp-settings/add-item?username=${username}&type=${datatype}&source=${source}`,
           {
             type: sourceType,
             data_type: datatype,
@@ -151,7 +149,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
     } else {
       await axios
         .put(
-          `http://localhost:5000/scp-settings/update-item?username=${username}&id=${id}`,
+          `http://localhost:8080/scp-settings/update-item?username=${username}&id=${id}`,
           {
             type: sourceType,
             data_type: datatype,
@@ -180,18 +178,21 @@ export default function ScpSettingModal({ method }): JSX.Element {
 
   const handleMatchingDataSave = async (e) => {
     e.preventDefault();
-    await axios
+    if (id) {
+      await axios
         .post(
-          `http://localhost:5000/scp-running/matching-data/add?username=${username}&id=${id}`, {
-            ...matchingData
+          `http://localhost:8080/scp-running/matching-data/add?username=${username}&id=${id}`,
+          {
+            ...matchingData,
           }
         )
-        .then((response) => {
-          
-        })
+        .then((response) => {})
         .catch((error) => {
           console.log(error);
         });
+    } else {
+      toast.error("Save the setting!");
+    }
   };
 
   const fetchData = async () => {
@@ -199,11 +200,11 @@ export default function ScpSettingModal({ method }): JSX.Element {
     const url = window.location.href;
     const searchParams = new URLSearchParams(new URL(url).search);
     const id = searchParams.get("id");
-    setId(id);
     if (username && id) {
+      console.log(username, id);
       await axios
         .get(
-          `http://localhost:5000/scp-settings/get-item?username=${username}&id=${id}`
+          `http://localhost:8080/scp-settings/get-item?username=${username}&id=${id}`
         )
         .then((response) => {
           toast.success(response.data.message);
@@ -216,26 +217,29 @@ export default function ScpSettingModal({ method }): JSX.Element {
           setDataType(data.data_type);
           setMgTitle(data.mg_title);
           setPtName(data.pt_name);
+          setId(data.id);
         })
         .catch((error) => {
           console.log(error);
         });
-      method == "update" && await axios
-        .get(
-          `http://localhost:5000/scp-running/matching-data/get?username=${username}&id=${id}&type=${datatype}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          }
-        )
-        .then((response) => {
-          console.log(response.data);
-          setMatchingData({ ...response.data });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      method == "update" &&
+        (await axios
+          .get(
+            `http://localhost:8080/scp-running/matching-data/get?username=${username}&id=${id}&type=${datatype}`,
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+          .then((response) => {
+            console.log(response.data);
+            setMatchingData({ ...response.data });
+          })
+          .catch((error) => {
+            console.log(error);
+          }));
     }
   };
 
@@ -247,7 +251,8 @@ export default function ScpSettingModal({ method }): JSX.Element {
   };
 
   useEffect(() => {
-    if (method === "update") {
+    console.log("method:", method);
+    if (method == "update") {
       const username = localStorage.getItem("user");
       const url = window.location.href;
       const searchParams = new URLSearchParams(new URL(url).search);
@@ -259,7 +264,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
   useEffect(() => {
     // fetchData();
     console.log(showModal);
-    if(showModal == false && method == "update")  navigator(-1);
+    if (showModal == false && method == "update") navigator(-1);
   }, [showModal]);
 
   useEffect(() => {
@@ -329,7 +334,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
                           <TERipple rippleColor="light w-full">
                             <TEDropdownToggle className="flex items-center whitespace-nowrap rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-full">
                               {/* 投稿ユーザー（会社名） */}
-                              {datatype == 'rental' ? '賃貸': '売買'}
+                              {datatype == "rental" ? "賃貸" : "売買"}
                               <span className="ml-2 [&>svg]:w-5 w-2">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -347,7 +352,9 @@ export default function ScpSettingModal({ method }): JSX.Element {
                           </TERipple>
 
                           <TEDropdownMenu>
-                            <TEDropdownItem onClick={() => setDataType("rental")}>
+                            <TEDropdownItem
+                              onClick={() => setDataType("rental")}
+                            >
                               <span
                                 href="#"
                                 className="block w-full min-w-[160px] cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 text-sm text-left font-normal pointer-events-auto text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:bg-neutral-100 focus:bg-neutral-100 focus:text-neutral-800 focus:outline-none active:no-underline dark:text-neutral-200 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 dark:active:bg-neutral-600"
@@ -356,7 +363,9 @@ export default function ScpSettingModal({ method }): JSX.Element {
                                 賃貸
                               </span>
                             </TEDropdownItem>
-                            <TEDropdownItem onClick={() => setDataType("selling")}>
+                            <TEDropdownItem
+                              onClick={() => setDataType("selling")}
+                            >
                               <span
                                 href="#"
                                 className="block w-full min-w-[160px] cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 text-sm text-left font-normal pointer-events-auto text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:bg-neutral-100 focus:bg-neutral-100 focus:text-neutral-800 focus:outline-none active:no-underline dark:text-neutral-200 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 dark:active:bg-neutral-600"
