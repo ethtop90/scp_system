@@ -1,5 +1,4 @@
 from app import mongo, bcrypt
-from mongoengine import Document, StringField
 
 db = mongo.db
 

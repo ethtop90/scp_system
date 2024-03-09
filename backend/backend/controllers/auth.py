@@ -6,6 +6,7 @@ from flask_cors import cross_origin
 from models.user import User
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 import os
+import config
 
 # @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 @app.route('/', defaults={'path': ''}, methods=['GET'])
@@ -58,6 +59,8 @@ def login():
     data = request.get_json()
     username = data['username']
     password = data['password']
+    
+    # authentication by self system
 
     user = mongo.db.users.find_one({'username': username})
     if user and bcrypt.check_password_hash(user['password'], password):
@@ -68,6 +71,7 @@ def login():
         return jsonify({'message': 'Login successful', 'access_token': access_token, 'username': user['username']}), 200
     else:
         return jsonify({'message': 'Invalid username or password'}), 401
+    
 
 # Logout endpoint
 @app.route('/logout', methods=['POST'])

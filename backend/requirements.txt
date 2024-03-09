@@ -1,3 +1,10 @@
 flask
 flask-cors
 python-dotenv
+flask_pymongo
+flask_bcrypt
+flask_cors
+dotenv
+waitress
+pandas
+fuzzywuzzy

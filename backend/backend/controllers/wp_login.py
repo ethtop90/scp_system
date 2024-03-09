@@ -1,11 +1,20 @@
 from app import app
 from utils.wordpress_login import wordpress_login
-from flask import request
+from flask import request, jsonify, session
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+
 
 @app.route('/wp-login', methods = ['POST'])
-def login():
+def wp_login():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
 
-    wordpress_login(username, password)
+    cookies = wordpress_login(username, password)
+    session['username'] = username
+    print(username)
+    access_token = create_access_token(identity=username)
+    if cookies:
+        return jsonify({'message': 'Login successful', 'access_token': access_token, 'cookies': cookies, 'username': username}), 200
+    else:
+        return jsonify({'message': 'Invalid username or password'}), 401
