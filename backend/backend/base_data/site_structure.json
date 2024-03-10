@@ -1,4 +1,30 @@
 [
+
+    {
+        "type": "selling",
+        "company_name": "アース不動産合同会社",
+        "site_url": "https://www.shattle.jp/",
+        "list_base_url": "https://www.shattle.jp/search/resultcity?multipleSearchType=cities&class%5B%5D=b1&class%5B%5D=b2&addressCode12%5B%5D=35203",
+        "is_pagination": true,
+        "link_rex": "//a[@class='result-list__link']",
+        "pg_param": "pg",
+        "total_cnt_rex": "//p[@class='result__cnt']//span",
+        "limit_param": null,
+        "limit": 30,
+        "data_structure": {
+            "image_source_rex": "//ul[@class='gallery__thum']//div[@class='image_solid']//li[@class='gallery__thum-items']//img",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//div[@class='detail__spec md-spec detail__section']//div[@class='md-spec__side']"
+                ],
+                "tr_rex": ".//div[@class='md-spec__list']",
+                "th_rex": ".//dt[@class='md-spec__ttl']",
+                "td_rex": ".//dd[@class='md-spec__text']"
+            },
+            "map_rex": null
+        }
+    },
+    
     {
         "type": "selling",
         "company_name": "アース不動産合同会社",

@@ -90,7 +90,13 @@ def scp_system(site_structure: Site_structure):
 
         #getting the hrefs
         hrefs = []
-        hrefs = [link.get_attribute("href") for link in links]
+        if len(links):
+            t_name = links[0].tag_name
+            if t_name == 'img':
+                hrefs = [link.get_attribute("src") for link in links]
+            elif t_name == 'a':
+                hrefs = [link.get_attribute("href") for link in links]
+                
 
         for item in hrefs:
             data = {}

@@ -31,10 +31,10 @@ def getall():
     # getting the username
 
     username = request.args.get('username')
-    user = mongo.db.users.find_one(
-        {'username': username})  # check if user's existance
-    if not user:
-        return jsonify({'error': 'Unregisterd user!'}), 404
+    # user = mongo.db.users.find_one(
+    #     {'username': username})  # check if user's existance
+    # if not user:
+    #     return jsonify({'error': 'Unregisterd user!'}), 404
     # import user's scraping settings
     scp_settings_cursor = mongo.db.scp_settings.find({'username': username})
     
@@ -66,10 +66,10 @@ def get_item():
     # else:
     #     file_path = request.args.get('source')
     obj_id = ObjectId(id)
-    user = mongo.db.users.find_one(
-        {'username': username})  # check if user's existance
-    if not user:
-        return jsonify({'error': 'User not found'}), 404
+    # # user = mongo.db.users.find_one(
+    #     {'username': username})  # check if user's existance
+    # if not user:
+    #     return jsonify({'error': 'User not found'}), 404
     scp_setting = mongo.db.scp_settings.find_one(
         {'$and': [{'username': username}, {'_id':obj_id}]})  # import user's scraping settings
     

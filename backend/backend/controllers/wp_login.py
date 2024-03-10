@@ -2,7 +2,7 @@ from app import app
 from utils.wordpress_login import wordpress_login
 from flask import request, jsonify, session
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-
+   
 
 @app.route('/wp-login', methods = ['POST'])
 def wp_login():
