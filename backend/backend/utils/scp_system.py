@@ -22,7 +22,7 @@ def is_valid_url(url):
     except requests.RequestException:
         return False
 
-def scp_system(site_structure: Site_structure):
+def scp_system(site_structure: Site_structure, get_type):
     # browser setting
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--blink-settings=imagesEnabled=false")
@@ -144,7 +144,7 @@ def scp_system(site_structure: Site_structure):
             all_data.append(data)
             cnt = cnt + 1
             
-            if (not config.global_scp_method) and cnt == 1:
+            if (get_type == 'one') and cnt == 1:
                 return all_data
     # table_json_data = json.dumps(table_dic_cll, ensure_ascii=False)
     # print(table_json_data)

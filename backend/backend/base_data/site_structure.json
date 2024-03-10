@@ -15,11 +15,12 @@
             "image_source_rex": "//ul[@class='gallery__thum']//div[@class='image_solid']//li[@class='gallery__thum-items']//img",
             "table_data_structure": {
                 "table_entire_rex": [
-                    "//div[@class='detail__spec md-spec detail__section']//div[@class='md-spec__side']"
+                    "//div[@class='detail__spec md-spec detail__section']//div[@class='md-spec__side']",
+                    "//div[@class='summary detail__section']"
                 ],
-                "tr_rex": ".//div[@class='md-spec__list']",
-                "th_rex": ".//dt[@class='md-spec__ttl']",
-                "td_rex": ".//dd[@class='md-spec__text']"
+                "tr_rex": "//dl[@class='md-spec__list' or @class='summary__list'] or @class=['']",
+                "th_rex": ".//dt",
+                "td_rex": ".//dd"
             },
             "map_rex": null
         }

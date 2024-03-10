@@ -21,6 +21,8 @@ from utils.scp_system import scp_system
 # import utils
 from utils.search_engine import create_mapping
 
+get_type =  'one'
+
 UPLOAD_FOLDER = os.path.join(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))), 'uploads')
 ALLOWED_EXTENSIONS = {'xlsx'}
@@ -84,16 +86,30 @@ def get_data_from_file():
 @scp_running.route('/get-data/site', methods=['POST'])
 @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 def get_data_from_url():
+    global get_type
+    get_type = request.args.get('get_type')
     type = request.args.get('type')
     setting = request.get_json()
     config.global_scp_method = False
-    first_data, mapping, item_keys, valid = import_data_from_site(setting['source'], type)
-    result = {
-        "mapping": mapping,
-        "item_keys": item_keys,
-        "first_data": first_data,
-        "valid": valid
-    }
+    if get_type == 'one':
+        first_data, mapping, item_keys, valid = import_data_from_site(setting['source'], type)
+        result = {
+            "mapping": mapping,
+            "item_keys": item_keys,
+            "first_data": first_data,
+            "valid": valid
+        }
+    else:
+        all_data, mapping, item_keys, valid = import_data_from_site(setting['source'], type)
+        all_table_data = []
+        for data in all_data:
+            all_table_data.append(data.table)
+        result = {
+            "mapping": mapping,
+            "item_keys": item_keys,
+            "all_data": all_table_data,
+            "valid": valid
+        }
     return jsonify(result)
 
 
@@ -222,6 +238,7 @@ def match_keys(request_key_list):
 # function import from site url
 def import_data_from_site(url, type):
     # result = mongo.db.scp_urls.find_one({"url": url})
+    global get_type
     result = mongo.db.site_structures.find_one({'$and': [{'site_url': url}, {'type': type}]})
 
     
@@ -234,11 +251,16 @@ def import_data_from_site(url, type):
     
 
     # running scrape function
-    first_data, valid = scp_function(url, type)
-    request_keys = list(first_data.table.keys())
-    mapping = match_keys(request_keys)
+    if get_type == 'one':
+        first_data, valid = scp_function(url, type)
+        request_keys = list(first_data.table.keys())
+        mapping = match_keys(request_keys)
 
-    return (first_data.table, mapping, request_keys,valid)  # three arguments
+        return (first_data.table, mapping, request_keys,valid)  # three arguments
+    else:
+        all_data, valid = scp_function(url, type)
+
+        return (all_data, None, None, True)
 # -----
 
 # function scrape from site
@@ -250,6 +272,7 @@ def get_value_or_none(obj, key):
         return None
 
 def scp_function(url, type):
+    global get_type
     site_structure_cursor = mongo.db.site_structures.find_one({'$and': [{'site_url': url}, {'type': type}]})
     if not site_structure_cursor:
         return {}, False 
@@ -274,9 +297,11 @@ def scp_function(url, type):
             data_structure=get_value_or_none(site_structure_cursor, 'data_structure')
         )
         print(site_structure)
-        datas = scp_system(site_structure)
-        if len(datas):
+        datas = scp_system(site_structure, get_type)
+        if len(datas) and (get_type == 'one'):
             return datas[0], True
+        else:
+            return datas, True
         return none
     except Exception as e:
         print(f"Error creating Site_structure instance: {e}")
