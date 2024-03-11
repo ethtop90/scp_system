@@ -14,6 +14,7 @@ import Main from "./form/Main";
 import PrintSetting from "./form/print/PrintSetting";
 import ScpSettingModal from "./components/ScpSettingModal";
 import AutoSetting from "./form/print/AutoSetting";
+import AllDataTable from "./components/AllDataTable";
 
 const UserInfoContext = createContext();
 

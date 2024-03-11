@@ -146,6 +146,8 @@ def scp_system(site_structure: Site_structure, get_type):
             
             if (get_type == 'one') and cnt == 1:
                 return all_data
+            elif cnt == 2:
+                return all_data
     # table_json_data = json.dumps(table_dic_cll, ensure_ascii=False)
     # print(table_json_data)
     driver.quit()
