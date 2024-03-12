@@ -5,7 +5,7 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
   //   const userInfo = useContext(UserInfoContext);
   const username = localStorage.getItem("user");
   return (
-    <nav className="bg-gray-800 p-4 w-full sticky top-0 z-100">
+    <nav className="bg-gray-800 p-4 w-full sticky top-0 z-1000">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-white text-lg font-bold">
           不動産管理

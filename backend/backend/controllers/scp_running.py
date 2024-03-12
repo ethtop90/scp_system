@@ -15,6 +15,7 @@ from models.scp_setting import Scp_setting
 from models.scp_url import Scp_url
 from models.matching_data import Matching_data
 from models.site_structure import Site_structure
+from models.scp_alldata import Scp_alldata
 
 from utils.scp_system import scp_system
 
@@ -316,6 +317,33 @@ def is_valid_source(source):
     return os.path.exists(source)
 
 # -----
+
+@scp_running.route('/save-alldata', methods=['POST'])
+def scp_running_save_alldata():
+    username = request.args.get('username')
+    id = request.args.get('id')
+    query = {'$and': [{'username': username}, {'id': (id)}]}
+    update_data = request.get_json()
+    update_data['id'] = id
+    update_data['username'] = username
+    temp_data = []
+    if len(update_data['data']) >= 1:
+        temp_data = update_data['data'][1:]
+    
+    
+    searchResult = mongo.db.scp_alldatas.find_one(
+        query)
+
+    if not searchResult:
+        result = mongo.db.scp_alldatas.insert_one(update_data)
+
+    else:
+        result = mongo.db.scp_alldatas.update_one(query, {'$set': update_data})
+
+    if result.acknowledged:
+        return jsonify({'message': 'inserted successfully'})
+    else:
+        return jsonify({'message': 'Failed inserted'})
 
 
 app.register_blueprint(scp_running, url_prefix="/scp-running")

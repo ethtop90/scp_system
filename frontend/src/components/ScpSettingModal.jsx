@@ -31,7 +31,7 @@ import '../settings/origin_keys.json'
 
 initTE({ Dropdown, Ripple });
 
-export default function ScpSettingModal({ method }): JSX.Element {
+export default function ScpSettingModal({ method }) {
   const navigator = useNavigate();
   const username = localStorage.getItem("user");
   const token = localStorage.getItem("token");
@@ -200,6 +200,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
 
   const addNewItem = (item) => {
     setAllTableData(prevArray => [...prevArray, item]);
+    
   }
 
   const getAllScpData = async () => {
@@ -220,7 +221,7 @@ export default function ScpSettingModal({ method }): JSX.Element {
           const tempTabledata = response.data['all_data'];
           const tempData = matchingData.mapping;
           const replacedData = swapKeysAndValues(tempData);
-          console.log("replaceddata:", replacedData);
+          console.log("tempTabledata:", tempTabledata);
           tempTabledata.map((item) => {
             console.log("item:", item);
             let itemData = {}
@@ -360,15 +361,16 @@ export default function ScpSettingModal({ method }): JSX.Element {
     console.log(id);
   }, [id]);
 
+
  
 
   return (
     <>
       {
         allDataPageVisible ?
-          <div>
-            {allTabledata && <AllDataTable allData={allTabledata} />}
-            <div className="flex justify-center">
+          <div className="">
+            {allTabledata && <AllDataTable allData={allTabledata} scpSettingId = {id} />}
+            <div className="flex justify-center w-1/2 mx-auto px-10">
               <button
                 type="button"
                 className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
@@ -577,10 +579,10 @@ export default function ScpSettingModal({ method }): JSX.Element {
                               </div>
                             </div>
                             <hr className=""></hr>
-                            <div class="grid grid-cols-3 gap-1 w-full ">
-                              <div class="col-span-2 p-2">スクレイピング設定</div>
-                              <div class="col-span-1 p-2 text-sm"></div>
-                              <div class="col-span-2 p-2 grid grid-cols-2">
+                            <div className="grid grid-cols-3 gap-1 w-full ">
+                              <div className="col-span-2 p-2">スクレイピング設定</div>
+                              <div className="col-span-1 p-2 text-sm"></div>
+                              <div className="col-span-2 p-2 grid grid-cols-2">
                                 <span className="col-span-1">⼭⼝不動産ガイド</span>
                                 <span className="col-span-1">スクレイピング先サイト</span>
                               </div>

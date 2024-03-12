@@ -83,14 +83,14 @@ export default function ScpSetting() {
 
   return (
     <>
-      <div className="flex justify-end m-5">
+      <div className="flex justify-end m-5 overflow-y-scroll">
         <Link
-          class="bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-red-700 hover:text-white px-3"
+          className="bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-red-700 hover:text-white px-3"
           to={"/"}
         >
-          <div class="flex flex-row align-middle">
+          <div className="flex flex-row align-middle">
             <svg
-              class="w-5 mr-2"
+              className="w-5 mr-2"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -101,12 +101,12 @@ export default function ScpSetting() {
                 clip-rule="evenodd"
               ></path>
             </svg>
-            <p class="ml-2">Prev</p>
+            <p className="ml-2">Prev</p>
           </div>
         </Link>
       </div>
-      <div class="m-2 flex items-center justify-center bg-white px-3 md:px-2 z-0">
-        <div class="space-y-6 border-l-2 border-dashed flex flex-col w-full">
+      <div className="m-2 flex items-center justify-center bg-white px-3 md:px-2 z-0">
+        <div className="space-y-6 border-l-2 border-dashed flex flex-col w-full">
           {/* <div>{scpItems.length}</div> */}
           {Array.isArray(scpItems) &&
             scpItems.map((item, index) => (

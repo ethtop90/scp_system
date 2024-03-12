@@ -84,7 +84,7 @@ def scp_system(site_structure: Site_structure, get_type):
         if not is_valid_url(page_url):
             continue
         driver.get(page_url)
-        driver.implicitly_wait(4)
+        driver.implicitly_wait(2)
         # getting the link elements
         links = driver.find_elements('xpath', link_rex)
 
@@ -146,7 +146,7 @@ def scp_system(site_structure: Site_structure, get_type):
             
             if (get_type == 'one') and cnt == 1:
                 return all_data
-            elif cnt == 2:
+            elif cnt == 3:
                 return all_data
     # table_json_data = json.dumps(table_dic_cll, ensure_ascii=False)
     # print(table_json_data)
