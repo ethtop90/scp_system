@@ -8,6 +8,7 @@ import pandas as pd
 import os
 import json
 import config
+import requests, re
 
 # import models
 from models.user import User
@@ -18,6 +19,7 @@ from models.site_structure import Site_structure
 from models.scp_alldata import Scp_alldata
 
 from utils.scp_system import scp_system
+from utils.wp_post_template import *
 
 # import utils
 from utils.search_engine import create_mapping
@@ -330,7 +332,6 @@ def scp_running_save_alldata():
     if len(update_data['data']) >= 1:
         temp_data = update_data['data'][1:]
     
-    
     searchResult = mongo.db.scp_alldatas.find_one(
         query)
 
@@ -345,5 +346,27 @@ def scp_running_save_alldata():
     else:
         return jsonify({'message': 'Failed inserted'})
 
+def wp_post_alldata(all_data, username, id):
+    for data in all_data:
+        #get post_id
+        url = 'https://ymgfg.co.jp/wp-admin/post-new.php?post_type=baibai'
+        element_id = '_acf_post_id'
+        response = requests.get(url)
+        if response.status_code == 200:
+            html_content = response.text
+            print(html_content)
+            
+            post_id_pattern = r'<input.*?id="_acf_post_id".*?value="(.*?)"'
+            user_id_pattern = r'<input.*?id="".*?value="(.*?)"'
+            # Search for the pattern in the HTML content
+            match = re.search(post_id_pattern, html_content, re.DOTALL)
+
+            if match:
+                post_id = match.group(1)
+                print(f"Value of input element '_acf_post_id': {post_id}")
+            else:
+                print("Input element with id '_acf_post_id' not found in the HTML content")
+                return
+            
 
 app.register_blueprint(scp_running, url_prefix="/scp-running")
