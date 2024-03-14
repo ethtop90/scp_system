@@ -1,0 +1,16 @@
+import requests
+
+url = "https://ymgfg.co.jp//wp-json/wp/v2/baibai"
+auth = ("5rfujikawa", "w805 1hLY CGMD 2Qov Zmkv wIsb")
+headers = {"Content-Type": "application/json"}
+data = {
+    "title": "Your Post Title",
+    "fields": {
+        "property_name_baibai": "Value for ACF Field"
+    },
+    "status": "publish"
+}
+
+response = requests.post(url, auth=auth, headers=headers, json=data)
+
+print(response.text)  # Or handle the response as needed

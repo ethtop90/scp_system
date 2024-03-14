@@ -88,9 +88,10 @@ export default function ScpSettingModal({ method }) {
     formData.append("file", selectedFile);
     console.log(formData);
     if (sourceType == "file") {
+      await setLoading(true);
       axios
         .post(
-          `http://localhost:8080/scp-running/get-data/file?username=${username}`,
+          `http://localhost:8080/scp-running/get-data/file?username=${username}&type=${datatype}&get_type=one`,
           formData,
           {
             headers: {
@@ -107,6 +108,7 @@ export default function ScpSettingModal({ method }) {
         .catch((error) => {
           console.error("Error uploading file:", error);
         });
+      await setLoading(false);
     } else {
       await setLoading(true);
       await axios
@@ -200,53 +202,106 @@ export default function ScpSettingModal({ method }) {
 
   const addNewItem = (item) => {
     setAllTableData(prevArray => [...prevArray, item]);
-    
+
   }
 
   const getAllScpData = async () => {
     setLoading(true);
-    await axios
-      .post(
-        `http://localhost:8080/scp-running/get-data/site??username=${username}&type=${datatype}&get_type=all`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          source: source,
-        }
-      )
-      .then((response) => {
-        if (response.data.valid == true) {
-          const tempTabledata = response.data['all_data'];
-          const tempData = matchingData.mapping;
-          const replacedData = swapKeysAndValues(tempData);
-          console.log("tempTabledata:", tempTabledata);
-          tempTabledata.map((item) => {
-            console.log("item:", item);
-            let itemData = {}
-            originKeys.map((val) => {
-              if (replacedData.hasOwnProperty(val)) {
-                itemData[val] = item[replacedData[val]];
-              }
-              else {
-                itemData[val] = null;
-              }
+
+    if (sourceType == 'site') {
+      await axios
+        .post(
+          `http://localhost:8080/scp-running/get-data/site?username=${username}&type=${datatype}&get_type=all`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            source: source,
+          }
+        )
+        .then((response) => {
+          if (response.data.valid == true) {
+            const tempTabledata = response.data['all_data'];
+            const tempData = matchingData.mapping;
+            const replacedData = swapKeysAndValues(tempData);
+            console.log("tempTabledata:", tempTabledata);
+            tempTabledata.map((item) => {
+              console.log("item:", item);
+              let itemData = {}
+              originKeys[datatype].map((val) => {
+                if (replacedData.hasOwnProperty(val)) {
+                  itemData[val] = item[replacedData[val]];
+                }
+                else {
+                  itemData[val] = null;
+                }
+
+              })
+              console.log(itemData)
+              // allTabledata.push(itemData)
+              addNewItem(itemData);
 
             })
-            console.log(itemData)
-            // allTabledata.push(itemData)
-            addNewItem(itemData);
+            console.log('allTabledata:', allTabledata);
+          } else {
+            toast.error("url or type is invalid");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    else {
+      let formData = new FormData();
+      formData.append("file", selectedFile);
+      console.log("get-data file request sent!", formData['file']);
+      await axios
+        .post(
+          `http://localhost:8080/scp-running/get-data/file?username=${username}&type=${datatype}&get_type=all`,
 
-          })
-          console.log('allTabledata:', allTabledata);
-        } else {
-          toast.error("url or type is invalid");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+
+        )
+        .then((response) => {
+          if (response.data.valid == true) {
+            const tempTabledata = response.data['all_data'];
+            const tempData = matchingData.mapping;
+            const replacedData = swapKeysAndValues(tempData);
+            console.log("tempTabledata:", tempTabledata);
+            tempTabledata.map((item) => {
+              console.log("item:", item);
+              let itemData = {}
+              originKeys[datatype].map((val) => {
+                if (replacedData.hasOwnProperty(val)) {
+                  itemData[val] = item[replacedData[val]];
+                }
+                else {
+                  itemData[val] = null;
+                }
+
+              })
+              console.log(itemData)
+              // allTabledata.push(itemData)
+              addNewItem(itemData);
+
+            })
+            console.log('allTabledata:', allTabledata);
+          } else {
+            toast.error("url or type is invalid");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
     setLoading(false);
   }
 
@@ -340,7 +395,7 @@ export default function ScpSettingModal({ method }) {
       fetchData();
     }
     setLoading(false);
-    console.log('originKeys:', originKeys);
+    console.log('originKeys:', originKeys[datatype]);
     // originKeys.map((value, index) => {
     //   tableColumns.push({ title: value, dataIndex: value, key: value })
     // })
@@ -362,14 +417,14 @@ export default function ScpSettingModal({ method }) {
   }, [id]);
 
 
- 
+
 
   return (
     <>
       {
         allDataPageVisible ?
           <div className="">
-            {allTabledata && <AllDataTable allData={allTabledata} scpSettingId = {id} />}
+            {allTabledata && <AllDataTable allData={allTabledata} scpSettingId={id} dataType={datatype} />}
             <div className="flex justify-center w-1/2 mx-auto px-10">
               <button
                 type="button"
@@ -621,7 +676,7 @@ export default function ScpSettingModal({ method }) {
                                         handleMatchingData(value, e.target.value)
                                       }
                                     >
-                                      {originKeys.map((v, i) => (
+                                      {originKeys[datatype].map((v, i) => (
                                         <option key={i} value={v}>
                                           {v}
                                         </option>

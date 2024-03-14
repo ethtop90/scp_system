@@ -20,6 +20,7 @@ from models.scp_alldata import Scp_alldata
 
 from utils.scp_system import scp_system
 from utils.wp_post_template import *
+from utils.wp_post.crud import *
 
 # import utils
 from utils.search_engine import create_mapping
@@ -53,8 +54,10 @@ def scp_running_gedata_file_index():
 def get_data_from_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
-
+    type = request.args.get('type')
     file = request.files['file']
+    get_type = request.args.get('get_type')
+    
 
     if file.filename == '':
         return jsonify({'error': 'No selected file'})
@@ -68,15 +71,26 @@ def get_data_from_file():
 
         # get the parameter from request
         # source = request.args.get('source')
+        if get_type == 'one':
+            mapping, item_keys, all_data, valid = import_data_from_file(filepath, type)
+            item_keys_list = list(item_keys)
 
-        mapping, item_keys, first_data = import_data_from_file(filepath)
-        item_keys_list = list(item_keys)
+            result = {
+                "mapping": mapping,
+                "item_keys": item_keys_list,
+                "first_data": all_data[0],
+                "valid": valid
+            }
+        else:
+            mapping, item_keys, all_data, valid = import_data_from_file(filepath, type)
+            item_keys_list = list(item_keys)
 
-        result = {
-            "mapping": mapping,
-            "item_keys": item_keys_list,
-            "first_data": first_data
-        }
+            result = {
+                "mapping": mapping,
+                "item_keys": item_keys_list,
+                "all_data": all_data,
+                "valid": valid
+            }
         return jsonify(result)
 
         # return jsonify({'success': 'File uploaded successfully'})
@@ -201,9 +215,9 @@ def matching_data_delete():
     # function import from excel file
 
 
-def import_data_from_file(source):
-    if is_valid_source(source) is False:
-        return False
+def import_data_from_file(source, type):
+    # if is_valid_source(source) is False:
+    #     return False
 
     # Read the Excel file into a pandas DataFrame
     xfile = pd.read_excel(source)
@@ -215,17 +229,18 @@ def import_data_from_file(source):
     # return final_json_data
     keys = data_dic[0].keys()
     # print(keys)
-    return (match_keys(keys), keys, data_dic[0])
+    return (match_keys(keys, type), keys, data_dic, True)
 
 # -----
 
 # funtion keys of .xlse file and default keys
 
 
-def match_keys(request_key_list):
+def match_keys(request_key_list, type):
     origin_keys = mongo.db.yamaguchi_data_keys.find_one({
-        "type": "default"
+        "type": type
     })
+    print(type)
 
     distinct_keys = origin_keys['matches']
     origin_key_list = list(distinct_keys) if distinct_keys else []
@@ -346,27 +361,24 @@ def scp_running_save_alldata():
     else:
         return jsonify({'message': 'Failed inserted'})
 
-def wp_post_alldata(all_data, username, id):
+@scp_running.route('/post-to-wp', methods=['POST'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
+def wp_post_alldata():
+    data_type = request.args.get('dataType')
+    username = request.args.get('username')
+    request_data = request.get_json()
+    cookies_str = request_data['Cookie']
+    all_data = request_data['data']
+    
+    cookies_dict = {}
+    if cookies_str:
+        for cookie in cookies_str.split(';'):
+            key, value = cookie.strip().split('=', 1)
+            cookies_dict[key] = value
     for data in all_data:
         #get post_id
-        url = 'https://ymgfg.co.jp/wp-admin/post-new.php?post_type=baibai'
-        element_id = '_acf_post_id'
-        response = requests.get(url)
-        if response.status_code == 200:
-            html_content = response.text
-            print(html_content)
-            
-            post_id_pattern = r'<input.*?id="_acf_post_id".*?value="(.*?)"'
-            user_id_pattern = r'<input.*?id="".*?value="(.*?)"'
-            # Search for the pattern in the HTML content
-            match = re.search(post_id_pattern, html_content, re.DOTALL)
-
-            if match:
-                post_id = match.group(1)
-                print(f"Value of input element '_acf_post_id': {post_id}")
-            else:
-                print("Input element with id '_acf_post_id' not found in the HTML content")
-                return
+        post_add(data_type, username, application_password, title, status, post_field_data)
+        
             
 
 app.register_blueprint(scp_running, url_prefix="/scp-running")

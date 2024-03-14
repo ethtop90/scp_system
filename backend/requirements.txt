@@ -8,3 +8,4 @@ dotenv
 waitress
 pandas
 fuzzywuzzy
+openpyxl

@@ -1,0 +1,324 @@
+{
+  "物件種別": {
+    "field_name": "property_type_baibai",
+    "type": "radio button"
+  },
+  "物件名称": {
+    "field_name": "property_name_baibai",
+    "type": "text"
+  },
+  "現況": {
+    "field_name": "present_condition_baibai",
+    "type": "radio button"
+  },
+  "引き渡し時期": {
+    "field_name": "move_in_date_baibai",
+    "type": "radio button"
+  },
+  "価格（最安値）": {
+    "field_name": "price_baibai",
+    "type": "text"
+  },
+  "価格（最高値）": {
+    "field_name": "maximum_price_baibai",
+    "type": "text"
+  },
+  "物件画像 1枚目": {
+    "field_name": "img_first",
+    "type": "image"
+  },
+  "物件画像 1枚目の説明文": {
+    "field_name": "img_first_caption",
+    "type": "text"
+  },
+  "物件画像 2枚目": {
+    "field_name": "img_second",
+    "type": "image"
+  },
+  "物件画像 2枚目の説明文": {
+    "field_name": "img_second_caption",
+    "type": "text"
+  },
+  "物件画像 3枚目": {
+    "field_name": "img_third",
+    "type": "image"
+  },
+  "物件画像 3枚目の説明文": {
+    "field_name": "img_third_caption",
+    "type": "text"
+  },
+  "物件画像 4枚目": {
+    "field_name": "img_forth",
+    "type": "image"
+  },
+  "物件画像 4枚目の説明文": {
+    "field_name": "img_forth_caption",
+    "type": "text"
+  },
+  "物件画像 5枚目": {
+    "field_name": "img_forth",
+    "type": "image"
+  },
+  "物件画像 5枚目の説明文": {
+    "field_name": "img_fifth_caption",
+    "type": "text"
+  },
+  "物件画像 6枚目": {
+    "field_name": "img_sixth",
+    "type": "image"
+  },
+  "物件画像 6枚目の説明文": {
+    "field_name": "img_sixth_caption",
+    "type": "text"
+  },
+  "物件画像 7枚目": {
+    "field_name": "img_seventh",
+    "type": "image"
+  },
+  "物件画像 7枚目の説明文": {
+    "field_name": "img_seventh_caption",
+    "type": "text"
+  },
+  "物件画像 8枚目": {
+    "field_name": "img_eighth",
+    "type": "image"
+  },
+  "物件画像 8枚目の説明文": {
+    "field_name": "img_eighth_caption",
+    "type": "text"
+  },
+  "物件画像 9枚目": {
+    "field_name": "img_ninth",
+    "type": "image"
+  },
+  "物件画像 9枚目の説明文": {
+    "field_name": "img_ninth_caption",
+    "type": "text"
+  },
+  "物件画像 10枚目": {
+    "field_name": "img_tenth",
+    "type": "image"
+  },
+  "物件画像 10枚目の説明文": {
+    "field_name": "img_tenth_caption",
+    "type": "text"
+  },
+  "住所": {
+    "field_name": "address_baibai",
+    "type": "textarea"
+  },
+  "Googleマップの共有リンク": {
+    "field_name": "map_baibai",
+    "type": "textarea"
+  },
+  "交通（駅・バス停）": {
+
+
+    "field_name": "access_baibai",
+    "type": "textarea"
+  },
+  "駐車場": {
+    "field_name": "parking_baibai",
+    "type": "textarea"
+  },
+  "間取り": {
+    "field_name": "floor_plan_baibai",
+    "type": "radio button"
+  },
+  "取引形態": {
+    "field_name": "transaction_form_baibai",
+    "type": "radio button"
+  },
+  "専有面積": {
+    "field_name": "exclusive_area_baibai",
+    "type": "text"
+  },
+  "建物面積": {
+    "field_name": "building_area_baibai",
+    "type": "text"
+  },
+  "土地面積": {
+    "field_name": "land_area_baibai",
+    "type": "text"
+  },
+  "バルコニー面積": {
+    "field_name": "balcony_area_baibai",
+    "type": "text"
+  },
+  "敷地面積": {
+    "field_name": "site_area_baibai",
+    "type": "text"
+  },
+  "完成年月（築年月）": {
+    "field_name": "completion_date_baibai",
+    "type": "date picker"
+  },
+  "販売数": {
+    "field_name": "number_of_sales_baibai",
+    "type": "text"
+  },
+  "販売総数": {
+    "field_name": "total_sales_baibai",
+    "type": "text"
+  },
+  "最多価格帯": {
+    "field_name": "price_range_baibai",
+    "type": "text"
+  },
+  "接道方向": {
+    "field_name": "direction_access_baibai",
+    "type": "radio button"
+  },
+  "幅員(道路幅)": {
+    "field_name": "road_conditions_baibai",
+    "type": "textarea"
+  },
+  "土地の権利": {
+    "field_name": "land_rights_baibai",
+    "type": "radio button"
+  },
+  "建ぺい率": {
+    "field_name": "building_coverage_baibai",
+    "type": "text"
+  },
+  "容積率": {
+    "field_name": "floor_area_baibai",
+    "type": "text"
+  },
+  "施行会社": {
+    "field_name": "enforcement_company_baibai",
+    "type": "text"
+  },
+  "用途地域": {
+    "field_name": "use_area_baibai",
+    "type": "radio button"
+  },
+  "地目": {
+    "field_name": "landmark_baibai",
+    "type": "radio button"
+  },
+  "主たる設備の概要": {
+    "field_name": "overview_baibai",
+    "type": "textarea"
+  },
+  "借地": {
+    "field_name": "leased_land_baibai",
+    "type": "boolean"
+  },
+  "借地に関する概要": {
+    "field_name": "period_lease_baibai",
+    "type": "textarea"
+  },
+  "私道負担": {
+    "field_name": "driveway_burden_baibai",
+    "type": "radio button"
+  },
+  "道路に関する負担金": {
+    "field_name": "contributions_for_roads_baibai",
+    "type": "textarea"
+  },
+  "その他制限事項": {
+    "field_name": "other_restrictions_baibai",
+    "type": "textarea"
+  },
+  "特記事項": {
+    "field_name": "notice_baibai",
+    "type": "textarea"
+  },
+  "情報公開日": {
+    "field_name": "info_open_date_baibai",
+    "type": "date picker"
+  },
+  "情報更新日": {
+    "field_name": "info_update_date_baibai",
+    "type": "date picker"
+  },
+  "次回更新予定日": {
+    "field_name": "next_date_baibai",
+    "type": "date picker"
+  },
+  "取引の有効期限": {
+    "field_name": "expiry_date_baibai",
+    "type": "date picker"
+  },
+  "管理・共益費": {
+    "field_name": "management_fee_baibai",
+    "type": "text"
+  },
+  "修繕積立金": {
+    "field_name": "repairs_cost_baibai",
+    "type": "text"
+  },
+  "管理会社": {
+    "field_name": "management_company_baibai",
+    "type": "text"
+  },
+  "管理方式": {
+    "field_name": "conditions_baibai",
+    "type": "radio button"
+  },
+  "管理人の勤務形態": {
+    "field_name": "managers_working_style_baibai",
+    "type": "radio button"
+  },
+  "修繕積立基金": {
+    "field_name": "reserve_fund_baibai",
+    "type": "text"
+  },
+  "階数": {
+    "field_name": "floors_baibai",
+    "type": "text"
+  },
+  "所在階数": {
+    "field_name": "floor_number_baibai",
+    "type": "text"
+  },
+  "売主": {
+    "field_name": "seller_baibai",
+    "type": "text"
+  },
+  "開発面積": {
+    "field_name": "development_area_baibai",
+    "type": "text"
+  },
+  "開発許可番号": {
+    "field_name": "development_permit_number_baibai",
+    "type": "text"
+  },
+  "建築確認番号": {
+    "field_name": "building_number_baibai",
+    "type": "text"
+  },
+  "構造": {
+    "field_name": "structure_baibai",
+    "type": "checkbox"
+  },
+  "リフォーム": {
+    "field_name": "renovation_baibai",
+    "type": "textarea"
+  },
+  "国土法": {
+    "field_name": "land_law_baibai",
+    "type": "textarea"
+  },
+  "都市計画": {
+    "field_name": "city_plan_baibai",
+    "type": "textarea"
+  },
+  "建築条件": {
+    "field_name": "construction_conditions_baibai",
+    "type": "radio button"
+  },
+  "主要採光部": {
+    "field_name": "main_lighting_baibai",
+    "type": "checkbox"
+  },
+  "おすすめポイント": {
+    "field_name": "point_baibai",
+    "type": "textarea"
+  },
+  "動画": {
+    "field_name": "movie_baibai",
+    "type": "textarea"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "物件種別": {
+    "field_name": "property_type_chintai",
+    "type": "radio button"
+  },
+  "物件名称": {
+    "field_name": "property_name_chintai",
+    "type": "text"
+  },
+  "物件画像 1枚目": {
+    "field_name": "img_first",
+    "type": "image"
+  },
+  "物件画像 1枚目の説明文": {
+    "field_name": "img_first_caption",
+    "type": "text"
+  },
+  "物件画像 2枚目": {
+    "field_name": "img_second",
+    "type": "image"
+  },
+  "物件画像 2枚目の説明文": {
+    "field_name": "img_second_caption",
+    "type": "text"
+  },
+  "物件画像 3枚目": {
+    "field_name": "img_third",
+    "type": "image"
+  },
+  "物件画像 3枚目の説明文": {
+    "field_name": "img_third_caption",
+    "type": "text"
+  },
+  "物件画像 4枚目": {
+    "field_name": "img_forth",
+    "type": "image"
+  },
+  "物件画像 4枚目の説明文": {
+    "field_name": "img_forth_caption",
+    "type": "text"
+  },
+  "物件画像 5枚目": {
+    "field_name": "img_fifth",
+    "type": "image"
+  },
+  "物件画像 5枚目の説明文": {
+    "field_name": "img_fifth_caption",
+    "type": "text"
+  },
+  "物件画像 6枚目": {
+    "field_name": "img_sixth",
+    "type": "image"
+  },
+  "物件画像 6枚目の説明文": {
+    "field_name": "img_sixth_caption",
+    "type": "text"
+  },
+  "物件画像 7枚目": {
+    "field_name": "img_seventh",
+    "type": "image"
+  },
+  "物件画像 7枚目の説明文": {
+    "field_name": "img_seventh_caption",
+    "type": "text"
+  },
+  "物件画像 8枚目": {
+    "field_name": "img_eighth",
+    "type": "image"
+  },
+  "物件画像 8枚目の説明文": {
+    "field_name": "img_eighth_caption",
+    "type": "text"
+  },
+  "物件画像 9枚目": {
+    "field_name": "img_ninth",
+    "type": "image"
+  },
+  "物件画像 9枚目の説明文": {
+    "field_name": "img_ninth_caption",
+    "type": "text"
+  },
+  "物件画像 10枚目": {
+    "field_name": "img_tenth",
+    "type": "image"
+  },
+  "物件画像 10枚目の説明文": {
+    "field_name": "img_tenth_caption",
+    "type": "text"
+  },
+  "住所": {
+    "field_name": "address_chintai",
+    "type": "textarea"
+  },
+  "Googleマップの共有リンク": {
+    "field_name": "map_chintai",
+    "type": "textarea"
+  },
+  "家賃": {
+    "field_name": "rent_chintai",
+    "type": "text"
+  },
+  "管理・共益費": {
+    "field_name": "management_fee_chintai",
+    "type": "text"
+  },
+  "敷金・保証金": {
+    "field_name": "deposit_chintai",
+    "type": "radio button"
+  },
+  "敷き引き": {
+    "field_name": "shikihiki_chintai",
+    "type": "textarea"
+  },
+  "礼金": {
+    "field_name": "key_money_chintai",
+    "type": "radio button"
+  },
+  "交通（駅・バス停）": {
+    "field_name": "access_chintai",
+    "type": "textarea"
+  },
+  "駐車場": {
+    "field_name": "parking_chintai",
+    "type": "textarea"
+  },
+  "その他費用": {
+    "field_name": "other_cost_chintai",
+    "type": "textarea"
+  },
+  "間取り": {
+    "field_name": "floor_plan_chintai",
+    "type": "radio button"
+  },
+  "取引形態": {
+    "field_name": "transaction_form_chintai",
+    "type": "radio button"
+  },
+  "完成年月": {
+    "field_name": "completion_date_chintai",
+    "type": "date picker"
+  },
+  "入居可能日": {
+    "field_name": "move_in_date_chintai",
+    "type": "radio button"
+  },
+  "専有面積": {
+    "field_name": "exclusive_area_chintai",
+    "type": "text"
+  },
+  "建物面積": {
+    "field_name": "building_area_chintai",
+    "type": "text"
+  },
+  "敷地面積": {
+    "field_name": "site_area_chintai",
+    "type": "text"
+  },
+  "バルコニー面積": {
+    "field_name": "balcony_area_chintai",
+    "type": "text"
+  },
+  "建物階数": {
+    "field_name": "floor_numbers_chintai",
+    "type": "text"
+  },
+  "所在階数": {
+    "field_name": "floor_number_chintai",
+    "type": "text"
+  },
+  "総戸数": {
+    "field_name": "total_units_chintai",
+    "type": "text"
+  },
+  "情報公開日": {
+    "field_name": "info_open_date_chintai",
+    "type": "date picker"
+  },
+  "情報更新日": {
+    "field_name": "info_update_date_chintai",
+    "type": "date picker"
+  },
+  "次回更新予定日": {
+    "field_name": "next_date_chintai",
+    "type": "date picker"
+  },
+  "火災保険": {
+    "field_name": "fire_insurance_chintai",
+    "type": "radio button"
+  },
+  "保証会社・保証人": {
+    "field_name": "guarantee_company_chintai",
+    "type": "radio button"
+  },
+  "その他": {
+    "field_name": "other_chintai",
+    "type": "textarea"
+  },
+  "定期建物賃貸借": {
+    "field_name": "fixed_term_lease_chintai",
+    "type": "radio button"
+  },
+  "契約期間": {
+    "field_name": "contract_period_chintai",
+    "type": "radio button"
+  },
+  "取引の有効期限": {
+    "field_name": "expiry_date_chintai",
+    "type": "date picker"
+  },
+  "更新費用": {
+    "field_name": "update_chintai",
+    "type": "text"
+  },
+  "その他制限事項": {
+    "field_name": "other_restrictions_chintai",
+    "type": "textarea"
+  },
+  "特記事項": {
+    "field_name": "notice_chintai",
+    "type": "text"
+  },
+  "管理会社": {
+    "field_name": "management_company_chintai",
+    "type": "textarea"
+  },
+  "管理人の勤務形態": {
+    "field_name": "managers_working_style_chintai",
+    "type": "radio button"
+  },
+  "管理方式": {
+    "field_name": "conditions_chintai",
+    "type": "radio button"
+  },
+  "建築確認番号": {
+    "field_name": "building_number_chintai",
+    "type": "text"
+  },
+  "構造": {
+    "field_name": "structure_chintai",
+    "type": "checkbox"
+  },
+  "砂利敷き": {
+    "field_name": "graveled_chintai",
+    "type": "boolean"
+  },
+  "アスファルト": {
+    "field_name": "asphalt_chintai",
+    "type": "boolean"
+  },
+  "おすすめポイント": {
+    "field_name": "point_baibai",
+    "type": "textarea"
+  },
+  "動画": {
+    "field_name": "movie_chintai",
+    "type": "textarea"
+  }
+}

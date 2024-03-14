@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 
-export default function AllDataTable({ allData, scpSettingId }) {
+export default function AllDataTable({ allData, scpSettingId, dataType }) {
     const username = localStorage.getItem('username');
     const [currentID, setCurrentID] = useState(1);
     const [cnt, setCnt] = useState(1);
@@ -30,8 +30,30 @@ export default function AllDataTable({ allData, scpSettingId }) {
 
     const handleSave = async () => {
         const username = localStorage.getItem('user');
-        await axios.post(`http://localhost:8080/scp-running/save-alldata?username=${username}&id=${scpSettingId}`, {
-            'data': allData
+        const cookie_data = document.cookie;
+        console.log("cookies:", cookie_data);
+        await axios.post(`http://localhost:8080/scp-running/save-alldata?username=${username}&id=${scpSettingId}&dataType=${dataType}`, {
+            'data': allData,
+            
+        })
+            .then((response) => {
+                console.log(response.data);
+                toast.success(response.data.message);
+            }
+
+            )
+            .catch(err => {
+
+            })
+
+        await axios.post(`http://localhost:8080/scp-running/post-to-wp?username=${username}&dataType=${dataType}`, {
+            'data': allData,
+            'Cookie': cookie_data,
+            withCredentials: true, // Include cookies in the request
+            headers: {
+                'Content-Type': 'application/json',
+                 // Set the Cookie header with your cookie string
+            }
         })
             .then((response) => {
                 console.log(response.data);
@@ -89,7 +111,7 @@ export default function AllDataTable({ allData, scpSettingId }) {
 
             <div className="flex w-1/2 min-w-min flex-col mx-auto overflow-y-scroll">
                 {
-                    originKeys.map((val, index) => {
+                    originKeys[dataType].map((val, index) => {
                         return <dl key={index} className="flex flex-row justify p-3">
                             <dt className="w-1/2 bg-">{val}</dt>
                             <dd className="w-1/2">{_.get(allData[currentID], val)}</dd>
