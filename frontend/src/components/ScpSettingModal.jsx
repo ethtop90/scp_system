@@ -44,6 +44,7 @@ export default function ScpSettingModal({ method }) {
   const [settingName, setSettingName] = useState();
   const [mgTitle, setMgTitle] = useState("");
   const [ptName, setPtName] = useState("");
+  const [userlist, setUserlist] = useState([]);
   const [source, setSource] = useState("");
   const [dataKeys, setDataKeys] = useState([]);
   let mapping = {};
@@ -60,16 +61,16 @@ export default function ScpSettingModal({ method }) {
   };
 
   useEffect(() => {
-    console.log("sourceType:", sourceType);
+    //console.log("sourceType:", sourceType);
   }, [sourceType]);
 
   const handleMgTitle = (newValue) => {
-    console.log(newValue);
+    //console.log(newValue);
     setMgTitle(newValue);
   };
 
   const handlePtName = (e) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setPtName(e.target.value);
   };
 
@@ -83,10 +84,10 @@ export default function ScpSettingModal({ method }) {
 
   const handleRun = async () => {
 
-    console.log(loading);
+    //console.log(loading);
     let formData = new FormData();
     formData.append("file", selectedFile);
-    console.log(formData);
+    //console.log(formData);
     if (sourceType == "file") {
       await setLoading(true);
       axios
@@ -101,9 +102,9 @@ export default function ScpSettingModal({ method }) {
           }
         )
         .then((response) => {
-          console.log("File uploaded successfully:", response.data.message);
+          //console.log("File uploaded successfully:", response.data.message);
           processData(response.data);
-          console.log(response.data);
+          //console.log(response.data);
         })
         .catch((error) => {
           console.error("Error uploading file:", error);
@@ -123,7 +124,7 @@ export default function ScpSettingModal({ method }) {
           }
         )
         .then((response) => {
-          console.log("File uploaded successfully:", response.data.message);
+          //console.log("File uploaded successfully:", response.data.message);
           if (response.data.valid == true) {
             processData(response.data);
           } else {
@@ -157,7 +158,7 @@ export default function ScpSettingModal({ method }) {
           setId(response.data.id);
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
       fetchData();
     } else {
@@ -176,14 +177,14 @@ export default function ScpSettingModal({ method }) {
           toast.success(response.data.message);
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
       fetchData();
     }
   };
 
   const handleMatchingData = (key, val) => {
-    console.log(key, val);
+    //console.log(key, val);
     setMatchingData({
       ...matchingData,
       mapping: { ...matchingData.mapping, [key]: val },
@@ -202,7 +203,7 @@ export default function ScpSettingModal({ method }) {
 
   const addNewItem = (item) => {
     setAllTableData(prevArray => [...prevArray, item]);
-
+    
   }
 
   const getAllScpData = async () => {
@@ -225,37 +226,40 @@ export default function ScpSettingModal({ method }) {
             const tempTabledata = response.data['all_data'];
             const tempData = matchingData.mapping;
             const replacedData = swapKeysAndValues(tempData);
-            console.log("tempTabledata:", tempTabledata);
+            let tableDic = {};
+            //console.log("tempTabledata:", tempTabledata);
             tempTabledata.map((item) => {
-              console.log("item:", item);
+              //console.log("item:", item);
               let itemData = {}
               originKeys[datatype].map((val) => {
                 if (replacedData.hasOwnProperty(val)) {
                   itemData[val] = item[replacedData[val]];
+                  
                 }
                 else {
                   itemData[val] = null;
                 }
 
               })
-              console.log(itemData)
+              console.log("itemData:", itemData);
               // allTabledata.push(itemData)
+              
               addNewItem(itemData);
 
             })
-            console.log('allTabledata:', allTabledata);
+            //console.log('allTabledata:', allTabledata);
           } else {
             toast.error("url or type is invalid");
           }
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     }
     else {
       let formData = new FormData();
       formData.append("file", selectedFile);
-      console.log("get-data file request sent!", formData['file']);
+      //console.log("get-data file request sent!", formData['file']);
       await axios
         .post(
           `http://localhost:8080/scp-running/get-data/file?username=${username}&type=${datatype}&get_type=all`,
@@ -274,9 +278,9 @@ export default function ScpSettingModal({ method }) {
             const tempTabledata = response.data['all_data'];
             const tempData = matchingData.mapping;
             const replacedData = swapKeysAndValues(tempData);
-            console.log("tempTabledata:", tempTabledata);
+            //console.log("tempTabledata:", tempTabledata);
             tempTabledata.map((item) => {
-              console.log("item:", item);
+              //console.log("item:", item);
               let itemData = {}
               originKeys[datatype].map((val) => {
                 if (replacedData.hasOwnProperty(val)) {
@@ -287,7 +291,6 @@ export default function ScpSettingModal({ method }) {
                 }
 
               })
-              console.log(itemData)
               // allTabledata.push(itemData)
               addNewItem(itemData);
 
@@ -298,7 +301,7 @@ export default function ScpSettingModal({ method }) {
           }
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     }
 
@@ -319,24 +322,44 @@ export default function ScpSettingModal({ method }) {
 
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
       await getAllScpData();
       setAllDataPageVisible(true);
-      console.log(allDataPageVisible);
+      //console.log(allDataPageVisible);
       // mapping.map
     } else {
       toast.error("Save the setting!");
     }
   };
 
+  useEffect(() => {
+    console.log(userlist);
+  }, [userlist])
+
   const fetchData = async () => {
     const username = localStorage.getItem("user");
     const url = window.location.href;
     const searchParams = new URLSearchParams(new URL(url).search);
     const id = searchParams.get("id");
+    const token = localStorage.getItem("token");
+    await axios.get(`http://localhost:8080/wp/users?username=${username}`)
+      .then(response => {
+        console.log(response.data);
+        setUserlist([...response.data['users']])
+        const users = response.data['users'];
+        // const user = users.find(user => user.name === username);
+        const user_id = response.data['user_id'];
+        const application_password = response.data['application_password'];
+        localStorage.setItem("user_id", user_id);
+        // localStorage.setItem("application_password", application_password);
+      })
+      .catch(error => {
+
+      })
+
     if (username && id) {
-      console.log(username, id);
+      //console.log(username, id);
       await axios
         .get(
           `http://localhost:8080/scp-settings/get-item?username=${username}&id=${id}`
@@ -344,18 +367,18 @@ export default function ScpSettingModal({ method }) {
         .then((response) => {
           toast.success(response.data.message);
           let data = response.data;
-          console.log(data);
-          console.log(data.data_type);
+          //console.log(data);
+          //console.log(data.data_type);
           setSourceType(data.type);
           setSource(data.source);
-          console.log(data.source);
+          //console.log(data.source);
           setDataType(data.data_type);
           setMgTitle(data.mg_title);
           setPtName(data.pt_name);
           setId(data.id);
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
       method == "update" &&
         (await axios
@@ -369,11 +392,11 @@ export default function ScpSettingModal({ method }) {
             }
           )
           .then((response) => {
-            console.log(response.data);
+            //console.log(response.data);
             setMatchingData({ ...response.data });
           })
           .catch((error) => {
-            console.log(error);
+            //console.log(error);
           }));
     }
   };
@@ -386,7 +409,7 @@ export default function ScpSettingModal({ method }) {
   };
 
   useEffect(() => {
-    console.log("method:", method);
+    //console.log("method:", method);
     if (method == "update") {
       const username = localStorage.getItem("user");
       const url = window.location.href;
@@ -395,11 +418,13 @@ export default function ScpSettingModal({ method }) {
       fetchData();
     }
     setLoading(false);
-    console.log('originKeys:', originKeys[datatype]);
+    fetchData();
+
+    //console.log('originKeys:', originKeys[datatype]);
     // originKeys.map((value, index) => {
     //   tableColumns.push({ title: value, dataIndex: value, key: value })
     // })
-    // console.log("tableColumns:", tableColumns);
+    // //console.log("tableColumns:", tableColumns);
   }, []);
 
   const handleChangePage = () => {
@@ -408,12 +433,12 @@ export default function ScpSettingModal({ method }) {
 
   useEffect(() => {
     // fetchData();
-    console.log(showModal);
+    //console.log(showModal);
     if (showModal == false && method == "update") navigator(-1);
   }, [showModal]);
 
   useEffect(() => {
-    console.log(id);
+    //console.log(id);
   }, [id]);
 
 
@@ -585,6 +610,9 @@ export default function ScpSettingModal({ method }) {
                                     className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
                                   >
                                     {/* change part */}
+                                    {userlist.map((user) => (
+                                      <option value={user['name']}></option>
+                                    ))}
                                   </datalist>
                                 </div>
                                 <div>

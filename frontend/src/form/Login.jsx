@@ -8,6 +8,7 @@ export default function Login(props) {
   const [loginForm, setLoginForm] = useState({
     username: "",
     password: "",
+    applicationPassword: ""
   })
 
   const onChangeForm = (label, event) => {
@@ -20,6 +21,11 @@ export default function Login(props) {
       case "password":
         setLoginForm({
           ...loginForm, password: event.target.value
+        })
+        break;
+      case "applicationPassword":
+        setLoginForm({
+          ...loginForm, applicationPassword: event.target.value
         })
         break;
       default:
@@ -35,7 +41,8 @@ export default function Login(props) {
 
     await axios.post('http://localhost:8080/wp-login', {
       username: loginForm.username,
-      password: loginForm.password
+      password: loginForm.password,
+      applicationPassword: loginForm.applicationPassword
     })
       .then(function (response) {
         // console.log(response);
@@ -45,6 +52,7 @@ export default function Login(props) {
         localStorage.setItem("auth_token", response.data.access_token)
         localStorage.setItem("auth_token_type", response.data.token_type)
         localStorage.setItem("user", response.data.username )
+        localStorage.setItem("application_password", loginForm.applicationPassword )
 
         var jsonCookies = response.data.cookies;
 
@@ -95,6 +103,13 @@ export default function Login(props) {
             type="password" name="" id="" placeholder="パスワード"
             onChange={(event) => {
               onChangeForm("password", event)
+            }}
+            className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
+          />
+          <input
+            type="password" name="" id="" placeholder="パスワード"
+            onChange={(event) => {
+              onChangeForm("applicationPassword", event)
             }}
             className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
           />

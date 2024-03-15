@@ -4,3 +4,4 @@ from .auth import *
 from .scp_settings import *
 from .scp_running import *
 from .wp_login import *
+from .wp import *

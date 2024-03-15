@@ -21,9 +21,14 @@ def wordpress_login(username, password):
         print("wp-login is proceed successfully")
         # Handle the successful response
         cookies = response.cookies.get_dict()
-        
+        # user_data = response.json()
+        # user_id = user_data['id']
+        # application_password = get_application_password(user_id)
+        application_password = None
         serialize_cookies = json.dumps(cookies)
         return serialize_cookies
     else:
         print('Error:', response.status_code)
         return None
+    
+    

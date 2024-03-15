@@ -272,7 +272,7 @@ def import_data_from_site(url, type):
     if get_type == 'one':
         first_data, valid = scp_function(url, type)
         request_keys = list(first_data.table.keys())
-        mapping = match_keys(request_keys)
+        mapping = match_keys(request_keys, type)
 
         return (first_data.table, mapping, request_keys,valid)  # three arguments
     else:
@@ -339,45 +339,49 @@ def is_valid_source(source):
 def scp_running_save_alldata():
     username = request.args.get('username')
     id = request.args.get('id')
-    query = {'$and': [{'username': username}, {'id': (id)}]}
-    update_data = request.get_json()
-    update_data['id'] = id
-    update_data['username'] = username
-    temp_data = []
-    if len(update_data['data']) >= 1:
-        temp_data = update_data['data'][1:]
+    id = request.args.get('id')
+    all_data = request.get_json()['data']
+    all_data = all_data[1:]
     
-    searchResult = mongo.db.scp_alldatas.find_one(
-        query)
+    for index, item_data in enumerate(all_data):
+        update_data = {} 
+        update_data['id'] = id
+        update_data['username'] = username
+        update_data['data'] = item_data
+        if update_data['data'].get('物件名称') is None:
+            update_data['title'] = username + id + index
+        else:
+            update_data['title'] = update_data['data'].get('物件名称')
+        query = {'$and': [{'username': username}, {'id': (id)}, {'title': update_data['title']}]}
+        searchResult = mongo.db.scp_alldatas.find_one(
+            query)
 
-    if not searchResult:
-        result = mongo.db.scp_alldatas.insert_one(update_data)
+        if not searchResult:
+            result = mongo.db.scp_alldatas.insert_one(update_data)
 
-    else:
-        result = mongo.db.scp_alldatas.update_one(query, {'$set': update_data})
+        else:
+            result = mongo.db.scp_alldatas.update_one(query, {'$set': update_data})
 
-    if result.acknowledged:
-        return jsonify({'message': 'inserted successfully'})
-    else:
-        return jsonify({'message': 'Failed inserted'})
 
 @scp_running.route('/post-to-wp', methods=['POST'])
 @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
 def wp_post_alldata():
     data_type = request.args.get('dataType')
     username = request.args.get('username')
+    status = request.args.get('status')
+    id = request.args.get('id')
+    application_password = request.args.get('application_password')
     request_data = request.get_json()
-    cookies_str = request_data['Cookie']
-    all_data = request_data['data']
+    all_data = request.get_json()['data']
+    all_data = all_data[1:]
     
-    cookies_dict = {}
-    if cookies_str:
-        for cookie in cookies_str.split(';'):
-            key, value = cookie.strip().split('=', 1)
-            cookies_dict[key] = value
-    for data in all_data:
+    for index, item_data in enumerate(all_data):
+        if item_data.get('物件名称') is None:
+            title = username + id + index
+        else:
+            title = item_data.get('物件名称')
         #get post_id
-        post_add(data_type, username, application_password, title, status, post_field_data)
+        post_add(data_type, username, application_password, title, status, item_data)
         
             
 

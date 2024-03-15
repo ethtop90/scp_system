@@ -1,21 +1,24 @@
 import requests, json
 from flask import Flask, jsonify, Blueprint
+from pathlib import Path
+
+base_path = Path(__file__).parent
 
 base_url = "https://ymgfg.co.jp//wp-json/wp/v2/"
 
-with open('../../base_data/post_field_baibai.json', 'r') as file:
-    baibai_data = json.loads(file)
+with open(base_path / '../../base_data/post_field_baibai.json', 'r', encoding='utf-8') as file:
+    baibai_data = json.load(file)
     
-with open('../../base_data/post_field_chintai.json', 'r') as file:
-    chintai_data = json.loads(file)
+with open(base_path / '../../base_data/post_field_chintai.json', 'r', encoding='utf-8') as file:
+    chintai_data = json.load(file)
     
 def post_add(data_type, username, application_password, title, status, post_field_data):
+    data_type = "chintai" if data_type == 'rental' else "baibai"
     if data_type == 'chintai':
         field_dictionary = chintai_data
     else: 
         field_dictionary = baibai_data 
-        
-    post_field_data = request.get_json() #array {'field_name': value, ...}
+         #array {'field_name': value, ...}
     
     url = base_url + data_type
     
