@@ -62,7 +62,7 @@ def wp_post_add(data_type, title, status, post_field_data, id):
     headers = {"Content-Type": "application/json"}
     data = {
         "title": title,
-        "fields": {  # Initialize the "fields" dictionary
+        "acf": {  # Initialize the "fields" dictionary
             # Add all values from post_field_data to "fields"
             field_dictionary[field_name].get('field_name'): value for field_name, value in post_field_data.items()
         },

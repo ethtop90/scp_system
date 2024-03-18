@@ -216,6 +216,18 @@ def delete_item():
     return {'message': 'Scraping setting updated successfully'}
 #-----
 
+
+# makeing the csv file
+@scp_settings.route('/make-csv', methods = ['get'])
+@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
+def make_csv():
+    username = request.args.get('username')
+    id = request.args.get('id')
+    
+    query = {'$and': [{'username': username}, {'id': (id)}]}
+    all_datas = mongo.db.scp_alldatas.find_one(query)
+    
+
 #register the blueprint
 
 

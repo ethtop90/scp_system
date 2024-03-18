@@ -33,8 +33,17 @@ export default function PrintSetting() {
         });
   }
 
-  const handleCSVPrint = () => {
-
+  const handleCSVPrint = async (id) => {
+    await axios
+        .get(
+          `http://localhost:8080/scp-settings/make-csv?username=${username}&id=${id}`
+        )
+        .then((response) => {
+          toast.success(response.data.message);
+        })
+        .catch((error) => {
+          //console.log(error);
+        });
   }
 
   useEffect(() => {
@@ -98,7 +107,7 @@ export default function PrintSetting() {
                   <BlueButton text={"公開停⽌"} onClick={() => handleStop(scpItems[index]['_id'])} />
                 </div>
                 <div className="w-1/6">
-                  <BlueButton text={"CSV出⼒"} onClick={() => handleCSVPrint} />
+                  <BlueButton text={"CSV出⼒"} onClick={() => handleCSVPrint(scpItems[index]['_id'])} />
                 </div>
               </div>
             ))}
