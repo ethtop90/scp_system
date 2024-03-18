@@ -27,6 +27,7 @@ def get_user_list(username):
         return None, None, None
     
     user = next((user for user in users if user['name'] == username), None)
+    
 
     return users, user['id'], None
 

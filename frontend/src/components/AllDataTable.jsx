@@ -46,24 +46,24 @@ export default function AllDataTable({ allData, scpSettingId, dataType }) {
 
             })
 
-        await axios.post(`http://localhost:8080/scp-running/post-to-wp?username=${username}&id=${scpSettingId}&dataType=${dataType}&application_password=${applicationPassword}&status=draft`, {
-            'data': allData,
-            'Cookie': cookie_data,
-            withCredentials: true, // Include cookies in the request
-            headers: {
-                'Content-Type': 'application/json',
-                 // Set the Cookie header with your cookie string
-            }
-        })
-            .then((response) => {
-                console.log(response.data);
-                toast.success(response.data.message);
-            }
+        // await axios.post(`http://localhost:8080/scp-running/post-to-wp?username=${username}&id=${scpSettingId}&dataType=${dataType}&application_password=${applicationPassword}&status=draft`, {
+        //     'data': allData,
+        //     'Cookie': cookie_data,
+        //     withCredentials: true, // Include cookies in the request
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //          // Set the Cookie header with your cookie string
+        //     }
+        // })
+        //     .then((response) => {
+        //         console.log(response.data);
+        //         toast.success(response.data.message);
+        //     }
 
-            )
-            .catch(err => {
+        //     )
+        //     .catch(err => {
 
-            })
+        //     })
     }
 
     useEffect(() => {

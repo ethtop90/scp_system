@@ -4,6 +4,8 @@ import { UserInfoContext } from "../../App"; // Update the import path based on 
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { BlueButton } from "../../components/BlueButton";
+import { toast } from "react-toastify";
+
 export default function PrintSetting() {
   // const userInfo = useContext(UserInfoContext);
   const navigate = useNavigate();
@@ -15,8 +17,20 @@ export default function PrintSetting() {
     navigate("auto-setting?id=" + id);
   }
 
-  const handleStop = () => {
-
+  const handleStop = async (id) => {
+    await axios
+        .put(
+          `http://localhost:8080/scp-settings/update-item?username=${username}&id=${id}`,
+          {
+            enabled: false
+          }
+        )
+        .then((response) => {
+          toast.success(response.data.message);
+        })
+        .catch((error) => {
+          //console.log(error);
+        });
   }
 
   const handleCSVPrint = () => {
@@ -81,7 +95,7 @@ export default function PrintSetting() {
                   <BlueButton text={"投稿設定"} onClick={() => handleAutoSetting(scpItems[index]['_id'])} />
                 </div>
                 <div className="w-1/6">
-                  <BlueButton text={"公開停⽌"} onClick={() => handleStop} />
+                  <BlueButton text={"公開停⽌"} onClick={() => handleStop(scpItems[index]['_id'])} />
                 </div>
                 <div className="w-1/6">
                   <BlueButton text={"CSV出⼒"} onClick={() => handleCSVPrint} />

@@ -361,28 +361,28 @@ def scp_running_save_alldata():
 
         else:
             result = mongo.db.scp_alldatas.update_one(query, {'$set': update_data})
+    return {'message': 'Data are stored successfully in database'}
 
 
-@scp_running.route('/post-to-wp', methods=['POST'])
-@cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
-def wp_post_alldata():
-    data_type = request.args.get('dataType')
-    username = request.args.get('username')
-    status = request.args.get('status')
-    id = request.args.get('id')
-    application_password = request.args.get('application_password')
-    request_data = request.get_json()
-    all_data = request.get_json()['data']
-    all_data = all_data[1:]
+# @scp_running.route('/post-to-wp', methods=['POST'])
+# @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
+# def wp_post_alldata():
+#     data_type = request.args.get('dataType')
+#     username = request.args.get('username')
+#     status = request.args.get('status')
+#     id = request.args.get('id')
+#     application_password = request.args.get('application_password')
+#     request_data = request.get_json()
+#     all_data = request.get_json()['data']
+#     all_data = all_data[1:]
     
-    for index, item_data in enumerate(all_data):
-        if item_data.get('物件名称') is None:
-            title = username + id + index
-        else:
-            title = item_data.get('物件名称')
-        #get post_id
-        post_add(data_type, username, application_password, title, status, item_data)
-        
-            
+#     for index, item_data in enumerate(all_data):
+#         if item_data.get('物件名称') is None:
+#             title = username + id + index
+#         else:
+#             title = item_data.get('物件名称')
+#         #get post_id
+#         post_add(data_type, username, application_password, title, status, item_data)
+#     return jsonify({'messsage': 'articles are posted successfully'})
 
 app.register_blueprint(scp_running, url_prefix="/scp-running")

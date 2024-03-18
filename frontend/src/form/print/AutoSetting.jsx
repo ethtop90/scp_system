@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { TEInput } from "tw-elements-react";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
 
 export default function AutoSetting() {
   const week = [
@@ -67,8 +67,11 @@ export default function AutoSetting() {
       .put(
         `http://localhost:8080/scp-settings/update-item?username=${username}&id=${id}`,
         {
+          enabled: true,
           pt_start_time: ptTime,
           week_check: check,
+          up_settings: hours,
+          next_time: ptTime,
         }
       )
       .then((response) => {
@@ -80,7 +83,14 @@ export default function AutoSetting() {
     fetchData();
   };
 
-  const giveData = () => {};
+  const handleHours = (e, index) => {
+    let newArray = [...hours];
+    newArray[index] = e.target.value;
+    newArray = newArray.map(Number);
+    setHours(newArray);
+  }
+
+  const giveData = () => { };
 
   useEffect(() => {
     fetchData();
@@ -128,15 +138,17 @@ export default function AutoSetting() {
               </div>
               <div className="mx-10">
                 <TEInput
+                
                   type="number"
                   id="ptTime"
                   width={10}
-                  // onChange={(e) => {
-                  //   setPtName(e.target.value);
-                  // }}
+                  onChange={(e) => {
+                    handleHours(e, index);
+                  }}
                   label={val}
                   list="weekTime"
                   className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  disabled={!check[index]}
                 ></TEInput>
 
                 <datalist id="weekTime">

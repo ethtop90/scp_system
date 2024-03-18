@@ -12,6 +12,7 @@ from flask_jwt_extended import JWTManager, jwt_required, create_access_token, ge
 import secrets
 
 
+
 # real api
 
 # app = Flask(__name__, static_folder='../../../frontend/build', static_url_path='/')
@@ -42,23 +43,5 @@ def not_found(e):
 
 import controllers
 
+
 # serve(app, host='0.0.0.0', port=5000, threads=1) #WAITRESS!
-
-
-# def create_app(test_config=None):
-    # app = Flask(__name__)
-    # CORS(app)
-
-    # load_dotenv()
-    # CONFIG = {
-
-    # }
-
-    # CONFIG |= {} if test_config is None else test_config
-
-    # app.config.from_mapping(**CONFIG)
-
-    # app.register_blueprint(bp, url_prefix="/api")
-
-
-    # return app

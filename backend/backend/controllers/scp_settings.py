@@ -8,10 +8,14 @@ from bson.json_util import dumps
 from bson import ObjectId
 import datetime
 import os
+from apscheduler.schedulers.background import BackgroundScheduler
+
 
 # import models
 from models.user import User
 from models.scp_setting import Scp_setting
+
+from utils.wp_post.auto_system import *
 
 scp_settings = Blueprint('scp-settings', __name__)
 
@@ -81,6 +85,7 @@ def get_item():
         scp_setting.get("mg_title"),
         scp_setting.get("pt_name"),
         scp_setting.get("source"),
+        scp_setting.get("enabled"),
         scp_setting.get("pt_start_time"),
         scp_setting.get("week_check"),
         scp_setting.get("up_settings")
@@ -112,13 +117,15 @@ def update_item():
         update_data['pt_name'] = new_setting_data['pt_name']
     if 'source' in new_setting_data:
         update_data['source'] = new_setting_data['source']
+    if 'enabled' in new_setting_data:
+        update_data['enabled'] = new_setting_data['enabled']
     if 'pt_start_time' in new_setting_data:
         update_data['pt_start_time'] = new_setting_data['pt_start_time']
+        update_data['next_time'] = new_setting_data['pt_start_time']
     if 'up_settings' in new_setting_data:
         update_data['up_settings'] = new_setting_data['up_settings']
     if 'week_check' in new_setting_data:
         update_data['week_check'] =  new_setting_data['week_check']
-
 
 
     #updating the scraping setting data
@@ -128,12 +135,28 @@ def update_item():
     if not scp_setting:
         return jsonify({'message': 'Not found the scrapping system'})
     result = mongo.db.scp_settings.update_one(query, {'$set': update_data})
+    
     if result.acknowledged:
+        updated_docment = mongo.db.scp_settings.find_one(query)
+        handle_next_time(updated_docment)        
         return jsonify({'message': 'Scraping setting updated successfully'})
     else:
         return jsonify({'message': 'Failed to scraping updating'})
 #-----
 
+def handle_next_time(updated_document):
+    # check if job exists
+    job = auto_system_scheduler.get_job(str(updated_document.get('_id')))
+    if job:
+        # Remove the job
+        auto_system_scheduler.remove_job(job.id)
+        
+        auto_system_scheduler.add_job(auto_post, args=(str(updated_document.get('_id')),), trigger='date', run_date=datetime.strptime(updated_document.get('next_time'), "%Y-%m-%dT%H:%M"), id = job.id)
+    else:
+        print("Job with ID {job.id} does not exist.")
+        auto_system_scheduler.add_job(auto_post, args=(str(updated_document.get('_id')),), trigger='date', run_date=datetime.strptime(updated_document.get('next_time'), "%Y-%m-%dT%H:%M"), id = str(updated_document.get('_id')))
+        
+    print(auto_system_scheduler.get_jobs())
 
 # adding one scraping setting
 
@@ -151,7 +174,9 @@ def add_item():
 
     new_setting_data['username'] = username
     new_setting_data['pt_start_time'] = datetime.datetime.now()
+    new_setting_data['next_time'] = new_setting_data['pt_start_time']
     print(datetime.datetime.now())
+    new_setting_data['enabled'] = False
     new_setting_data['up_settings'] = [0] * 7
     new_setting_data['week_check'] = [False] * 7
 
@@ -163,6 +188,9 @@ def add_item():
     print(str(result.inserted_id))
 
     if result.acknowledged:
+        query = {'$and': [{'username': username}, {'_id':result.inserted_id}]}
+        updated_docment = mongo.db.scp_settings.find_one(query)
+        handle_next_time(updated_docment)
         return jsonify({'message': 'Scraping setting added successfully', 'id':str(result.inserted_id)})
     else:
         return jsonify({'message': 'Failed to scraping setting'}) 

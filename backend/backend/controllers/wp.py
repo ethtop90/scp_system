@@ -2,7 +2,7 @@ from app import app, mongo, bcrypt
 from flask import Flask, Blueprint, jsonify, request
 from flask_cors import cross_origin
 from utils.wp_user.wp_user import *
-
+from models.wp_user import *
 
 # Create a Blueprint named 'wp'
 wp = Blueprint('wp', __name__, url_prefix='/wp')
@@ -13,6 +13,13 @@ def wp_users():
     # Dummy function to return a response for demonstration
     username = request.args.get('username')
     users, user_id, application_password = get_user_list(username)
+    # update wp_users collection
+    try:
+        for user in users:
+            wp_user = Wp_user(user['id'], user['name'])
+            mongo.db.wp_users.insert_one(wp_user)
+    except Exception as e:
+        return jsonify({'message': 'Database connection failed', 'error': str(e)}), 500
     return jsonify({"users": users, "user_id": user_id, "application_password": application_password})
 
 # Define a route for '/login' on the 'wp' Blueprint
