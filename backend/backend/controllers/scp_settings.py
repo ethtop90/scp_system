@@ -16,6 +16,7 @@ from models.user import User
 from models.scp_setting import Scp_setting
 
 from utils.wp_post.auto_system import *
+from utils.csv import *
 
 scp_settings = Blueprint('scp-settings', __name__)
 
@@ -224,8 +225,8 @@ def make_csv():
     username = request.args.get('username')
     id = request.args.get('id')
     
-    query = {'$and': [{'username': username}, {'id': (id)}]}
-    all_datas = mongo.db.scp_alldatas.find_one(query)
+    
+    make_csv(username, id)
     
 
 #register the blueprint
