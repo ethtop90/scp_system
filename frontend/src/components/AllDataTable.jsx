@@ -33,7 +33,7 @@ export default function AllDataTable({ allData, scpSettingId, dataType }) {
         const applicationPassword = localStorage.getItem('application_password');
         const cookie_data = document.cookie;
         console.log("cookies:", cookie_data);
-        await axios.post(`http://localhost:8080/scp-running/save-alldata?username=${username}&id=${scpSettingId}&dataType=${dataType}&application_password=${applicationPassword}`, {
+        await axios.post(`http://49.212.185.58:8080/scp-running/save-alldata?username=${username}&id=${scpSettingId}&dataType=${dataType}&application_password=${applicationPassword}`, {
             'data': allData,
         })
             .then((response) => {
@@ -46,7 +46,7 @@ export default function AllDataTable({ allData, scpSettingId, dataType }) {
 
             })
 
-        // await axios.post(`http://localhost:8080/scp-running/post-to-wp?username=${username}&id=${scpSettingId}&dataType=${dataType}&application_password=${applicationPassword}&status=draft`, {
+        // await axios.post(`http://49.212.185.58:8080/scp-running/post-to-wp?username=${username}&id=${scpSettingId}&dataType=${dataType}&application_password=${applicationPassword}&status=draft`, {
         //     'data': allData,
         //     'Cookie': cookie_data,
         //     withCredentials: true, // Include cookies in the request

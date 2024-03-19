@@ -20,7 +20,7 @@ export default function PrintSetting() {
   const handleStop = async (id) => {
     await axios
         .put(
-          `http://localhost:8080/scp-settings/update-item?username=${username}&id=${id}`,
+          `http://49.212.185.58:8080/scp-settings/update-item?username=${username}&id=${id}`,
           {
             enabled: false
           }
@@ -36,7 +36,7 @@ export default function PrintSetting() {
   const handleCSVPrint = async (id) => {
     await axios
         .get(
-          `http://localhost:8080/scp-settings/make-csv?username=${username}&id=${id}`
+          `http://49.212.185.58:8080/scp-settings/make-csv?username=${username}&id=${id}`
         )
         .then((response) => {
           toast.success(response.data.message);
@@ -52,7 +52,7 @@ export default function PrintSetting() {
 
   async function fetchAll() {
     await axios
-      .get("http://localhost:8080/scp-settings/getall?username=" + username, {
+      .get("http://49.212.185.58:8080/scp-settings/getall?username=" + username, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

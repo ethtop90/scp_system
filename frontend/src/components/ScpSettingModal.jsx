@@ -92,7 +92,7 @@ export default function ScpSettingModal({ method }) {
       await setLoading(true);
       axios
         .post(
-          `http://localhost:8080/scp-running/get-data/file?username=${username}&type=${datatype}&get_type=one`,
+          `http://49.212.185.58:8080/scp-running/get-data/file?username=${username}&type=${datatype}&get_type=one`,
           formData,
           {
             headers: {
@@ -114,7 +114,7 @@ export default function ScpSettingModal({ method }) {
       await setLoading(true);
       await axios
         .post(
-          `http://localhost:8080/scp-running/get-data/site?username=${username}&type=${datatype}&get_type=one`,
+          `http://49.212.185.58:8080/scp-running/get-data/site?username=${username}&type=${datatype}&get_type=one`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -144,7 +144,7 @@ export default function ScpSettingModal({ method }) {
     if (method == "add") {
       await axios
         .post(
-          `http://localhost:8080/scp-settings/add-item?username=${username}&type=${datatype}&source=${source}`,
+          `http://49.212.185.58:8080/scp-settings/add-item?username=${username}&type=${datatype}&source=${source}`,
           {
             type: sourceType,
             data_type: datatype,
@@ -164,7 +164,7 @@ export default function ScpSettingModal({ method }) {
     } else {
       await axios
         .put(
-          `http://localhost:8080/scp-settings/update-item?username=${username}&id=${id}`,
+          `http://49.212.185.58:8080/scp-settings/update-item?username=${username}&id=${id}`,
           {
             type: sourceType,
             data_type: datatype,
@@ -212,7 +212,7 @@ export default function ScpSettingModal({ method }) {
     if (sourceType == 'site') {
       await axios
         .post(
-          `http://localhost:8080/scp-running/get-data/site?username=${username}&type=${datatype}&get_type=all`,
+          `http://49.212.185.58:8080/scp-running/get-data/site?username=${username}&type=${datatype}&get_type=all`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -262,7 +262,7 @@ export default function ScpSettingModal({ method }) {
       //console.log("get-data file request sent!", formData['file']);
       await axios
         .post(
-          `http://localhost:8080/scp-running/get-data/file?username=${username}&type=${datatype}&get_type=all`,
+          `http://49.212.185.58:8080/scp-running/get-data/file?username=${username}&type=${datatype}&get_type=all`,
 
           formData,
           {
@@ -313,7 +313,7 @@ export default function ScpSettingModal({ method }) {
     if (id) {
       await axios
         .post(
-          `http://localhost:8080/scp-running/matching-data/add?username=${username}&id=${id}`,
+          `http://49.212.185.58:8080/scp-running/matching-data/add?username=${username}&id=${id}`,
           {
             ...matchingData,
           }
@@ -343,7 +343,7 @@ export default function ScpSettingModal({ method }) {
     const searchParams = new URLSearchParams(new URL(url).search);
     const id = searchParams.get("id");
     const token = localStorage.getItem("token");
-    await axios.get(`http://localhost:8080/wp/users?username=${username}`)
+    await axios.get(`http://49.212.185.58:8080/wp/users?username=${username}`)
       .then(response => {
         console.log(response.data);
         setUserlist([...response.data['users']])
@@ -362,7 +362,7 @@ export default function ScpSettingModal({ method }) {
       //console.log(username, id);
       await axios
         .get(
-          `http://localhost:8080/scp-settings/get-item?username=${username}&id=${id}`
+          `http://49.212.185.58:8080/scp-settings/get-item?username=${username}&id=${id}`
         )
         .then((response) => {
           toast.success(response.data.message);
@@ -383,7 +383,7 @@ export default function ScpSettingModal({ method }) {
       method == "update" &&
         (await axios
           .get(
-            `http://localhost:8080/scp-running/matching-data/get?username=${username}&id=${id}&type=${datatype}`,
+            `http://49.212.185.58:8080/scp-running/matching-data/get?username=${username}&id=${id}&type=${datatype}`,
             {
               headers: {
                 "Content-Type": "application/json",

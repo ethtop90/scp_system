@@ -1,0 +1,149 @@
+[
+  {
+    "_id": {
+      "$oid": "65e482a40a434de925cc487c"
+    },
+    "type": "rental",
+    "company_name": "（株）アーバンエステート",
+    "site_url": "https://www.urban-es.net/",
+    "list_base_url": "https://www.urban-es.net/rent/result?r1=&r2=&t1=&t2=&tw=&tn=&td_rex=&et=&fw=",
+    "is_pagination": true,
+    "link_rex": "//div[@class='result-item']//div[@class='main-item']//a[@class='img']",
+    "page_limit_exist": [
+      1,
+      1
+    ],
+    "pg_param": "page",
+    "total_cnt_rex": "//div[@class='bk-count']//span[@class='bundle']//span[@class='count']",
+    "limit_param": "limit",
+    "limit": 90,
+    "data_structure": {
+      "image_source_rex": "",
+      "table_data_structure": {
+        "table_entire_rex": [
+          "//table[@class='table tableHead bkDetailDataHead']",
+          "//table[@class='table table-bordered tableDetail']"
+        ],
+        "tr_rex": ".//tr",
+        "th_rex": ".//th",
+        "td_rex": ".//td"
+      },
+      "map_rex": null
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65e6875d0a434de925cc4882"
+    },
+    "type": "selling",
+    "company_name": "アース不動産合同会社",
+    "site_url": "https://earth-fudosan.com/",
+    "list_base_url": "https://earth-fudosan.com/59896/",
+    "is_pagination": false,
+    "link_rex": "//ul[@class='reals']//li[@class='img']//h4//a",
+    "pg_param": null,
+    "total_cnt_rex": null,
+    "limit_param": null,
+    "limit": 0,
+    "data_structure": {
+      "image_source_rex": "//ul[@class='reals']//a[contains(@style, 'background-image')]",
+      "table_data_structure": {
+        "table_entire_rex": [
+          "//div[@class='tbl']//table"
+        ],
+        "tr_rex": ".//tr",
+        "th_rex": ".//th",
+        "td_rex": ".//td"
+      },
+      "map_rex": null
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65e7da1d0a434de925cc488b"
+    },
+    "type": "selling",
+    "company_name": "（株）アーバンエステート",
+    "site_url": "https://www.urban-es.net/",
+    "list_base_url": "https://www.urban-es.net/sale/result?r1=&r2=&t1=&t2=&n1=&n2=&tw=&tn=&fw=&rm_type=1&rm_per=",
+    "is_pagination": true,
+    "link_rex": "//div[@class='result-item']//div[@class='main-item']//a[@class='img']",
+    "pg_param": "page",
+    "total_cnt_rex": "//div[@class='bk-count']//span[@class='noBundle']//span[@class='count']",
+    "limit_param": "limit",
+    "limit": 90,
+    "data_structure": {
+      "image_source_rex": "",
+      "table_data_structure": {
+        "table_entire_rex": [
+          "//table[@class='table tableHead bkDetailDataHead']",
+          "//table[@class='table table-bordered tableDetail']"
+        ],
+        "tr_rex": ".//tr",
+        "th_rex": ".//th",
+        "td_rex": ".//td"
+      },
+      "map_rex": null
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65e971a6262dabc90c754fe6"
+    },
+    "type": "rental",
+    "company_name": "（有）アイ・アール",
+    "site_url": "https://i-r-re.jimdofree.com/",
+    "is_seperate": true,
+    "seperated_urls": [
+      "https://i-r-re.jimdofree.com/%EF%BC%91%EF%BD%8B-%EF%BC%91%EF%BD%8C%EF%BD%84%EF%BD%8B/",
+      "https://i-r-re.jimdofree.com/%EF%BC%92%EF%BD%8B-%EF%BC%92%EF%BD%8C%EF%BD%84%EF%BD%8B/"
+    ],
+    "list_base_url": "",
+    "is_pagination": true,
+    "link_rex": "//a[text()='詳細' or .//text()='詳細']",
+    "pg_param": "page",
+    "total_cnt_rex": "",
+    "limit_param": "limit",
+    "limit": 0,
+    "data_structure": {
+      "image_source_rex": "",
+      "table_data_structure": {
+        "table_entire_rex": [
+          "(//table[@class='mceEditable'])[position()<=2]"
+        ],
+        "tr_rex": "//tr",
+        "th_rex": "(//td)[1]",
+        "td_rex": "(//td)[2]"
+      },
+      "map_rex": null
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65ec9c536ebd7b5ddd01fccf"
+    },
+    "type": "selling",
+    "company_name": "アース不動産合同会社",
+    "site_url": "https://www.shattle.jp/",
+    "list_base_url": "https://www.shattle.jp/search/resultcity?multipleSearchType=cities&class%5B%5D=b1&class%5B%5D=b2&addressCode12%5B%5D=35203",
+    "is_pagination": true,
+    "link_rex": "//a[@class='result-list__link']",
+    "pg_param": "pg",
+    "total_cnt_rex": "//p[@class='result__cnt']//span",
+    "limit_param": null,
+    "limit": 30,
+    "data_structure": {
+      "image_source_rex": "//ul[@class='gallery__thum']//div[@class='image_solid']//li[@class='gallery__thum-items']//img",
+      "table_data_structure": {
+        "table_entire_rex": [
+          "//div[@class='detail__spec md-spec detail__section']//div[@class='md-spec__side']",
+          "//div[@class='summary detail__section']"
+        ],
+        "tr_rex": "//dl[@class='md-spec__list' or @class='summary__list']",
+        "th_rex": ".//dt",
+        "td_rex": ".//dd"
+      },
+      "map_rex": null
+    }
+  }
+]

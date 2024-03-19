@@ -51,7 +51,7 @@ export default function Register(props) {
     } else {
 
       await axios
-        .post("http://localhost:8080/register", formRegister)
+        .post("http://49.212.185.58:8080/register", formRegister)
         .then((response) => {
           // redirect to sign page
           navigate("/login");

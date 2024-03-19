@@ -39,7 +39,7 @@ export default function Login(props) {
     console.log(loginForm)
     
 
-    await axios.post('http://localhost:8080/wp-login', {
+    await axios.post('http://49.212.185.58:8080/wp-login', {
       username: loginForm.username,
       password: loginForm.password,
       applicationPassword: loginForm.applicationPassword

@@ -15,8 +15,8 @@ import secrets
 
 # real api
 
-# app = Flask(__name__, static_folder='../../../frontend/build', static_url_path='/')
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../../../frontend/build', static_url_path='/')
+# app = Flask(__name__)
 
 app.config['MAIN_URL'] = 'http://localhost:3000/'
 # app.config['MAIN_URL'] = 'http://pationonline.ir/'

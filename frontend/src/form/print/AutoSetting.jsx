@@ -32,7 +32,7 @@ export default function AutoSetting() {
       console.log(searchParams.get("id"));
       await axios
         .get(
-          `http://localhost:8080/scp-settings/get-item?username=${username}&id=${id}`
+          `http://49.212.185.58:8080/scp-settings/get-item?username=${username}&id=${id}`
         )
         .then((response) => {
           setHours([...response.data.up_settings]);
@@ -65,7 +65,7 @@ export default function AutoSetting() {
     let id = searchParams.get("id");
     await axios
       .put(
-        `http://localhost:8080/scp-settings/update-item?username=${username}&id=${id}`,
+        `http://49.212.185.58:8080/scp-settings/update-item?username=${username}&id=${id}`,
         {
           enabled: true,
           pt_start_time: ptTime,

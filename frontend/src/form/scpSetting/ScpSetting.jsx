@@ -26,7 +26,7 @@ export default function ScpSetting() {
     if (id != null) {
       await axios
         .delete(
-          `http://localhost:8080/scp-settings/delete-item?username=${username}&id=${id}`,
+          `http://49.212.185.58:8080/scp-settings/delete-item?username=${username}&id=${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -42,7 +42,7 @@ export default function ScpSetting() {
         });
       await axios
         .delete(
-          `http://localhost:8080/scp-running/matching-data/delete-item?username=${username}&id=${id}`,
+          `http://49.212.185.58:8080/scp-running/matching-data/delete-item?username=${username}&id=${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ export default function ScpSetting() {
 
   async function fetchAll() {
     await axios
-      .get("http://localhost:8080/scp-settings/getall?username=" + username, {
+      .get("http://49.212.185.58:8080/scp-settings/getall?username=" + username, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
