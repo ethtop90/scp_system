@@ -24,6 +24,7 @@ from utils.wp_post.crud import *
 
 # import utils
 from utils.search_engine import create_mapping
+from utils.taxonomi_excel_handler import taxonomi_babai, taxonomi_chintai
 
 get_type =  'one'
 
@@ -91,6 +92,7 @@ def get_data_from_file():
                 "all_data": all_data,
                 "valid": valid
             }
+            
         return jsonify(result)
 
         # return jsonify({'success': 'File uploaded successfully'})
@@ -113,18 +115,26 @@ def get_data_from_url():
         result = {
             "mapping": mapping,
             "item_keys": item_keys,
-            "first_data": first_data,
+            "first_data": first_data.table,
+            "first_images": first_data.images,
+            "first_map_link": first_data.map_link,
             "valid": valid
         }
     else:
         all_data, mapping, item_keys, valid = import_data_from_site(setting['source'], type)
         all_table_data = []
+        all_images = []
+        all_map_link = []
         for data in all_data:
             all_table_data.append(data.table)
+            all_images.append(data.images)
+            all_map_link.append(data.map_link)
         result = {
             "mapping": mapping,
             "item_keys": item_keys,
             "all_data": all_table_data,
+            "all_images": all_images,
+            "all_map_link": all_map_link,
             "valid": valid
         }
     return jsonify(result)
@@ -274,7 +284,7 @@ def import_data_from_site(url, type):
         request_keys = list(first_data.table.keys())
         mapping = match_keys(request_keys, type)
 
-        return (first_data.table, mapping, request_keys,valid)  # three arguments
+        return (first_data, mapping, request_keys,valid)  # three arguments
     else:
         all_data, valid = scp_function(url, type)
 
@@ -339,15 +349,21 @@ def is_valid_source(source):
 def scp_running_save_alldata():
     username = request.args.get('username')
     id = request.args.get('id')
-    id = request.args.get('id')
+    data_type = request.args.get('dataType')
     all_data = request.get_json()['data']
     all_data = all_data[1:]
     
     for index, item_data in enumerate(all_data):
+        
+        if filter_by_taxonomi(item_data, data_type) is False:
+            continue
         update_data = {} 
         update_data['id'] = id
         update_data['username'] = username
         update_data['data'] = item_data
+        update_data['data_type'] = data_type
+        # update_data['images'] = item_data.get('images')
+        # update_data['map_link'] = item_data.get('map_link')
         if update_data['data'].get('物件名称') is None:
             update_data['title'] = username + id + index
         else:
@@ -355,6 +371,8 @@ def scp_running_save_alldata():
         query = {'$and': [{'username': username}, {'id': (id)}, {'title': update_data['title']}]}
         searchResult = mongo.db.scp_alldatas.find_one(
             query)
+        
+        
 
         if not searchResult:
             result = mongo.db.scp_alldatas.insert_one(update_data)
@@ -363,6 +381,17 @@ def scp_running_save_alldata():
             result = mongo.db.scp_alldatas.update_one(query, {'$set': update_data})
     return {'message': 'Data are stored successfully in database'}
 
+def filter_by_taxonomi(item, data_type):
+    # dic = taxonomi_babai if data_type == "selling" else taxonomi_chintai
+    # for key, value in item.items():
+        
+    #     if (value is not None) and (key in dic) and (len(dic.get(key)) > 0):
+    #         if value in dic.get(key):
+                
+    #             continue
+    #         else:
+    #             return False
+    return True
 
 # @scp_running.route('/post-to-wp', methods=['POST'])
 # @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])

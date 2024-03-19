@@ -1,56 +1,24 @@
-import app, mongo
-import csv
+from app import mongo, app
+import csv, json
+from bson.json_util import dumps
 
+from pathlib import Path
+
+base_path = Path(__file__).parent
 
 def make_csv(username, id):
     query = {'$and': [{'username': username}, {'id': (id)}]}
-    all_datas = mongo.db.scp_alldatas.find_one(query)
-    # MongoDB data
-    mongo_data = [
-        {
-            "_id": {"$oid": "65f811780108e561f20ae83f"},
-            "id": "65f70165fb2e2cd614635117",
-            "username": "5rfujikawa",
-            "data": {
-                "物件名称": "江良2丁目　中古住宅",
-                "現況": "空家",
-                "価格（最安値）": "1,500万円",
-                "交通（駅・バス停）": "山口線「上山口」駅 徒歩18分",
-                "駐車場": "有/-",
-                "間取り": "5DK/122.54㎡",
-                "建物面積": "122.54㎡",
-                "土地面積": "187.22坪(618.94㎡)",
-                "完成年月（築年月）": "1972年4月（築52年）",
-                # Other fields...
-            },
-            "title": "江良2丁目　中古住宅"
-        },
-        {
-            "_id": {"$oid": "65f811780108e561f20ae840"},
-            "id": "65f70165fb2e2cd614635117",
-            "username": "5rfujikawa",
-            "data": {
-                "物件名称": "フェスティオ堂の前",
-                "現況": "空家",
-                "価格（最安値）": "2,180万円",
-                "交通（駅・バス停）": "山口線「山口」駅 徒歩11分\n山口線「上山口」駅 徒歩8分",
-                "駐車場": "空有/5,000円 (税込)",
-                "間取り": "Unknown",
-                "建物面積": "Unknown",
-                "土地面積": "Unknown",
-                "完成年月（築年月）": "2004年7月（築19年）",
-                # Other fields...
-            },
-            "title": "フェスティオ堂の前"
-        }
-    ]
+    all_datas_cursor = mongo.db.scp_alldatas.find(query)    # Converting to the JSON 
+    all_datas = json.loads(dumps(list(all_datas_cursor), indent = 2))
 
     # Specify CSV file path
-    csv_file = "output.csv"
+    csv_file = base_path / str("../../csv_files/" + username + "_" + id + "_" + "output.csv")
 
 
     # Extract headers dynamically from the first document
-    headers = list(mongo_data[0]["data"].keys())
+    if len(all_datas) == 0:
+        return False
+    headers = list(all_datas[0]["data"].keys())
 
     # Add additional headers if needed
     # headers.extend(["_id", "id", "username", "title"])
@@ -63,7 +31,7 @@ def make_csv(username, id):
         writer.writeheader()
         
         # Write data rows
-        for item in mongo_data:
+        for item in all_datas:
             # Extract data from "data" field
             data = item.pop("data")
             
@@ -71,3 +39,4 @@ def make_csv(username, id):
             row = {**data}
             
             writer.writerow(row)
+    return True

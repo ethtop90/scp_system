@@ -114,6 +114,7 @@ export default function AllDataTable({ allData, scpSettingId, dataType }) {
                     originKeys[dataType].map((val, index) => {
                         return <dl key={index} className="flex flex-row justify p-3">
                             <dt className="w-1/2 bg-">{val}</dt>
+                            {/* <dd className="w-1/2">{_.get(allData[currentID]['table'], val)}</dd> */}
                             <dd className="w-1/2">{_.get(allData[currentID], val)}</dd>
                         </dl>
                     })

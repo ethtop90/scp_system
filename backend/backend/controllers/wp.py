@@ -17,7 +17,7 @@ def wp_users():
     try:
         for user in users:
             wp_user = Wp_user(user['id'], user['name'])
-            mongo.db.wp_users.insert_one(wp_user)
+            mongo.db.wp_users.insert_one({"id": user['id'], "username": user['name']})
     except Exception as e:
         return jsonify({'message': 'Database connection failed', 'error': str(e)}), 500
     return jsonify({"users": users, "user_id": user_id, "application_password": application_password})

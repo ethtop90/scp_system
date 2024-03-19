@@ -6,7 +6,7 @@ from flask import Blueprint, jsonify, request, session
 from flask_cors import cross_origin
 from bson.json_util import dumps
 from bson import ObjectId
-import datetime
+# from datetime import datetime, timedelta
 import os
 from apscheduler.schedulers.background import BackgroundScheduler
 
@@ -174,9 +174,9 @@ def add_item():
     query = {'username': username}
 
     new_setting_data['username'] = username
-    new_setting_data['pt_start_time'] = datetime.datetime.now()
+    new_setting_data['pt_start_time'] = datetime.now().strftime("%Y-%m-%dT%H:%M")
     new_setting_data['next_time'] = new_setting_data['pt_start_time']
-    print(datetime.datetime.now())
+    print(datetime.now())
     new_setting_data['enabled'] = False
     new_setting_data['up_settings'] = [0] * 7
     new_setting_data['week_check'] = [False] * 7
@@ -221,12 +221,16 @@ def delete_item():
 # makeing the csv file
 @scp_settings.route('/make-csv', methods = ['get'])
 @cross_origin(origin=app.config['MAIN_URL'], headers=['Content-Type', 'Authorization'])
-def make_csv():
+def make_csv_control():
     username = request.args.get('username')
     id = request.args.get('id')
     
     
-    make_csv(username, id)
+    result = make_csv(username, id)
+    if result: 
+        return jsonify({'message': 'csv file is created successfully.'})
+    else:
+        return jsonify({'message': 'csv file is created unsuccessfully.'})
     
 
 #register the blueprint
