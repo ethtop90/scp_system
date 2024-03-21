@@ -365,7 +365,7 @@ def scp_running_save_alldata():
         # update_data['images'] = item_data.get('images')
         # update_data['map_link'] = item_data.get('map_link')
         if update_data['data'].get('物件名称') is None:
-            update_data['title'] = username + id + index
+            update_data['title'] = str(username + id + str(index))
         else:
             update_data['title'] = update_data['data'].get('物件名称')
         query = {'$and': [{'username': username}, {'id': (id)}, {'title': update_data['title']}]}

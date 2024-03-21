@@ -112,7 +112,7 @@ export default function ScpSetting() {
             scpItems.map((item, index) => (
               <div key={index} className="flex flex-row gap-10">
                 <div className="w-1/6 flex justify-center items-center">
-                  <BlueButton text={item.type == "site" ? "賃貸" : "売買"} />
+                  <BlueButton text={item.data_type == "rental" ? "賃貸" : "売買"} />
                 </div>
                 <div className="flex flex-col w-1/2 justify-center items-center">
                   <div>{item.mg_title}</div>

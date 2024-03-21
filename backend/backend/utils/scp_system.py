@@ -53,7 +53,7 @@ def scp_system(site_structure: Site_structure, get_type):
 
     if list_base_url:
         driver.get(list_base_url)
-        if total_cnt_rex is not None:
+        if total_cnt_rex is not None and total_cnt_rex != '':
             total_cnt = driver.find_element("xpath", total_cnt_rex).text
             print("total_cnt:", total_cnt)
         # links = driver.find_elements('xpath',"")
