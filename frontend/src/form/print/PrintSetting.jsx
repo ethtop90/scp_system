@@ -29,7 +29,7 @@ export default function PrintSetting() {
           toast.success(response.data.message);
         })
         .catch((error) => {
-          //console.log(error);
+          ////console.log(error);
         });
   }
 
@@ -42,7 +42,7 @@ export default function PrintSetting() {
           toast.success(response.data.message);
         })
         .catch((error) => {
-          //console.log(error);
+          ////console.log(error);
         });
   }
 
@@ -59,7 +59,7 @@ export default function PrintSetting() {
       })
       .then((response) => {
         setScpItems([...JSON.parse(response.data)]);
-        console.log(scpItems.length);
+        //console.log(scpItems.length);
       })
       .catch((err) => {});
   }

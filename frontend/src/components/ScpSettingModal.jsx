@@ -61,16 +61,16 @@ export default function ScpSettingModal({ method }) {
   };
 
   useEffect(() => {
-    //console.log("sourceType:", sourceType);
+    ////console.log("sourceType:", sourceType);
   }, [sourceType]);
 
   const handleMgTitle = (newValue) => {
-    //console.log(newValue);
+    ////console.log(newValue);
     setMgTitle(newValue);
   };
 
   const handlePtName = (e) => {
-    //console.log(e.target.value);
+    ////console.log(e.target.value);
     setPtName(e.target.value);
   };
 
@@ -84,10 +84,10 @@ export default function ScpSettingModal({ method }) {
 
   const handleRun = async () => {
 
-    //console.log(loading);
+    ////console.log(loading);
     let formData = new FormData();
     formData.append("file", selectedFile);
-    //console.log(formData);
+    ////console.log(formData);
     if (sourceType == "file") {
       await setLoading(true);
       axios
@@ -102,9 +102,9 @@ export default function ScpSettingModal({ method }) {
           }
         )
         .then((response) => {
-          //console.log("File uploaded successfully:", response.data.message);
+          ////console.log("File uploaded successfully:", response.data.message);
           processData(response.data);
-          //console.log(response.data);
+          ////console.log(response.data);
         })
         .catch((error) => {
           console.error("Error uploading file:", error);
@@ -124,7 +124,7 @@ export default function ScpSettingModal({ method }) {
           }
         )
         .then((response) => {
-          //console.log("File uploaded successfully:", response.data.message);
+          ////console.log("File uploaded successfully:", response.data.message);
           if (response.data.valid == true) {
             processData(response.data);
           } else {
@@ -158,7 +158,7 @@ export default function ScpSettingModal({ method }) {
           setId(response.data.id);
         })
         .catch((error) => {
-          //console.log(error);
+          ////console.log(error);
         });
       fetchData();
     } else {
@@ -177,14 +177,14 @@ export default function ScpSettingModal({ method }) {
           toast.success(response.data.message);
         })
         .catch((error) => {
-          //console.log(error);
+          ////console.log(error);
         });
       fetchData();
     }
   };
 
   const handleMatchingData = (key, val) => {
-    //console.log(key, val);
+    ////console.log(key, val);
     setMatchingData({
       ...matchingData,
       mapping: { ...matchingData.mapping, [key]: val },
@@ -227,9 +227,9 @@ export default function ScpSettingModal({ method }) {
             const tempData = matchingData.mapping;
             const replacedData = swapKeysAndValues(tempData);
             let tableDic = {};
-            //console.log("tempTabledata:", tempTabledata);
+            ////console.log("tempTabledata:", tempTabledata);
             tempTabledata.map((item) => {
-              //console.log("item:", item);
+              ////console.log("item:", item);
               let itemData = {}
               originKeys[datatype].map((val) => {
                 if (replacedData.hasOwnProperty(val)) {
@@ -241,25 +241,25 @@ export default function ScpSettingModal({ method }) {
                 }
 
               })
-              console.log("itemData:", itemData);
+              //console.log("itemData:", itemData);
               // allTabledata.push(itemData)
               
               addNewItem(itemData);
 
             })
-            //console.log('allTabledata:', allTabledata);
+            ////console.log('allTabledata:', allTabledata);
           } else {
             toast.error("url or type is invalid");
           }
         })
         .catch((error) => {
-          //console.log(error);
+          ////console.log(error);
         });
     }
     else {
       let formData = new FormData();
       formData.append("file", selectedFile);
-      //console.log("get-data file request sent!", formData['file']);
+      ////console.log("get-data file request sent!", formData['file']);
       await axios
         .post(
           `http://49.212.185.58:8080/scp-running/get-data/file?username=${username}&type=${datatype}&get_type=all`,
@@ -278,9 +278,9 @@ export default function ScpSettingModal({ method }) {
             const tempTabledata = response.data['all_data'];
             const tempData = matchingData.mapping;
             const replacedData = swapKeysAndValues(tempData);
-            //console.log("tempTabledata:", tempTabledata);
+            ////console.log("tempTabledata:", tempTabledata);
             tempTabledata.map((item) => {
-              //console.log("item:", item);
+              ////console.log("item:", item);
               let itemData = {}
               originKeys[datatype].map((val) => {
                 if (replacedData.hasOwnProperty(val)) {
@@ -295,13 +295,13 @@ export default function ScpSettingModal({ method }) {
               addNewItem(itemData);
 
             })
-            console.log('allTabledata:', allTabledata);
+            //console.log('allTabledata:', allTabledata);
           } else {
             toast.error("url or type is invalid");
           }
         })
         .catch((error) => {
-          //console.log(error);
+          ////console.log(error);
         });
     }
 
@@ -322,11 +322,11 @@ export default function ScpSettingModal({ method }) {
 
         })
         .catch((error) => {
-          //console.log(error);
+          ////console.log(error);
         });
       await getAllScpData();
       setAllDataPageVisible(true);
-      //console.log(allDataPageVisible);
+      ////console.log(allDataPageVisible);
       // mapping.map
     } else {
       toast.error("Save the setting!");
@@ -334,7 +334,7 @@ export default function ScpSettingModal({ method }) {
   };
 
   useEffect(() => {
-    console.log(userlist);
+    //console.log(userlist);
   }, [userlist])
 
   const fetchData = async () => {
@@ -345,7 +345,7 @@ export default function ScpSettingModal({ method }) {
     const token = localStorage.getItem("token");
     await axios.get(`http://49.212.185.58:8080/wp/users?username=${username}`)
       .then(response => {
-        console.log(response.data);
+        //console.log(response.data);
         setUserlist([...response.data['users']])
         const users = response.data['users'];
         // const user = users.find(user => user.name === username);
@@ -359,7 +359,7 @@ export default function ScpSettingModal({ method }) {
       })
 
     if (username && id) {
-      //console.log(username, id);
+      ////console.log(username, id);
       await axios
         .get(
           `http://49.212.185.58:8080/scp-settings/get-item?username=${username}&id=${id}`
@@ -367,18 +367,18 @@ export default function ScpSettingModal({ method }) {
         .then((response) => {
           toast.success(response.data.message);
           let data = response.data;
-          //console.log(data);
-          //console.log(data.data_type);
+          ////console.log(data);
+          ////console.log(data.data_type);
           setSourceType(data.type);
           setSource(data.source);
-          //console.log(data.source);
+          ////console.log(data.source);
           setDataType(data.data_type);
           setMgTitle(data.mg_title);
           setPtName(data.pt_name);
           setId(data.id);
         })
         .catch((error) => {
-          //console.log(error);
+          ////console.log(error);
         });
       method == "update" &&
         (await axios
@@ -392,11 +392,11 @@ export default function ScpSettingModal({ method }) {
             }
           )
           .then((response) => {
-            //console.log(response.data);
+            ////console.log(response.data);
             setMatchingData({ ...response.data });
           })
           .catch((error) => {
-            //console.log(error);
+            ////console.log(error);
           }));
     }
   };
@@ -409,7 +409,7 @@ export default function ScpSettingModal({ method }) {
   };
 
   useEffect(() => {
-    //console.log("method:", method);
+    ////console.log("method:", method);
     if (method == "update") {
       const username = localStorage.getItem("user");
       const url = window.location.href;
@@ -420,11 +420,11 @@ export default function ScpSettingModal({ method }) {
     setLoading(false);
     fetchData();
 
-    //console.log('originKeys:', originKeys[datatype]);
+    ////console.log('originKeys:', originKeys[datatype]);
     // originKeys.map((value, index) => {
     //   tableColumns.push({ title: value, dataIndex: value, key: value })
     // })
-    // //console.log("tableColumns:", tableColumns);
+    // ////console.log("tableColumns:", tableColumns);
   }, []);
 
   const handleChangePage = () => {
@@ -433,12 +433,12 @@ export default function ScpSettingModal({ method }) {
 
   useEffect(() => {
     // fetchData();
-    //console.log(showModal);
+    ////console.log(showModal);
     if (showModal == false && method == "update") navigator(-1);
   }, [showModal]);
 
   useEffect(() => {
-    //console.log(id);
+    ////console.log(id);
   }, [id]);
 
 

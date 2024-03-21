@@ -25,7 +25,7 @@ export default function Forgot(props) {
   //   submit handler
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(forgotForm);
+    //console.log(forgotForm);
     await axios
       .post("http://49.212.185.58:8080/forgot-password", forgotForm)
       .then((response) => {

@@ -30,6 +30,11 @@
 
 body {
   overflow-y:auto !important;
+  font-family:  "メイリオ", Meiryo, Tahoma, Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+h2 pre {
+  font-family: "メイリオ", Meiryo, Tahoma, Verdana !important;
 }
 
 @keyframes App-logo-spin {

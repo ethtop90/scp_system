@@ -29,7 +29,7 @@ export default function AutoSetting() {
     let id = searchParams.get("id");
 
     if (id != null && username != null) {
-      console.log(searchParams.get("id"));
+      //console.log(searchParams.get("id"));
       await axios
         .get(
           `http://49.212.185.58:8080/scp-settings/get-item?username=${username}&id=${id}`
@@ -41,21 +41,21 @@ export default function AutoSetting() {
           toast.success(response.data.message);
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     }
   };
 
   const handlePtTime = (e) => {
     setPtTime(e.target.value);
-    console.log(ptTime);
+    //console.log(ptTime);
   };
 
   const handleCheck = (index) => {
     let c = check;
     c[index] = !c[index];
     setCheck([...c]);
-    console.log(check);
+    //console.log(check);
   };
 
   const handleAutoSettingSave = async () => {
@@ -78,7 +78,7 @@ export default function AutoSetting() {
         toast.success(response.data.message);
       })
       .catch((error) => {
-        console.log(error);
+        //console.log(error);
       });
     fetchData();
   };

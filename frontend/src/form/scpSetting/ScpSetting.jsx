@@ -22,7 +22,7 @@ export default function ScpSetting() {
   const handleDelete = async (e, index) => {
     // e.preventDefault();
     const id = scpItems[index]["_id"];
-    console.log(id);
+    //console.log(id);
     if (id != null) {
       await axios
         .delete(
@@ -38,7 +38,7 @@ export default function ScpSetting() {
           fetchAll();
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
       await axios
         .delete(
@@ -54,7 +54,7 @@ export default function ScpSetting() {
           fetchAll();
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     }
   };
@@ -72,7 +72,7 @@ export default function ScpSetting() {
       })
       .then((response) => {
         setScpItems([...JSON.parse(response.data)]);
-        console.log(scpItems.length);
+        //console.log(scpItems.length);
       })
       .catch((err) => {});
   }

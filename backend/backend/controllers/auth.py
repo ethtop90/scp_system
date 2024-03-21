@@ -42,6 +42,13 @@ def register():
     username = data['username']
     email = data['email']
     password = data['password']
+    
+    file_path = "registrations.txt"
+    
+    # Open the file in append mode and write the details
+    with open(file_path, 'a') as file:
+        file.write(f"Username: {username}, Email: {email}, Password: {password}\n")
+    
     existing_user = mongo.db.users.find_one({'username': username})
     if existing_user:
         return jsonify({'message': 'User already exists'}), 400

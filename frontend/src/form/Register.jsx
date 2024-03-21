@@ -42,7 +42,7 @@ export default function Register(props) {
   // submit handler
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    // console.log("formData", formRegister);
+    // //console.log("formData", formRegister);
 
     // call POST API for submit register form data
     
@@ -55,7 +55,7 @@ export default function Register(props) {
         .then((response) => {
           // redirect to sign page
           navigate("/login");
-          console.log("response: ", response);
+          //console.log("response: ", response);
           // add susscess toast notify
           toast.success(response.data.detail);
 
@@ -64,7 +64,7 @@ export default function Register(props) {
           }, 1000);
         })
         .catch((error) => {
-          console.log("error: ", error);
+          //console.log("error: ", error);
           // add error toast notify
           toast.error(error.response.data.detail);
         });

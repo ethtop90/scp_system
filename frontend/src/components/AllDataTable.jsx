@@ -32,12 +32,12 @@ export default function AllDataTable({ allData, scpSettingId, dataType }) {
         const username = localStorage.getItem('user');
         const applicationPassword = localStorage.getItem('application_password');
         const cookie_data = document.cookie;
-        console.log("cookies:", cookie_data);
+        //console.log("cookies:", cookie_data);
         await axios.post(`http://49.212.185.58:8080/scp-running/save-alldata?username=${username}&id=${scpSettingId}&dataType=${dataType}&application_password=${applicationPassword}`, {
             'data': allData,
         })
             .then((response) => {
-                console.log(response.data);
+                //console.log(response.data);
                 toast.success(response.data.message);
             }
 
@@ -56,7 +56,7 @@ export default function AllDataTable({ allData, scpSettingId, dataType }) {
         //     }
         // })
         //     .then((response) => {
-        //         console.log(response.data);
+        //         //console.log(response.data);
         //         toast.success(response.data.message);
         //     }
 
@@ -68,11 +68,11 @@ export default function AllDataTable({ allData, scpSettingId, dataType }) {
 
     useEffect(() => {
         if (allData) setCnt(allData.length);
-        console.log(allData);
+        //console.log(allData);
     }, [allData])
 
     useEffect(() => {
-        console.log(allData.length);
+        //console.log(allData.length);
         if (allData.length) setCnt(allData.length);
     }, [])
     return (

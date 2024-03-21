@@ -32,21 +32,21 @@ export default function Login(props) {
         break;
     }
   }
-  // console.log(loginForm)
+  // //console.log(loginForm)
 
   const onSubmitHandler = async (event) => {
     event.preventDefault()
-    console.log(loginForm)
+    // //console.log(loginForm)
     
 
-    await axios.post('http://49.212.185.58:8080/wp-login', {
+    await axios.post('http://49.212.185.58:8080/login', {
       username: loginForm.username,
       password: loginForm.password,
       applicationPassword: loginForm.applicationPassword
     })
       .then(function (response) {
-        // console.log(response);
-        // console.log(response.data.result.access_token);
+        // //console.log(response);
+        // //console.log(response.data.result.access_token);
 
         // save access_token and token_type in localStorage
         localStorage.setItem("auth_token", response.data.access_token)
@@ -76,7 +76,7 @@ export default function Login(props) {
 
       })
       .catch(function (error) {
-        console.log(error);
+        //console.log(error);
         // add error notify
         toast.error(error.response.data.detail)
       });
@@ -89,7 +89,7 @@ export default function Login(props) {
         ログイン
       </h1>
       <p className="w-80 text-center text-sm mb-8 font-semibold text-gray-700 -tracking-wide cursor-pointer mx-auto">
-        アカウントにログインしてください。        </p>
+        </p>
       <form onSubmit={onSubmitHandler}>
         <div className="space-y-4">
           <input
@@ -107,7 +107,7 @@ export default function Login(props) {
             className="block text-sm py-3 px-4 rounded-lg w-full border outline-none focus:ring focus:outline-none focus:ring-yellow-400"
           />
           <input
-            type="password" name="" id="" placeholder="パスワード"
+            type="password" name="" id="" placeholder=""
             onChange={(event) => {
               onChangeForm("applicationPassword", event)
             }}

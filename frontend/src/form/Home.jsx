@@ -12,8 +12,8 @@ export default function Home() {
     const auth_token_type = localStorage.getItem("auth_token_type");
     // token must have auth_token_type and then auth_token
     const token =  auth_token_type + " " + auth_token;
-    console.log("my_token", token)
-    // console.log("my_token: ", token)
+    //console.log("my_token", token)
+    // //console.log("my_token: ", token)
 
     // fetch data from get user API
     axios
@@ -21,11 +21,11 @@ export default function Home() {
       headers: { Authorization: token },
     })
     .then( (response) => {
-      console.log("response: ", response)
+      //console.log("response: ", response)
       setUser(response.data.result)
     })
     .catch((error) => {
-      console.log("error: ", error)
+      //console.log("error: ", error)
     });
 
   }, []);
