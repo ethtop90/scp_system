@@ -20,8 +20,8 @@
         "//div[@class='summary detail__section']"
       ],
       "tr_rex": "//dl[@class='md-spec__list' or @class='summary__list']",
-      "th_rex": ".//dt",
-      "td_rex": ".//dd"
+      "th_rex": "//dt",
+      "td_rex": "//dd"
     },
     "map_rex": null
   }
@@ -30,14 +30,14 @@
   "_id": {
     "$oid": "65fa8da96ebd7b5ddd01fd66"
   },
-  "type": "rental",
+  "type": "selling",
   "company_name": "アイケイ不動産（株）",
   "site_url": "http://ik.sesh.estate/",
   "is_seperate": false,
   "seperated_urls": [],
-  "list_base_url": "http://ik.sesh.estate/estate/rent/index",
+  "list_base_url": "http://ik.sesh.estate/estate/buy/search/index",
   "is_pagination": false,
-  "link_rex": "//div[@class='main_estList']//li//a",
+  "link_rex": "//div[@class='main__estList']//li//a",
   "pg_param": "page",
   "total_cnt_rex": "",
   "limit_param": "limit",
@@ -46,11 +46,12 @@
     "image_source_rex": "",
     "table_data_structure": {
       "table_entire_rex": [
-        "(//div[@class='estate-detail']//table[@class='tbl wFull mB30']"
+        "//div[@class='tab-inner']//table",
+        "//div[@class='estate-detail ']//div[@class='tab-inner']//table[@class='tbl mB30 wFull']"
       ],
-      "tr_rex": "",
-      "th_rex": "",
-      "td_rex": ""
+      "tr_rex": "//tr",
+      "th_rex": "//th",
+      "td_rex": "//td"
     },
     "map_rex": null
   }
@@ -59,28 +60,28 @@
   "_id": {
     "$oid": "65fab7ae6ebd7b5ddd01fd6c"
   },
-  "type": "selling",
+  "type": "rental",
   "company_name": "アイケイ不動産（株）",
   "site_url": "http://ik.sesh.estate/",
   "is_seperate": false,
   "seperated_urls": [],
-  "list_base_url": "http://ik.sesh.estate/estate/buy/search/index",
+  "list_base_url": "http://ik.sesh.estate/estate/rent/index",
   "is_pagination": false,
-  "link_rex": "//div[@class='main_estList']//li//a",
+  "link_rex": "//div[@class='main__estList']//li//a",
   "pg_param": "page",
   "total_cnt_rex": "",
   "limit_param": "limit",
   "limit": 0,
   "data_structure": {
-    "image_source_rex": "",
+    "image_source_rex": "//ul[@class='thumbnail-list']//li//img",
     "table_data_structure": {
       "table_entire_rex": [
-        "(//div[@class='estate-detail']//table[@class='tbl wFull']",
-        "(//div[@class='estate-detail']//table[@class='tbl wFull mB30']"
+        "//div[@class='tab-inner']//table",
+        "//div[@class='estate-detail ']//div[@class='tab-inner']//table[@class='tbl mB30 wFull']"
       ],
-      "tr_rex": "",
-      "th_rex": "",
-      "td_rex": ""
+      "tr_rex": "//tr",
+      "th_rex": "//th",
+      "td_rex": "//td"
     },
     "map_rex": null
   }
@@ -108,8 +109,8 @@
         "//table[@class='rent-ta']"
       ],
       "tr_rex": "//tr",
-      "th_rex": "//th",
-      "td_rex": "//td"
+      "th_rex": ".//th",
+      "td_rex": ".//td"
     },
     "map_rex": null
   }
@@ -233,7 +234,7 @@
   "limit_param": "limit",
   "limit": 0,
   "data_structure": {
-    "image_source_rex": "//li//img",
+    "image_source_rex": "//div[@class='slick-slide slick-current slick-active']//div//li//img",
     "table_data_structure": {
       "table_entire_rex": [
         "//div[@class='list-detail-content']//div[@class='section'][position() >= 4 and position() <= 6]//table"
@@ -242,7 +243,7 @@
       "th_rex": "//th",
       "td_rex": "//td"
     },
-    "map_rex": "//div[@class='google-maps-link']//a"
+    "map_rex": "//div[@id='footer']//iframe"
   }
 },
 {
@@ -275,7 +276,7 @@
       "th_rex": "//th",
       "td_rex": "//td"
     },
-    "map_rex": ""
+    "map_rex": "//div[@class='gmaparea']//iframe"
   }
 },
 {
@@ -324,7 +325,7 @@
   "seperated_urls": [
     "https://fk-build.com/estate/b_index.html"
   ],
-  "list_base_url": "https://www.n-lifeestate.com/baibai/list/?",
+  "list_base_url": "",
   "page_limit_exist": [
     1,
     1
@@ -336,16 +337,16 @@
   "limit_param": "kensu",
   "limit": 0,
   "data_structure": {
-    "image_source_rex": "//div[@class='gallery_thumbs']//div//a",
+    "image_source_rex": "//div[@class='bkn_top_left detail_zumen']//img",
     "table_data_structure": {
       "table_entire_rex": [
-        "//table[@class='c_detail_table']"
+        "//table[@class='b_detail_table']"
       ],
       "tr_rex": "//tr",
-      "th_rex": "(//td)[1]",
-      "td_rex": "(//td)[2]"
+      "th_rex": "(.//td)[1]",
+      "td_rex": "(.//td)[2]"
     },
-    "map_rex": "//div[@class='google-maps-link']//a"
+    "map_rex": "//iframe[@class='bkn_map']"
   }
 },
 {
@@ -431,7 +432,7 @@
   "is_pagination": true,
   "link_rex": "//main//div//ul//li//a",
   "pg_param": "page",
-  "total_cnt_rex": "(//main//div//div//div//div//p[@class='text-black'])[2]",
+  "total_cnt_rex": "(//main//div//div//div//div//p//span)[2]",
   "limit_param": "",
   "limit": 20,
   "data_structure": {
@@ -463,13 +464,13 @@
     0
   ],
   "is_pagination": false,
-  "link_rex": "//div[@class='_estImage']//div[@class='posR']//img",
+  "link_rex": "//div[@class='main__estList']//ul//li//a",
   "pg_param": "page",
   "total_cnt_rex": "",
   "limit_param": "",
   "limit": 20,
   "data_structure": {
-    "image_source_rex": "//ul[@class='thumbnail-list']//li//img",
+    "image_source_rex": "//ul[@class='thumbnail-list']//li//a//img",
     "table_data_structure": {
       "table_entire_rex": [
         "//table[@class='tbl wFull mB30']"
@@ -478,7 +479,7 @@
       "th_rex": "//th",
       "td_rex": "//td"
     },
-    "map_rex": "//div[@class='google-maps-link']//a"
+    "map_rex": "//div[@class='flR']//iframe"
   }
 },
 {
@@ -505,13 +506,13 @@
     "image_source_rex": "//div[@class='list_picsam']//img",
     "table_data_structure": {
       "table_entire_rex": [
-        "//table[@class='tbl wFull mB30']"
+        "//table[@id='list_add']"
       ],
       "tr_rex": "//tr",
       "th_rex": "//th",
       "td_rex": "//td"
     },
-    "map_rex": "//div[@class='google-maps-link']//a"
+    "map_rex": ""
   }
 },
 {
@@ -538,13 +539,13 @@
     "image_source_rex": "//div[@class='list_picsam']//img",
     "table_data_structure": {
       "table_entire_rex": [
-        "//table[@class='tbl wFull mB30']"
+        "//table[@id='list_add']"
       ],
       "tr_rex": "//tr",
       "th_rex": "//th",
       "td_rex": "//td"
     },
-    "map_rex": "//div[@class='google-maps-link']//a"
+    "map_rex": ""
   }
 },
 {
@@ -632,5 +633,629 @@
       "td_rex": ".//td"
     },
     "map_rex": null
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd02756ebd7b5ddd01fd9d"
+  },
+  "type": "rental",
+  "company_name": "（有）山永不動産",
+  "site_url": "https://www.saneifudousan.co.jp/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.saneifudousan.co.jp/rent/result?r1=&r2=&tw=&fw=",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//div[@class='result-item']//div[@class='main-item']//a",
+  "pg_param": "page",
+  "total_cnt_rex": "(//div[@class='bk-count']//span[@class='bundle']//span)[2]",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//div[@class='thumbs']//ul[@class='thumbs']//li//a//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='table tableHead bkDetailDataHead']",
+        "//table[@class='table table-bordered tableDetail']"
+      ],
+      "tr_rex": "//tr",
+      "th_rex": "//th",
+      "td_rex": "//td"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd05106ebd7b5ddd01fd9f"
+  },
+  "type": "selling",
+  "company_name": "（有）山永不動産",
+  "site_url": "https://www.saneifudousan.co.jp/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.saneifudousan.co.jp/sale/result?r1=&r2=&t1=&t2=&s1=&s2=&n1=&n2=&tw=&tn=&td=&et=&fw=",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//div[@class='result-item']//div[@class='main-item']//a",
+  "pg_param": "page",
+  "total_cnt_rex": "(//div[@class='bk-count']//span[@class='noBundle']//span)[2]",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//div[@class='thumbs']//ul[@class='thumbs']//li//a//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='table tableHead bkDetailDataHead']",
+        "//table[@class='table table-bordered tableDetail']"
+      ],
+      "tr_rex": "//tr",
+      "th_rex": "//th",
+      "td_rex": "//td"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd09ba6ebd7b5ddd01fda1"
+  },
+  "type": "rental",
+  "company_name": "成泰不動産（株）",
+  "site_url": "https://sei-tai.com/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://sei-tai.com/?bukken=rent",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@id='list_simplepage']//div[@class='card-layout']//div[@class='card']//a",
+  "pg_param": "page",
+  "total_cnt_rex": "",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//div[@class='list_picsam']//a//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='entry-content']//div[@class='list_detail']"
+      ],
+      "tr_rex": ".//ul//li",
+      "th_rex": ".//span[1]",
+      "td_rex": ".//span[2]"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd12746ebd7b5ddd01fda4"
+  },
+  "type": "selling",
+  "company_name": "成泰不動産（株）",
+  "site_url": "https://sei-tai.com/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://sei-tai.com/?bukken=sell",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@id='list_simplepage']//div[@class='card-layout']//div[@class='card']//a",
+  "pg_param": "page",
+  "total_cnt_rex": "",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//div[@class='list_picsam']//a//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='entry-content']//div[@class='list_detail']"
+      ],
+      "tr_rex": ".//ul//li",
+      "th_rex": ".//span[1]",
+      "td_rex": ".//span[2]"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd170f6ebd7b5ddd01fda6"
+  },
+  "type": "selling",
+  "company_name": "セキスイハイム中四国（株）山口支社",
+  "site_url": "https://www.816c.jp/housing/yamatochi/list?c=ground#maps_section_no_007",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.816c.jp/housing/yamatochi/list?c=ground#maps_section_no_007",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@class='main-picture']//a",
+  "pg_param": "page",
+  "total_cnt_rex": "",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//ul[@id='thumbnail_slider-housing']//div[@class='slick-list draggable']//li//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        ".//div[@class='acd-content']//table"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd25d66ebd7b5ddd01fda8"
+  },
+  "type": "selling",
+  "company_name": "積水ハウス不動産中国四国（株）山口営業所",
+  "site_url": "https://sumusite.sekisuihouse.co.jp/chushikoku/office/yamaguchi/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://sumusite.sekisuihouse.co.jp/chushikoku/office/yamaguchi/mansion/list/?sort=1&pf=0&pt=0&bf=0&bt=0&yb=0&of=0",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@class='container estateBlock']//ul[@class='estateBlock_list']/li/a",
+  "pg_param": "page",
+  "total_cnt_rex": "",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//p[@class='imgFit']//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//ul[@class='eOutline']"
+      ],
+      "tr_rex": ".//li",
+      "th_rex": ".//p[1]",
+      "td_rex": ".//p[2]"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd2d0f6ebd7b5ddd01fdaa"
+  },
+  "type": "rental",
+  "company_name": "（有）タカミ不動産",
+  "site_url": "https://www.ogori.com/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.ogori.com/karitai",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//a[@class='new-entry-card-link widget-entry-card-link a-wrap']",
+  "pg_param": "page",
+  "total_cnt_rex": "",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//figure[@class='wp-block-image size-large']//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='has-border-color has-grey-border-color']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//td[1]",
+      "td_rex": ".//td[2]"
+    },
+    "map_rex": "//iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd30406ebd7b5ddd01fdab"
+  },
+  "type": "selling",
+  "company_name": "（有）タカミ不動産",
+  "site_url": "https://www.ogori.com/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.ogori.com/kaitai",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//a[@class='new-entry-card-link widget-entry-card-link a-wrap']",
+  "pg_param": "page",
+  "total_cnt_rex": "",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//figure[@class='wp-block-image size-large']//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='has-border-color has-grey-border-color has-fixed-layout']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//td[1]",
+      "td_rex": ".//td[2]"
+    },
+    "map_rex": "//iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd36db6ebd7b5ddd01fdb3"
+  },
+  "type": "selling",
+  "company_name": "タマホーム（株）山口店",
+  "site_url": "https://www.tamahome.jp/kodatebunjyo/chugoku/yamaguchi",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.tamahome.jp/kodatebunjyo/chugoku/yamaguchi",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@class='content-section']//div[@class='content-area']//div[@class='features-block']//a",
+  "pg_param": "page",
+  "total_cnt_rex": "",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//div[@class='img js-img-bg']//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='c-table02']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "//div[@class='map']//iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd49fa6ebd7b5ddd01fdb5"
+  },
+  "type": "rental",
+  "company_name": "（株）東武住販　山口店",
+  "site_url": "https://www.c-able.ne.jp/~nawata-f/",
+  "is_seperate": true,
+  "seperated_urls": [
+    "https://www.c-able.ne.jp/~nawata-f/lease1_1.html",
+    "https://www.c-able.ne.jp/~nawata-f/lease1_2.html",
+    "https://www.c-able.ne.jp/~nawata-f/lease1_3.html",
+    "https://www.c-able.ne.jp/~nawata-f/lease2.html",
+    "https://www.c-able.ne.jp/~nawata-f/lease3.html"
+  ],
+  "list_base_url": "https://www.c-able.ne.jp/~nawata-f/",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@id='contents']//a[img[@alt='詳細']]",
+  "total_cnt_rex": "",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//div[@id='contents']//table[@width='580'][1]//td//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@id='contents']//table[@width='580'][2]"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//td[b]",
+      "td_rex": ".//td[b]/following-sibling::td"
+    },
+    "map_rex": "//div[@id='contents']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd4b946ebd7b5ddd01fdb7"
+  },
+  "type": "selling",
+  "company_name": "（株）東武住販　山口店",
+  "site_url": "https://www.c-able.ne.jp/~nawata-f/",
+  "is_seperate": true,
+  "seperated_urls": [
+    "https://www.c-able.ne.jp/~nawata-f/buy1.html",
+    "https://www.c-able.ne.jp/~nawata-f/buy2.html",
+    "https://www.c-able.ne.jp/~nawata-f/buy3.html",
+    "https://www.c-able.ne.jp/~nawata-f/buy4.html"
+  ],
+  "list_base_url": "https://www.c-able.ne.jp/~nawata-f/",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@id='contents']//a[img[@alt='詳細']]",
+  "total_cnt_rex": "",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//div[@id='contents']//table[@width='580'][1]//td//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@id='contents']//table[@width='580'][2]"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//td[b]",
+      "td_rex": ".//td[b]/following-sibling::td"
+    },
+    "map_rex": "//div[@id='contents']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd72836ebd7b5ddd01fdbc"
+  },
+  "type": "selling",
+  "company_name": "西日本スリーク（有）",
+  "site_url": "https://www.n-sleek.com/sale/result?r1=&r2=&tw=&td=&fw=",
+  "is_seperate": false,
+  "seperated_urls": [
+    ""
+  ],
+  "list_base_url": "https://www.n-sleek.com/sale/result?r1=&r2=&tw=&td=&fw=",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//div[@class='main-item']/a",
+  "total_cnt_rex": "//div[@class='bk-count']/span[@class='noBundle']/span[2]",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 90,
+  "data_structure": {
+    "image_source_rex": "//ul[@class='thumbs']/li/a/img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='table tableHead bkDetailDataHead']",
+        "//table[@class='table table-bordered tableDetail']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "//div[@id='map_canvas']//div//div[@class='gm-style']//iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd7e0e6ebd7b5ddd01fdbe"
+  },
+  "type": "rental",
+  "company_name": "（有）フジイプランニング",
+  "site_url": "http://fujipula.co.jp/",
+  "is_seperate": true,
+  "seperated_urls": [
+    "http://fujipula.co.jp/estate/c1.html",
+    "http://fujipula.co.jp/estate/c2.html",
+    "http://fujipula.co.jp/estate/c3.html",
+    "http://fujipula.co.jp/estate/c4.html",
+    "http://fujipula.co.jp/estate/c5.html",
+    "http://fujipula.co.jp/estate/c6.html"
+  ],
+  "list_base_url": "http://fujipula.co.jp/",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@class='bukken_listbox']/a",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 20,
+  "data_structure": {
+    "image_source_rex": "",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='bkn_detail_table']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "//div[@id='container']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd80226ebd7b5ddd01fdbf"
+  },
+  "type": "selling",
+  "company_name": "（有）フジイプランニング",
+  "site_url": "http://fujipula.co.jp/",
+  "is_seperate": true,
+  "seperated_urls": [
+    "http://fujipula.co.jp/estate/b1.html",
+    "http://fujipula.co.jp/estate/b2.html",
+    "http://fujipula.co.jp/estate/b3.html",
+    "http://fujipula.co.jp/estate/b4.html",
+    "http://fujipula.co.jp/estate/b5.html"
+  ],
+  "list_base_url": "http://fujipula.co.jp/",
+  "page_limit_exist": [
+    0,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@class='bukken_listbox']/a",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 20,
+  "data_structure": {
+    "image_source_rex": "",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='bkn_detail_table']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "//div[@id='container']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd83c16ebd7b5ddd01fdc1"
+  },
+  "type": "selling",
+  "company_name": "平和不動産（株）",
+  "site_url": "https://www.ymg-takken.or.jp/property/agency/detail?id=dc0c15638acc5ed2",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.ymg-takken.or.jp/property/agency/area/list?agency_name=&agency_tel=&agency_representative=",
+  "page_limit_exist": [
+    1,
+    0
+  ],
+  "is_pagination": true,
+  "link_rex": "//li[@class='list-group-item']/div/div/a",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 20,
+  "data_structure": {
+    "image_source_rex": "//img[@class='slide-image nav-image']",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='table company-table']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//td[1]",
+      "td_rex": ".//td[2]"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd8a8c6ebd7b5ddd01fdc3"
+  },
+  "type": "selling",
+  "company_name": "防長不動産（株）",
+  "site_url": "https://bochofudosan.com/sale/",
+  "is_seperate": true,
+  "seperated_urls": [
+    "https://bochofudosan.com/sale/",
+    "https://bochofudosan.com/sale/page/2/"
+  ],
+  "list_base_url": "",
+  "page_limit_exist": [
+    1,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@class='sec-wrap-col-img']/a",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 30,
+  "data_structure": {
+    "image_source_rex": "//ul[@class='slick-dots']/li/img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='bunjo-single-profile-list']"
+      ],
+      "tr_rex": ".//dl",
+      "th_rex": ".//dt",
+      "td_rex": ".//dd"
+    },
+    "map_rex": "//div[@class='bunjo-single-profile-map-wrap']//iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd8de16ebd7b5ddd01fdc5"
+  },
+  "type": "rental",
+  "company_name": "（株）丸久不動産事業部宮野支店",
+  "site_url": "https://09fudousan.com/miyano_lease/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://09fudousan.com/miyano_lease/",
+  "page_limit_exist": [
+    1,
+    0
+  ],
+  "is_pagination": false,
+  "link_rex": "//a[@class='card-list-item__thumbnail']",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 20,
+  "data_structure": {
+    "image_source_rex": "//div[@class='sub-slide swiper-container swiper-container-initialized swiper-container-vertical']//div[@class='swiper-slide']//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='info']//div[@class='content']//table[@class='info-table']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "//div[@class='gmap']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd93ab6ebd7b5ddd01fdc7"
+  },
+  "type": "rental",
+  "company_name": "（株）丸久不動産事業部宮野支店",
+  "site_url": "https://www.yamaguchi-fudosan.jp/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.yamaguchi-fudosan.jp/user/search.php?ac=do&type=11&Bsyu=&Add2=&Add5%5B%5D=&Eki=&ekitoho=&Kakaku_min=&Kakaku_max=&Menseki_min=&Menseki_max=&button=%88%C8%8F%E3%82%CC%8F%F0%8C%8F%82%C5%8C%9F%8D%F5",
+  "page_limit_exist": [
+    1,
+    0
+  ],
+  "is_pagination": true,
+  "link_rex": "/html/body/div[3]/table/tbody/tr[2]/td/table[4]/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[15]/td[2]/a",
+  "total_cnt_rex": "/html/body/div[3]/table/tbody/tr[2]/td/table[3]/tbody/tr/td/table/tbody/tr/td[1]/p/font[1]/strong",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 10,
+  "data_structure": {
+    "image_source_rex": "//div[@id='content']//table//table//table//tr//td//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@width='375']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//td[1]",
+      "td_rex": ".//td[2]"
+    },
+    "map_rex": "/html/body/div[3]/table/tbody/tr[2]/td/table[3]/tbody/tr/td/table/tbody/tr[25]/td[1]/iframe"
   }
 }]

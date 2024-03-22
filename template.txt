@@ -1,0 +1,28 @@
+{
+        "type": "rental",
+        "company_name": "成泰不動産（株）",
+        "site_url": "https://sei-tai.com/",
+        "is_seperate": false,
+        "seperated_urls": [
+        ],
+        "list_base_url": "https://sei-tai.com/?bukken=sell",
+        "page_limit_exist": [0, 0],
+        "is_pagination": false,
+        "link_rex": "//div[@id='list_simplepage']//div[@class='card-layout']//div[@class='card']//a",
+        "pg_param": "page",
+        "total_cnt_rex": "",
+        "limit_param": "limit",
+        "limit": 90,
+        "data_structure": {
+            "image_source_rex": "//div[@class='list_picsam']//a//img",
+            "table_data_structure": {
+                "table_entire_rex": [
+                    "//div[@class='list_detail']"
+                ],
+                "tr_rex": "//ul//li",
+                "th_rex": "(//span)[1]",
+                "td_rex": "(//span)[2]"
+            },
+            "map_rex": ""
+        }
+    }

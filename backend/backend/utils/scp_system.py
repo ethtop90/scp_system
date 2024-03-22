@@ -54,7 +54,7 @@ def scp_system(site_structure: Site_structure, get_type):
     if list_base_url:
         driver.get(list_base_url)
         if total_cnt_rex is not None and total_cnt_rex != '':
-            total_cnt_string = driver.find_element("xpath", total_cnt_rex).text
+            total_cnt_string = driver.find_element("xpath", total_cnt_rex).get_attribute('innerText').strip()
             number = re.search(r'\d+', str(total_cnt_string))
             if number:
                 total_cnt = int(number.group())
@@ -140,11 +140,11 @@ def scp_system(site_structure: Site_structure, get_type):
                     # Find th (header) and td (data) elements in the row
                     headers = row.find_elements("xpath", th_rex)
                     data_cells = row.find_elements("xpath", td_rex)
-                    # print(row.text)
+                    # print(row.get_attribute('innerText').strip())
                     # Extract text from th and td elements
                     for header, data_cell in zip(headers, data_cells):
-                        x = header.text
-                        y = data_cell.text
+                        x = header.get_attribute('innerText').strip()
+                        y = data_cell.get_attribute('innerText').strip()
                         if x and x != '' and y:
                             table_dic[x] = y;
                         # print(f"x: {x}, y: {y}")
