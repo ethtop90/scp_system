@@ -54,14 +54,19 @@ def scp_system(site_structure: Site_structure, get_type):
     if list_base_url:
         driver.get(list_base_url)
         if total_cnt_rex is not None and total_cnt_rex != '':
-            total_cnt = driver.find_element("xpath", total_cnt_rex).text
+            total_cnt_string = driver.find_element("xpath", total_cnt_rex).text
+            number = re.search(r'\d+', str(total_cnt_string))
+            if number:
+                total_cnt = int(number.group())
+            else:
+                total_cnt = 0
             print("total_cnt:", total_cnt)
         # links = driver.find_elements('xpath',"")
 
     page_urls = []
 
-    if not page_limit_exist:
-        page_limit_exist = [1, 1]
+    # if not page_limit_exist:
+    page_limit_exist = [1, 1]
 
     if is_seperate:
         page_urls = seperated_pages
@@ -70,10 +75,12 @@ def scp_system(site_structure: Site_structure, get_type):
             pages_count = math.floor(int(total_cnt) / limit) + 1;
             for i in range(1, pages_count + 1):
                 page_url = list_base_url +  ( ("&" + f"{pg_param}={i}") if page_limit_exist[1] else "") + (("&" + f"{limit_param}={limit}") if page_limit_exist[0] else "")
-                if is_valid_url(list_base_url):
-                    page_urls.append(list_base_url)
+                # if is_valid_url(page_url):
+                page_urls.append(page_url)
         else:
             if is_valid_url(list_base_url):
+                page_urls.append(list_base_url)
+            if len(page_urls) == 0:
                 page_urls.append(list_base_url)
 
     table_dic_cll = []
@@ -81,8 +88,8 @@ def scp_system(site_structure: Site_structure, get_type):
     
     cnt = 0
     for page_url in page_urls:
-        if not is_valid_url(page_url):
-            continue
+        # if not is_valid_url(page_url):
+        #     continue
         driver.get(page_url)
         driver.implicitly_wait(2)
         # getting the link elements
@@ -115,6 +122,8 @@ def scp_system(site_structure: Site_structure, get_type):
                 map_element = driver.find_element('xpath', map_rex)
                 if map_element.tag_name == 'a':
                     map_link = map_element.get_attribute('href')
+                elif map_element.tag_name == 'iframe':
+                    map_link = map_element.get_attribute('outerHTML')
 
             tables = []
             for table_entire_rex_item in table_entire_rex:
@@ -131,12 +140,13 @@ def scp_system(site_structure: Site_structure, get_type):
                     # Find th (header) and td (data) elements in the row
                     headers = row.find_elements("xpath", th_rex)
                     data_cells = row.find_elements("xpath", td_rex)
-
+                    # print(row.text)
                     # Extract text from th and td elements
                     for header, data_cell in zip(headers, data_cells):
                         x = header.text
                         y = data_cell.text
-                        table_dic[x] = y;
+                        if x and x != '' and y:
+                            table_dic[x] = y;
                         # print(f"x: {x}, y: {y}")
                     # print(table_dic)clsc
             # table_dic_cll.append(table_dic)
