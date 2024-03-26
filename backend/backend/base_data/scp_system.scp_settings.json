@@ -1,0 +1,2271 @@
+[{
+  "_id": {
+    "$oid": "65f401f5592f1b92ba9bd8fe"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "サイトA",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.shattle.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-20T12:45",
+  "up_settings": [
+    "01",
+    0,
+    0,
+    "05",
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    true,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false
+  ],
+  "enabled": true
+},
+{
+  "_id": {
+    "$oid": "65fbb39c431553490c6530e6"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "アース不動産合同会社",
+  "pt_name": "5rfujikawa",
+  "source": "https://earth-fudosan.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T13:12",
+  "next_time": "2024-03-21T13:12",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fbbad11bec258f99f15776"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）アーバンエステート",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.urban-es.net/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T13:42",
+  "next_time": "2024-03-21T13:42",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fbca731bec258f99f1578e"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）アーバンエステート",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.urban-es.net/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T14:49",
+  "next_time": "2024-03-21T14:49",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fbcc181bec258f99f157ba"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "アイケイ不動産（株）",
+  "pt_name": "5rfujikawa",
+  "source": "http://ik.sesh.estate/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T14:56",
+  "next_time": "2024-03-21T14:56",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fbe4c11f6845445b3dd0c1"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "アイケイ不動産（株）",
+  "pt_name": "5rfujikawa",
+  "source": "http://ik.sesh.estate/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T16:41",
+  "next_time": "2024-03-21T16:41",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fbfba73ce537f4833872f5"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）アスクリエーション",
+  "pt_name": "5rfujikawa",
+  "source": "http://asucreation.com/rent/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T18:19",
+  "next_time": "2024-03-21T18:19",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc00ffcd0bddda4c9aa784"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）アスクリエーション ",
+  "pt_name": "5rfujikawa",
+  "source": "http://asucreation.com/rent/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T18:42",
+  "next_time": "2024-03-21T18:42",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc027fcd0bddda4c9aa799"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "ASSET Design（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.ymg-takken.or.jp/property/agency/detail?id=b98e7dfde7051680",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T18:48",
+  "next_time": "2024-03-21T18:48",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc0757a57a1b0e4f982e92"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "ASSET Design（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.ymg-takken.or.jp/property/agency/detail?id=b98e7dfde7051680",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T19:09",
+  "next_time": "2024-03-21T19:09",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc07c2a57a1b0e4f982ea7"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）アライブ",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.alive-y.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T19:11",
+  "next_time": "2024-03-21T19:11",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc3480c61139583063370e"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）エヌライフエステート",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.n-lifeestate.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T22:22",
+  "next_time": "2024-03-21T22:22",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc3651c611395830633744"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "エフケイビル（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://fk-build.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T22:29",
+  "next_time": "2024-03-21T22:29",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc3d18c611395830633785"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）小郡不動産",
+  "pt_name": "5rfujikawa",
+  "source": "https://ogori-f.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T22:58",
+  "next_time": "2024-03-21T22:58",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc3e13c6113958306337a7"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）小郡不動産 ",
+  "pt_name": "5rfujikawa",
+  "source": "https://ogori-f.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T23:02",
+  "next_time": "2024-03-21T23:02",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc3ee0c6113958306337be"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）カチタス山口店",
+  "pt_name": "5rfujikawa",
+  "source": "https://home.katitas.jp/contents/code/search_result?by=area&pref_check%5b%5d=35",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T23:06",
+  "next_time": "2024-03-21T23:06",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc4b213ef0142067502185"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）きらら",
+  "pt_name": "5rfujikawa",
+  "source": "http://kuraso.sesh.estate/estate/rent/index",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-21T23:58",
+  "next_time": "2024-03-21T23:58",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc50213ef01420675021af"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "クリーンエステート（株）",
+  "pt_name": "5rfujikawa",
+  "source": "http://www.clean-estate.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T00:20",
+  "next_time": "2024-03-22T00:20",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fc534f3ef01420675021c7"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "クリーンエステート（株）",
+  "pt_name": "5rfujikawa",
+  "source": "http://www.clean-estate.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T00:33",
+  "next_time": "2024-03-22T00:33",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fcf4b63ef01420675021fd"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（有）山永不動産",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.saneifudousan.co.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T12:02",
+  "next_time": "2024-03-22T12:02",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd04de3ef014206750221d"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（有）山永不動産",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.saneifudousan.co.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T13:11",
+  "next_time": "2024-03-22T13:11",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd0acbc608e35281b86b1b"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "成泰不動産（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://sei-tai.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T13:36",
+  "next_time": "2024-03-22T13:36",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd1299cf959ee6df4e3beb"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "成泰不動産（株） ",
+  "pt_name": "5rfujikawa",
+  "source": "https://sei-tai.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T14:09",
+  "next_time": "2024-03-22T14:09",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd1741cf959ee6df4e3c03"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "セキスイハイム中四国（株）山口支社",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.816c.jp/housing/yamatochi/list?c=ground#maps_section_no_007",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T14:29",
+  "next_time": "2024-03-22T14:29",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd26001c6b7edc8a346e23"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "積水ハウス不動産中国四国（株）山口営業所",
+  "pt_name": "5rfujikawa",
+  "source": "https://sumusite.sekisuihouse.co.jp/chushikoku/office/yamaguchi/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T15:32",
+  "next_time": "2024-03-22T15:32",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd2d1f9ba8f58f55fd197c"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（有）タカミ不動産",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.ogori.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T16:02",
+  "next_time": "2024-03-22T16:02",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd30939ba8f58f55fd19e4"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（有）タカミ不動産 ",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.ogori.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T16:17",
+  "next_time": "2024-03-22T16:17",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd37279ba8f58f55fd19fc"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "タマホーム（株）山口店",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.tamahome.jp/kodatebunjyo/chugoku/yamaguchi",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T16:45",
+  "next_time": "2024-03-22T16:45",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd4a1f9ba8f58f55fd1a14"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）東武住販　山口店",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.c-able.ne.jp/~nawata-f/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T18:06",
+  "next_time": "2024-03-22T18:06",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd4bc39ba8f58f55fd1a2a"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）東武住販　山口店 ",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.c-able.ne.jp/~nawata-f/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T18:13",
+  "next_time": "2024-03-22T18:13",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd72a99ba8f58f55fd1a6a"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "西日本スリーク（有）",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.n-sleek.com/sale/result?r1=&r2=&tw=&td=&fw=",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T20:59",
+  "next_time": "2024-03-22T20:59",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd7e359ba8f58f55fd1a80"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（有）フジイプランニング",
+  "pt_name": "5rfujikawa",
+  "source": "http://fujipula.co.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T21:48",
+  "next_time": "2024-03-22T21:48",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd805354a66a6d311c1d6d"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（有）フジイプランニング",
+  "pt_name": "5rfujikawa",
+  "source": "http://fujipula.co.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T21:57",
+  "next_time": "2024-03-22T21:57",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd840454a66a6d311c1d96"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "平和不動産（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.ymg-takken.or.jp/property/agency/detail?id=dc0c15638acc5ed2",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T22:13",
+  "next_time": "2024-03-22T22:13",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd8ab7d8671e0719e4fce5"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "",
+  "pt_name": "5rfujikawa",
+  "source": "https://bochofudosan.com/sale/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T22:42",
+  "next_time": "2024-03-22T22:42",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd8e28d8671e0719e4fcfd"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）丸久不動産事業部宮野支店",
+  "pt_name": "5rfujikawa",
+  "source": "https://09fudousan.com/miyano_lease/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T22:56",
+  "next_time": "2024-03-22T22:56",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fd93dbd8671e0719e4fd08"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）丸久不動産事業部宮野支店",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.yamaguchi-fudosan.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-22T23:21",
+  "next_time": "2024-03-22T23:21",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fdaf61d8671e0719e4fd20"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）ライトエステート",
+  "pt_name": "5rfujikawa",
+  "source": "https://lightestate.net/bukken/uri",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T01:18",
+  "next_time": "2024-03-23T01:18",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe5e97d8671e0719e4fd7e"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）Ａｎｔ－ｈｉｌｌ",
+  "pt_name": "5rfujikawa",
+  "source": "http://anthill-inc.net/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T13:46",
+  "next_time": "2024-03-23T13:46",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe5fbd17aa36e2dd3c70b4"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）Ａｎｔ－ｈｉｌｌ",
+  "pt_name": "5rfujikawa",
+  "source": "http://anthill-inc.net/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T13:51",
+  "next_time": "2024-03-23T13:51",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe623717aa36e2dd3c70c9"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）いとう不動産",
+  "pt_name": "5rfujikawa",
+  "source": "http://itofudousan.co.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T14:01",
+  "next_time": "2024-03-23T14:01",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe62cc17aa36e2dd3c70d6"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）いとう不動産",
+  "pt_name": "5rfujikawa",
+  "source": "http://itofudousan.co.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T14:04",
+  "next_time": "2024-03-23T14:04",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe67c217aa36e2dd3c7103"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "エスポルト不動産（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://esportefudousan.co.jp",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T14:25",
+  "next_time": "2024-03-23T14:25",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe68b00cb4b71dc02009ea"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "エスポルト不動産（株） ",
+  "pt_name": "5rfujikawa",
+  "source": "https://esportefudousan.co.jp",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T14:29",
+  "next_time": "2024-03-23T14:29",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe6be00cb4b71dc02009f8"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "エスポルト不動産（株） ",
+  "pt_name": "5rfujikawa",
+  "source": "http://net-fudousanbu.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T14:42",
+  "next_time": "2024-03-23T14:42",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe6c830cb4b71dc0200a06"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "エスポルト不動産（株） ",
+  "pt_name": "5rfujikawa",
+  "source": "http://net-fudousanbu.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T14:45",
+  "next_time": "2024-03-23T14:45",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe71c50cb4b71dc0200a30"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）岡田不動産",
+  "pt_name": "5rfujikawa",
+  "source": "http://okada-f.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T15:08",
+  "next_time": "2024-03-23T15:08",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65feaec54c8859b9cb81545f"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）コムズコーポレーション山口店",
+  "pt_name": "5rfujikawa",
+  "source": "http://www.i-love-coms.com/chukai/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T19:28",
+  "next_time": "2024-03-23T19:28",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fedacf4c8859b9cb81546d"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "山陽土地（株）",
+  "pt_name": "5rfujikawa",
+  "source": "http://sanyotochi.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T22:36",
+  "next_time": "2024-03-23T22:36",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fedc4b4c8859b9cb815487"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "山陽土地（株） ",
+  "pt_name": "5rfujikawa",
+  "source": "http://sanyotochi.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T22:42",
+  "next_time": "2024-03-23T22:42",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65feeba84c8859b9cb815495"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "信和不動産（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.sinwa-fudousan.com/bukkent/b-apa/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-23T23:48",
+  "next_time": "2024-03-23T23:48",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65feee724c8859b9cb8154a7"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "周防土地（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://suotochi.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-24T00:00",
+  "next_time": "2024-03-24T00:00",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65feeeec4c8859b9cb8154b9"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "周防土地（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://suotochi.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-24T00:02",
+  "next_time": "2024-03-24T00:02",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fef1bc4c8859b9cb8154ce"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）ソルトエステート",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.ymg-takken.or.jp/property/agency/buy/area/property-list?cst_sys_public_id=6ac525ccbd982e5b&ptm%5b%5d=0101",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-24T00:14",
+  "next_time": "2024-03-24T00:14",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fef3c34c8859b9cb8154da"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "東洋住販（株）",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.toyojuhan.co.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-24T00:22",
+  "next_time": "2024-03-24T00:22",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65ff8e2b0465690eb75299dc"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "東洋住販（株） ",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.toyojuhan.co.jp/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-24T11:21",
+  "next_time": "2024-03-24T11:21",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65ff94320465690eb75299f1"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（同）徳佐不動産",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.tokusa-f.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-24T11:47",
+  "next_time": "2024-03-24T11:47",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65ff95930465690eb75299fe"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（同）徳佐不動産",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.tokusa-f.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-24T11:53",
+  "next_time": "2024-03-24T11:53",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65ff99090465690eb7529a17"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（有）長井不動産",
+  "pt_name": "5rfujikawa",
+  "source": "http://nagaifudousan.com/category/baibai/?list=yes&clear=yes",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-24T12:07",
+  "next_time": "2024-03-24T12:07",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "65ff998b0465690eb7529a22"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（有）長井不動産",
+  "pt_name": "5rfujikawa",
+  "source": "http://nagaifudousan.com/category/baibai/?list=yes&clear=yes",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-24T12:10",
+  "next_time": "2024-03-24T12:10",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "6600d069f88442378eb00bff"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）ネクサス不動産",
+  "pt_name": "5rfujikawa",
+  "source": "http://nexus-f.com/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T10:16",
+  "next_time": "2024-03-25T10:16",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "6600d4abf88442378eb00c4a"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）ネクサス不動産",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.hatomarksite.com/search/zentaku/agent/00073502931/bukken/buy/land",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T10:34",
+  "next_time": "2024-03-25T10:34",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "6600d4b0f88442378eb00c55"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）ネクサス不動産",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.hatomarksite.com/search/zentaku/agent/00073502931/bukken/buy/land",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T10:34",
+  "next_time": "2024-03-25T10:34",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "6600e801cf19636e944269ec"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）美栄不動産",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.biei-fudousan.co.jp",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T11:57",
+  "next_time": "2024-03-25T11:57",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "6600ea4ccf19636e944269fa"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）ファノス 宅地開発部山口支店",
+  "pt_name": "5rfujikawa",
+  "source": "https://phanos.jp/bukken/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T12:06",
+  "next_time": "2024-03-25T12:06",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "6600eb3fe0f18b54fb04014e"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）ファノス 宅地開発部山口支店",
+  "pt_name": "5rfujikawa",
+  "source": "https://phanos.jp/bukken/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T12:10",
+  "next_time": "2024-03-25T12:10",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "6600ed8de0f18b54fb04017a"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）マイルーム",
+  "pt_name": "5rfujikawa",
+  "source": "https://myroom-co.jp/realestate/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T12:20",
+  "next_time": "2024-03-25T12:20",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "6600ede7e0f18b54fb040185"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（株）マイルーム",
+  "pt_name": "5rfujikawa",
+  "source": "https://myroom-co.jp/realestate/",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T12:22",
+  "next_time": "2024-03-25T12:22",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "6600f034e0f18b54fb040193"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（株）ライフサポート",
+  "pt_name": "5rfujikawa",
+  "source": "http://www.liveplus.jp/?bukken=chintai",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T12:32",
+  "next_time": "2024-03-25T12:32",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "660129b6e0f18b54fb040223"
+  },
+  "type": "site",
+  "data_type": "rental",
+  "mg_title": "（有）両国",
+  "pt_name": "",
+  "source": "https://www.hatomarksite.com/search/zentaku/agent/00073502639",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T16:37",
+  "next_time": "2024-03-25T16:37",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+},
+{
+  "_id": {
+    "$oid": "66012a49e0f18b54fb040231"
+  },
+  "type": "site",
+  "data_type": "selling",
+  "mg_title": "（有）両国",
+  "pt_name": "5rfujikawa",
+  "source": "https://www.hatomarksite.com/search/zentaku/agent/00073502639",
+  "username": "5rfujikawa",
+  "pt_start_time": "2024-03-25T16:39",
+  "next_time": "2024-03-25T16:39",
+  "enabled": false,
+  "up_settings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week_check": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+}]

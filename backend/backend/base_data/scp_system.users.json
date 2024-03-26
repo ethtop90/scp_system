@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "65fa895297cbae28a47f35fb"
+  },
+  "username": "aa",
+  "email": "fullsuccess.world@gmail.com",
+  "password": "$2b$12$kkYdcvXjV/Ib/1gZ0JiMtuuzjpTgj8cChbScUEHnmTs5OrbgFppo."
+},
+{
+  "_id": {
+    "$oid": "65fab830a5c399f8d6171315"
+  },
+  "username": "5rfujikawa",
+  "email": "fullsuccess.world@gmail.com",
+  "password": "$2b$12$rtiDFBoKUfRp531zSjuwIullOXgKAjUy8rRWeMjsrEYxoVKG6J0mG"
+},
+{
+  "_id": {
+    "$oid": "66024e3be0f18b54fb0402b9"
+  },
+  "username": "テスト",
+  "email": "iwatani@fivewealth.com",
+  "password": "$2b$12$f/onVBEKEpEGxXsbz9YbOu7Q82DCFrc79gd0GBiota2RvY.SHFcjm"
+}]

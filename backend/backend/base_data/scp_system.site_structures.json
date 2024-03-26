@@ -1844,4 +1844,652 @@
     },
     "map_rex": "//div[@class='gm-style']//iframe"
   }
+},
+{
+  "_id": {
+    "$oid": "65fef11ee76088ceb868ec7c"
+  },
+  "type": "selling",
+  "company_name": "ASSET Design（株）",
+  "site_url": "https://www.ymg-takken.or.jp/property/agency/buy/area/property-list?cst_sys_public_id=6ac525ccbd982e5b&ptm%5b%5d=0101",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.ymg-takken.or.jp/property/buy/area/list?ptm%5B%5D=9102&price_b_from=&price_b_to=&keyword=&eki_walk=&bus_walk=&land_from=&land_to=&bld_area_from=&bld_area_to=&built=",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//div[@class='img col-xs-3']//a",
+  "pg_param": "page",
+  "total_cnt_rex": "//div[@class='count pull-left']",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//img[starts-with(@id, 'main-image-')]",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='info-table']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": "(.//td)[1]",
+      "td_rex": "(.//td)[2]"
+    },
+    "map_rex": "//div[@class='jusyo']/a"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fef71ce76088ceb868ec7e"
+  },
+  "type": "rental",
+  "company_name": "（有）タカラ不動産",
+  "site_url": "https://otakara.jp/",
+  "is_seperate": true,
+  "seperated_urls": [
+    "https://otakara.jp/estate/page.php?id=c1",
+    "https://otakara.jp/estate/page.php?id=c2",
+    "https://otakara.jp/estate/page.php?id=c3",
+    "https://otakara.jp/estate/page.php?id=c4",
+    "https://otakara.jp/estate/page.php?id=c5",
+    "https://otakara.jp/estate/page.php?id=c6"
+  ],
+  "list_base_url": "https://otakara.jp/",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": "a[starts-with(@href, 'https://otakara.jp/detail/c')]",
+  "total_cnt_rex": "",
+  "pg_param": "",
+  "limit_param": "",
+  "limit": 10,
+  "data_structure": {
+    "image_source_rex": "/html/body/div[1]/table[2]/tbody/tr/td/table[3]/tbody/tr/td/table[6]/tbody/tr[1]/td[1]//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "/html/body/div[1]/table[2]/tbody/tr/td/table[3]/tbody/tr/td/table[3]",
+        "/html/body/div[1]/table[2]/tbody/tr/td/table[3]/tbody/tr/td/table[4]",
+        "/html/body/div[1]/table[2]/tbody/tr/td/table[3]/tbody/tr/td/table[5]"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//td[position() mod 2 = 1]",
+      "td_rex": ".//td[position() mod 2 = 0]"
+    },
+    "map_rex": "/html/body/div[1]/table[2]/tbody/tr/td/table[3]/tbody/tr/td/table[6]/tbody/tr[2]/td/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fefcdae76088ceb868ec80"
+  },
+  "type": "rental",
+  "company_name": "東洋住販（株）",
+  "site_url": "https://www.toyojuhan.co.jp/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.toyojuhan.co.jp/area_c1/bknshiku_to35203/?",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//div[@class='bukkenImages']/p/a",
+  "total_cnt_rex": "//div[@class='pager clearfix']/p/span[1]",
+  "pg_param": "pg",
+  "limit_param": "lmt",
+  "limit": 50,
+  "data_structure": {
+    "image_source_rex": "//ul[@class='pht-list']/li/img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='section-inner']/table"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "//iframe[@class='lozad']"
+  }
+},
+{
+  "_id": {
+    "$oid": "65ff8dd34e1f55126d73a6ec"
+  },
+  "type": "selling",
+  "company_name": "東洋住販（株）",
+  "site_url": "https://www.toyojuhan.co.jp/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.toyojuhan.co.jp/area_b1/bknshiku_to35203/?",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//div[@class='bukkenImages']/p/a",
+  "total_cnt_rex": "//div[@class='pager clearfix']/p/span",
+  "pg_param": "pg",
+  "limit_param": "lmt",
+  "limit": 50,
+  "data_structure": {
+    "image_source_rex": "//ul[@class='pht-list']/li/img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='section-inner']/table"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "//iframe[@class='lozad']"
+  }
+},
+{
+  "_id": {
+    "$oid": "65ff94044e1f55126d73a6ef"
+  },
+  "type": "rental",
+  "company_name": "（同）徳佐不動産",
+  "site_url": "https://www.tokusa-f.com/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.tokusa-f.com/chintai/yamaguchi/result/?",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//ul[@class='btn']/li[@class='btn-detail']/a",
+  "total_cnt_rex": "//div[@class='count-wrap']/p/span",
+  "pg_param": "pg",
+  "limit_param": "lmt",
+  "limit": 50,
+  "data_structure": {
+    "image_source_rex": "//div[@class='slick-track']/ul/li//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//section[@class='section-detail-info']/table"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "65ff95a34e1f55126d73a6f1"
+  },
+  "type": "selling",
+  "company_name": "（同）徳佐不動産",
+  "site_url": "https://www.tokusa-f.com/",
+  "is_seperate": true,
+  "seperated_urls": [
+    "https://www.tokusa-f.com/mansion/result/?",
+    "https://www.tokusa-f.com/kodate/result/?",
+    "https://www.tokusa-f.com/uri-tochi/result/?",
+    "https://www.tokusa-f.com/uri-other/result/?"
+  ],
+  "list_base_url": "https://www.tokusa-f.com/chintai/yamaguchi/result/?",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//ul[@class='btn']/li[@class='btn-detail']/a",
+  "total_cnt_rex": "//div[@class='count-wrap']/p/span",
+  "pg_param": "pg",
+  "limit_param": "lmt",
+  "limit": 50,
+  "data_structure": {
+    "image_source_rex": "//div[@class='slick-track']/ul/li//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//section[@class='section-detail-info']/table"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "65ff99704e1f55126d73a6f5"
+  },
+  "type": "selling",
+  "company_name": "（有）長井不動産",
+  "site_url": "http://nagaifudousan.com/category/baibai/?list=yes&clear=yes",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "http://nagaifudousan.com/category/baibai/?list=yes&clear=yes",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": "//a[contains(text(), '詳細')]",
+  "total_cnt_rex": "",
+  "pg_param": "pg",
+  "limit_param": "lmt",
+  "limit": 50,
+  "data_structure": {
+    "image_source_rex": "//div[@id='detail-subpic_area']/img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='tblDetail']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "div[@class='gm-err-container']//iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "6600d02e4e1f55126d73a6f7"
+  },
+  "type": "selling",
+  "company_name": "（株）ネクサス不動産",
+  "site_url": "http://nexus-f.com/",
+  "is_seperate": true,
+  "seperated_urls": [
+    "http://nexus-f.com/estate/page.php?id=b1",
+    "http://nexus-f.com/estate/page.php?id=b2",
+    "http://nexus-f.com/estate/page.php?id=b3",
+    "http://nexus-f.com/estate/page.php?id=b4",
+    "http://nexus-f.com/estate/page.php?id=b5"
+  ],
+  "list_base_url": "http://nexus-f.com/estate/page.php?id=b3",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": "//a[contains(@href, 'http://nexus-f.com/detail/b')]",
+  "total_cnt_rex": "",
+  "pg_param": "pg",
+  "limit_param": "lmt",
+  "limit": 50,
+  "data_structure": {
+    "image_source_rex": "//table[@width='640']//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "/html/body/div[3]/div/table[2]//table"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//td[1]",
+      "td_rex": ".//td[2]"
+    },
+    "map_rex": "//div[@id='main_wide']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "6600d4914e1f55126d73a6f9"
+  },
+  "type": "selling",
+  "company_name": "（株）ネクサス不動産",
+  "site_url": "https://www.hatomarksite.com/search/zentaku/agent/00073502931/bukken/buy/land",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.hatomarksite.com/search/zentaku/agent/00073502931/bukken/buy/land?",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//a[contains(text(), '詳細を見る')]",
+  "total_cnt_rex": "//div[@class='searchlist-menu mb-3']//span[@class='text-32 fw-bold me-1']",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//img[@class='img-fluid m-auto']",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='prop-detail-wrap mb-5']//div[@class='prop-detail']/div[@class='row g-0']"
+      ],
+      "tr_rex": "./div",
+      "th_rex": "./div/p",
+      "td_rex": "./div/div"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "6600e7d34e1f55126d73a6fb"
+  },
+  "type": "rental",
+  "company_name": "（株）美栄不動産",
+  "site_url": "https://www.biei-fudousan.co.jp",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.biei-fudousan.co.jp/category/property",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": "//a[contains(text(), '詳細はこちら')]",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//figure/a//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='table-default']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "//div[@class='gm-style']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "6600ea2e4e1f55126d73a6fd"
+  },
+  "type": "rental",
+  "company_name": "（株）ファノス 宅地開発部山口支店",
+  "site_url": "https://phanos.jp/bukken/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://phanos.jp/bukken/Rental",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": "//a[contains(text(), ' 詳細を見る')]",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//div[@class='slick-list draggable']//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='block-head-table']"
+      ],
+      "tr_rex": ".//dl",
+      "th_rex": ".//dt",
+      "td_rex": ".//dd"
+    },
+    "map_rex": "//div[@class='gm-style']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "6600eb314e1f55126d73a6ff"
+  },
+  "type": "selling",
+  "company_name": "（株）ファノス 宅地開発部山口支店",
+  "site_url": "https://phanos.jp/bukken/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.phanos.jp/bukken/Sale",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": "//a[contains(text(), ' 詳細を見る')]",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//div[@class='slick-list draggable']//img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='block-head-table']",
+        "//div[@class='table small']"
+      ],
+      "tr_rex": ".//dl",
+      "th_rex": ".//dt",
+      "td_rex": ".//dd"
+    },
+    "map_rex": "//div[@class='gm-style']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "6600ed794e1f55126d73a701"
+  },
+  "type": "rental",
+  "company_name": "（株）マイルーム",
+  "site_url": "https://myroom-co.jp/realestate/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://myroom-co.jp/realestate_taxonomy/realestate_tm_rent/",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@class='realestate-archive_list']//a",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//ul[@class='slick-dots']/li/img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='realestate-single_detail_data']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "6600edd24e1f55126d73a703"
+  },
+  "type": "selling",
+  "company_name": "（株）マイルーム",
+  "site_url": "https://myroom-co.jp/realestate/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://myroom-co.jp/realestate_taxonomy/realestate_tm_buy/",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": "//div[@class='realestate-archive_list']//a",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//ul[@class='slick-dots']/li/img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='realestate-single_detail_data']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "6600eff74e1f55126d73a705"
+  },
+  "type": "rental",
+  "company_name": "みらい地産公司",
+  "site_url": "http://www.mirai-qq.jp/",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "http://www.mirai-qq.jp/",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": ".//iframe//table//tbody//tr//td//a[img]",
+  "total_cnt_rex": "",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//td[@class='shopics']/a/div/img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//table[@class='syuosai-table']"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//td[1]",
+      "td_rex": ".//td[2]"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "660120f74e1f55126d73a706"
+  },
+  "type": "selling",
+  "company_name": "山口第一（株）山口店",
+  "site_url": "https://www.hatomarksite.com/search/zentaku/agent/00075010413",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.hatomarksite.com/search/zentaku/agent/00075010413/bukken/buy/house?",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//a[contains(text(), '詳細を見る')]",
+  "total_cnt_rex": "//div[@class='searchlist-menu mb-3']//span[@class='text-32 fw-bold me-1']",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//img[@class='img-fluid m-auto']",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='prop-detail-wrap mb-5']//div[@class='prop-detail']/div[@class='row g-0']"
+      ],
+      "tr_rex": "./div",
+      "th_rex": "./div/p",
+      "td_rex": "./div/div"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "660126a94e1f55126d73a708"
+  },
+  "type": "rental",
+  "company_name": "（株）ライフサポート",
+  "site_url": "http://www.liveplus.jp/?bukken=chintai",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "http://www.liveplus.jp/?bukken=chintai",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": false,
+  "link_rex": "//a[div[contains(text(), '物件の詳細を見る')]]",
+  "total_cnt_rex": "//div[@class='nav-next']",
+  "pg_param": "paged",
+  "limit_param": "limit",
+  "limit": 10,
+  "data_structure": {
+    "image_source_rex": "//div[@class='list_picsam']/a/img",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='list_detail']//table"
+      ],
+      "tr_rex": ".//tr",
+      "th_rex": ".//th",
+      "td_rex": ".//td"
+    },
+    "map_rex": "//div[@class='gm-style']/iframe"
+  }
+},
+{
+  "_id": {
+    "$oid": "660128ec4e1f55126d73a709"
+  },
+  "type": "rental",
+  "company_name": "（有）両国",
+  "site_url": "https://www.hatomarksite.com/search/zentaku/agent/00073502639",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.hatomarksite.com/search/zentaku/agent/00073502639/bukken/rent/biz/land?",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//a[contains(text(), '詳細を見る')]",
+  "total_cnt_rex": "//div[@class='searchlist-menu mb-3']//span[@class='text-32 fw-bold me-1']",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//img[@class='img-fluid m-auto']",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='prop-detail-wrap mb-5']//div[@class='prop-detail']/div[@class='row g-0']"
+      ],
+      "tr_rex": "./div",
+      "th_rex": "./div/p",
+      "td_rex": "./div/div"
+    },
+    "map_rex": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "66012a104e1f55126d73a70a"
+  },
+  "type": "selling",
+  "company_name": "（有）両国",
+  "site_url": "https://www.hatomarksite.com/search/zentaku/agent/00073502639",
+  "is_seperate": false,
+  "seperated_urls": [],
+  "list_base_url": "https://www.hatomarksite.com/search/zentaku/agent/00073502639/bukken/buy/house?",
+  "page_limit_exist": [
+    1,
+    1
+  ],
+  "is_pagination": true,
+  "link_rex": "//a[contains(text(), '詳細を見る')]",
+  "total_cnt_rex": "//div[@class='searchlist-menu mb-3']//span[@class='text-32 fw-bold me-1']",
+  "pg_param": "page",
+  "limit_param": "limit",
+  "limit": 100,
+  "data_structure": {
+    "image_source_rex": "//img[@class='img-fluid m-auto']",
+    "table_data_structure": {
+      "table_entire_rex": [
+        "//div[@class='prop-detail-wrap mb-5']//div[@class='prop-detail']/div[@class='row g-0']"
+      ],
+      "tr_rex": "./div",
+      "th_rex": "./div/p",
+      "td_rex": "./div/div"
+    },
+    "map_rex": ""
+  }
 }]
