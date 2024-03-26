@@ -83,7 +83,7 @@ export default function ScpSetting() {
 
   return (
     <>
-      <div className="flex justify-end m-5 overflow-y-scroll">
+      <div className="flex justify-end m-5">
         <Link
           className="bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-red-700 hover:text-white px-3"
           to={"/"}

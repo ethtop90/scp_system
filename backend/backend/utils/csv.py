@@ -11,8 +11,10 @@ def make_csv(username, id):
     all_datas_cursor = mongo.db.scp_alldatas.find(query)    # Converting to the JSON 
     all_datas = json.loads(dumps(list(all_datas_cursor), indent = 2))
 
-    # Specify CSV file path
-    csv_file = base_path / str("../../csv_files/" + username + "_" + id + "_" + "output.csv")
+    csv_file_path = base_path / f"../../csv_files/{username}_{id}_output.csv"
+
+    # Ensure the directory exists
+    csv_file_path.parent.mkdir(parents=True, exist_ok=True)
 
 
     # Extract headers dynamically from the first document
@@ -24,7 +26,7 @@ def make_csv(username, id):
     # headers.extend(["_id", "id", "username", "title"])
 
     # Write MongoDB data to CSV file
-    with open(csv_file, "w", newline="") as f:
+    with open(csv_file_path, "w", newline="",  encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         
         # Write header
@@ -39,4 +41,4 @@ def make_csv(username, id):
             row = {**data}
             
             writer.writerow(row)
-    return True
+    return True, csv_file_path

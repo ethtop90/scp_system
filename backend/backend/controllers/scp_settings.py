@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # import modules
 from app import app, mongo, bcrypt
-from flask import Blueprint, jsonify, request, session
+from flask import Blueprint, jsonify, request, session, send_file
 from flask_cors import cross_origin
 from bson.json_util import dumps
 from bson import ObjectId
@@ -226,12 +226,12 @@ def make_csv_control():
     id = request.args.get('id')
     
     
-    result = make_csv(username, id)
-    if result: 
-        return jsonify({'message': 'csv file is created successfully.'})
+    result, file_path = make_csv(username, id)
+    if result and file_path: 
+        # return jsonify({'message': 'csv file is created successfully.'})
+        return send_file(str(file_path), as_attachment=True, download_name=file_path.name, mimetype='text/csv; charset=utf-8')
     else:
         return jsonify({'message': 'csv file is created unsuccessfully.'})
-    
 
 #register the blueprint
 

@@ -10,3 +10,24 @@ https://www.firsthome.jp.net/openhouse/?category=40
 https://www.bukken-ichiba.com/estate/result
 https://09fudousan.com/miyano_lease/
 http://www.mirai-qq.jp/
+http://rinken-fudousan.co.jp/
+https://www.ymg-takken.or.jp/property/agency/detail?id=f67b275310fdcd5f
+https://www.ymg-takken.or.jp/ ***huge
+https://ei-life.com/ ***post
+https://www.smg-ct.com/estates/ *** later
+http://www.c-able.ne.jp/~nsection/
+https://www.ymg-takken.or.jp/property/agency/detail?id=93c447d9308a1e0f
+https://www.ymg-takken.or.jp/property/agency/detail?id=4512ceec06faaeac
+https://ktec-2103.com/
+http://www.shimono-estate.jp/ *** pagination is not normal
+https://apaman-yamaguchiouchi.com/ *** pagination is not normal
+https://www.y-space.jp/rent/result?r1=&r2=&t1=&t2=&tw=&tn=&td=&fw= ***empty
+http://chuzyu.sakura.ne.jp/ page is not opened
+https://www.v-hf.com/k/totalservice/ ***data is image
+https://www.topia-i.co.jp/topia-labo/tochi_yamaguchi ***data is not full
+https://www.c-able.ne.jp/~nawata-f/ ***duplicate
+https://www.ymg-takken.or.jp/property/agency/detail?id=3b5dcc68b3724fe0 ***duplicate
+https://p-imazu.com/estate/list/ *** data is not clear.
+http://www.matukura-fudousan.com/bunjyou_b.htm *** data is image.
+http://www.mirai-qq.jp/ *** response error
+https://yamamotoshouji.com/owner_building/ ***data is not clear.

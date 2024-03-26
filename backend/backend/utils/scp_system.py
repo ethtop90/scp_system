@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import requests
 import re
 from urllib.parse import urljoin
@@ -112,18 +113,24 @@ def scp_system(site_structure: Site_structure, get_type):
             driver.implicitly_wait(2)
             
             images = []
-            if image_source_rex:
-                image_elements = driver.find_elements('xpath', image_source_rex)
-                for image_element in image_elements:
-                    if image_element.get_attribute('src'):
-                        images.append(image_element.get_attribute('src'))
+            try:
+                if image_source_rex:
+                    image_elements = driver.find_elements('xpath', image_source_rex)
+                    for image_element in image_elements:
+                        if image_element.get_attribute('src'):
+                            images.append(image_element.get_attribute('src'))
+            except NoSuchElementException:
+                print("No images found for this item.")
             map_link = None
-            if map_rex:
-                map_element = driver.find_element('xpath', map_rex)
-                if map_element.tag_name == 'a':
-                    map_link = map_element.get_attribute('href')
-                elif map_element.tag_name == 'iframe':
-                    map_link = map_element.get_attribute('outerHTML')
+            try:
+                if map_rex:
+                    map_element = driver.find_element('xpath', map_rex)
+                    if map_element.tag_name == 'a':
+                        map_link = map_element.get_attribute('href')
+                    elif map_element.tag_name == 'iframe':
+                        map_link = map_element.get_attribute('outerHTML')
+            except NoSuchElementException:
+                print("Map link not found for this item.")
 
             tables = []
             for table_entire_rex_item in table_entire_rex:
@@ -155,6 +162,7 @@ def scp_system(site_structure: Site_structure, get_type):
             cnt = cnt + 1
             
             if (get_type == 'one') and cnt == 1:
+                print(all_data)
                 return all_data
             elif cnt == 2:
                 return all_data

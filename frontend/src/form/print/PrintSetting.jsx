@@ -19,31 +19,43 @@ export default function PrintSetting() {
 
   const handleStop = async (id) => {
     await axios
-        .put(
-          `http://49.212.185.58:8080/scp-settings/update-item?username=${username}&id=${id}`,
-          {
-            enabled: false
-          }
-        )
-        .then((response) => {
-          toast.success(response.data.message);
-        })
-        .catch((error) => {
-          ////console.log(error);
-        });
+      .put(
+        `http://49.212.185.58:8080/scp-settings/update-item?username=${username}&id=${id}`,
+        {
+          enabled: false
+        }
+      )
+      .then((response) => {
+        toast.success(response.data.message);
+      })
+      .catch((error) => {
+        ////console.log(error);
+      });
   }
 
   const handleCSVPrint = async (id) => {
     await axios
-        .get(
-          `http://49.212.185.58:8080/scp-settings/make-csv?username=${username}&id=${id}`
-        )
-        .then((response) => {
-          toast.success(response.data.message);
-        })
-        .catch((error) => {
-          ////console.log(error);
-        });
+      .get(
+        `http://49.212.185.58:8080/scp-settings/make-csv?username=${username}&id=${id}`
+      )
+      .then((response) => response.data)
+      .then((data) => {
+        const url = window.URL.createObjectURL(new Blob([data]));
+        console.log(url)
+        const link = document.createElement("a");
+        link.href = url;
+        const fileName = username + "_" + id + "_output.csv"; 
+        link.download = fileName || "downloaded-file";
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   useEffect(() => {
@@ -61,7 +73,7 @@ export default function PrintSetting() {
         setScpItems([...JSON.parse(response.data)]);
         //console.log(scpItems.length);
       })
-      .catch((err) => {});
+      .catch((err) => { });
   }
 
   return (
