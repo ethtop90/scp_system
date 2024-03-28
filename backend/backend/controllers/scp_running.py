@@ -129,6 +129,11 @@ def get_data_from_url():
             all_table_data.append(data.table)
             all_images.append(data.images)
             all_map_link.append(data.map_link)
+            new_media_data = {}
+            new_media_data['title'] = data.table
+            new_media_data['images'] = data.images
+            new_media_data['map_link'] = data.map_link
+            media_save_result = mongo.db.media_datas.insert_one(new_media_data)
         result = {
             "mapping": mapping,
             "item_keys": item_keys,
@@ -137,6 +142,7 @@ def get_data_from_url():
             "all_map_link": all_map_link,
             "valid": valid
         }
+            
     return jsonify(result)
 
 

@@ -18,35 +18,6 @@ with open(base_path / '../../base_data/post_field_baibai.json', 'r', encoding='u
 with open(base_path / '../../base_data/post_field_chintai.json', 'r', encoding='utf-8') as file:
     chintai_data = json.load(file)
     
-# def wp_post_alldata(data_type, name, status, id, app_pwd, all_data):
-#     global username, application_password, post_type
-#     username = name
-#     application_password = app_pwd
-#     post_type = post_type
-    
-#     query = {'$and': [{'id': id}]} # id of setting
-    
-#     all_data_cursor = mongo.db.scp_settings.find(query)
-#     all_data = []
-    
-#     for item_cursor in all_data_cursor:
-#         all_data.append(item_cursor['data'])
-    
-#     post_id_list = []
-#     for index, item_data in enumerate(all_data):
-        # if item_data.get('物件名称') is None:
-        #     title = username + id + index
-        # else:
-            # title = item_data.get('物件名称')
-        #get post_id
-        # result, id = post_add(data_type, username, application_password, title, status, item_data)
-        # if result:
-        #     all_data.append({
-        #         "title": title,
-        #         "id": id,
-        #         "status": status        
-        #     })
-    
 def wp_post_add(data_type, title, status, post_field_data, id):
     data_type = "chintai" if data_type == 'rental' else "baibai"
     if data_type == 'chintai':
